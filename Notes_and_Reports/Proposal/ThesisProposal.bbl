@@ -1,0 +1,291 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Akioyamen%
+, Nicklas%
+\BCBL {}\ \BBA {} Sanchez-Arias%
+}{%
+Akioyamen%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+akioyamen2020framework}
+\APACinsertmetastar {%
+akioyamen2020framework}%
+\begin{APACrefauthors}%
+Akioyamen, P.%
+, Nicklas, L\BPBI C.%
+\BCBL {}\ \BBA {} Sanchez-Arias, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A Framework for Intelligent Navigation Using Latent
+  Dirichlet Allocation on Reddit Posts About Opiates} {A framework for
+  intelligent navigation using latent dirichlet allocation on reddit posts
+  about opiates}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 2020 the 4th International Conference
+  on Compute and Data Analysis} {Proceedings of the 2020 the 4th international
+  conference on compute and data analysis}\ (\BPGS\ 190--196).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cheng%
+, Greaves%
+\BCBL {}\ \BBA {} Warren%
+}{%
+Cheng%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+cheng2006n}
+\APACinsertmetastar {%
+cheng2006n}%
+\begin{APACrefauthors}%
+Cheng, W.%
+, Greaves, C.%
+\BCBL {}\ \BBA {} Warren, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {From n-gram to skipgram to concgram} {From n-gram to
+  skipgram to concgram}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International journal of corpus
+  linguistics}{11}{4}{411--433}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Csardi%
+, Nepusz%
+\BCBL {}\ \protect \BOthers {.}}{%
+Csardi%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+csardi2006igraph}
+\APACinsertmetastar {%
+csardi2006igraph}%
+\begin{APACrefauthors}%
+Csardi, G.%
+, Nepusz, T.%
+\BCBL {}\ \BOthersPeriod {.}\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The igraph software package for complex network
+  research} {The igraph software package for complex network research}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{InterJournal, complex systems}{1695}{5}{1--9}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kondor%
+\ \BBA {} Lafferty%
+}{%
+Kondor%
+\ \BBA {} Lafferty%
+}{%
+{\protect \APACyear {2002}}%
+}]{%
+kondor2002diffusion}
+\APACinsertmetastar {%
+kondor2002diffusion}%
+\begin{APACrefauthors}%
+Kondor, R\BPBI I.%
+\BCBT {}\ \BBA {} Lafferty, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Diffusion kernels on graphs and other discrete
+  structures} {Diffusion kernels on graphs and other discrete
+  structures}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 19th international conference on
+  machine learning} {Proceedings of the 19th international conference on
+  machine learning}\ (\BVOL\ 2002, \BPGS\ 315--22).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Kriege%
+, Johansson%
+\BCBL {}\ \BBA {} Morris%
+}{%
+Kriege%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+kriege2020survey}
+\APACinsertmetastar {%
+kriege2020survey}%
+\begin{APACrefauthors}%
+Kriege, N\BPBI M.%
+, Johansson, F\BPBI D.%
+\BCBL {}\ \BBA {} Morris, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A survey on graph kernels} {A survey on graph
+  kernels}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Applied Network Science}{5}{1}{1--42}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Nikolentzos%
+, Meladianos%
+, Rousseau%
+, Stavrakas%
+\BCBL {}\ \BBA {} Vazirgiannis%
+}{%
+Nikolentzos%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+nikolentzos2017shortest}
+\APACinsertmetastar {%
+nikolentzos2017shortest}%
+\begin{APACrefauthors}%
+Nikolentzos, G.%
+, Meladianos, P.%
+, Rousseau, F.%
+, Stavrakas, Y.%
+\BCBL {}\ \BBA {} Vazirgiannis, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Shortest-path graph kernels for document similarity}
+  {Shortest-path graph kernels for document similarity}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 2017 Conference on Empirical Methods
+  in Natural Language Processing} {Proceedings of the 2017 conference on
+  empirical methods in natural language processing}\ (\BPGS\ 1890--1900).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Silge%
+\ \BBA {} Robinson%
+}{%
+Silge%
+\ \BBA {} Robinson%
+}{%
+{\protect \APACyear {2016}}%
+}]{%
+silge2016tidytext}
+\APACinsertmetastar {%
+silge2016tidytext}%
+\begin{APACrefauthors}%
+Silge, J.%
+\BCBT {}\ \BBA {} Robinson, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {tidytext: Text mining and analysis using tidy data
+  principles in R} {tidytext: Text mining and analysis using tidy data
+  principles in r}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Open Source Software}{1}{3}{37}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Sugiyama%
+, Ghisu%
+, Llinares-L{\'o}pez%
+\BCBL {}\ \BBA {} Borgwardt%
+}{%
+Sugiyama%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+sugiyama2018graphkernels}
+\APACinsertmetastar {%
+sugiyama2018graphkernels}%
+\begin{APACrefauthors}%
+Sugiyama, M.%
+, Ghisu, M\BPBI E.%
+, Llinares-L{\'o}pez, F.%
+\BCBL {}\ \BBA {} Borgwardt, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {graphkernels: R and Python packages for graph
+  comparison} {graphkernels: R and python packages for graph
+  comparison}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Bioinformatics}{34}{3}{530--532}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Vishwanathan%
+, Schraudolph%
+, Kondor%
+\BCBL {}\ \BBA {} Borgwardt%
+}{%
+Vishwanathan%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+vishwanathan2010graph}
+\APACinsertmetastar {%
+vishwanathan2010graph}%
+\begin{APACrefauthors}%
+Vishwanathan, S\BPBI V\BPBI N.%
+, Schraudolph, N\BPBI N.%
+, Kondor, R.%
+\BCBL {}\ \BBA {} Borgwardt, K\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Graph kernels} {Graph kernels}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Journal of Machine Learning
+  Research}{11}{}{1201--1242}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wickham%
+\ \protect \BOthers {.}}{%
+Wickham%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+wickham2019welcome}
+\APACinsertmetastar {%
+wickham2019welcome}%
+\begin{APACrefauthors}%
+Wickham, H.%
+, Averick, M.%
+, Bryan, J.%
+, Chang, W.%
+, McGowan, L\BPBI D.%
+, Fran{\c{c}}ois, R.%
+\BDBL {}others%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Welcome to the Tidyverse} {Welcome to the
+  tidyverse}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Open Source Software}{4}{43}{1686}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

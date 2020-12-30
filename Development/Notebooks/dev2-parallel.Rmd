@@ -1,0 +1,154 @@
+---
+title: "Working Title"
+author: "Levi C. Nicklas"
+date: "12/19/2020"
+output: pdf_document
+---
+
+\newpage
+
+```{r, include=F, message = F, warning = F}
+# Libraries
+library(tidyverse)
+library(here)
+library(furrr)
+
+# ggplot theme
+
+
+```
+
+
+# Table of Contents
+
+1. Abstract
+
+2. Introduction
+
+3. Literature Review
+
+4. Data
+
+  a. reddit
+  
+  b. NHTSA Reports
+
+5. Data Preprocessing
+
+6. Methods
+
+  a. Graph Kernels
+  
+    - Random Walk kernel
+    
+    - Graphlet kernel
+    
+    - LW kernel
+    
+  b. Clustering
+  
+    - Kernel Density Estimation (Clustering in R^1)
+    
+    - Clustering in R^2
+
+7. Analysis
+  
+  a. Graph Kernel Performance (LDA comparison?)
+  
+  b. Clustering Performance
+
+8. Conclusion
+
+\newpage
+
+# Abstract
+
+# Introduction
+
+# Literature Review
+
+# Data
+
+## reddit
+
+```{r reddit-import}
+# Data Read In
+mental_health <- readRDS(here::here("Data/RawData/mentalhealth_reddit_20201025.RDS"))
+```
+## NHTSA
+
+```{r nhtsa-import}
+
+```
+
+
+# Data Preprocessing
+
+## reddit 
+```{r reddit-reformat, message = F, warning = F, error= F}
+# Get first table.
+mental_health_df <- mental_health[[1]]
+
+# Append other tables.
+for(i in 2:length(mental_health)){
+  #print(nrow(mental_health_df))
+  mental_health_df <- rbind(mental_health_df, mental_health[[i]])
+}
+
+# Trash old objects.
+rm(i, mental_health)
+
+# furrr
+source(here::here("Development/Scripts/df_to_graph_list.R"))
+
+plan(multicore)
+
+mental_health_graphs <- future_map(.x = mental_health_df$comment,
+                                   .f = df_to_graph_list)
+
+
+```
+
+## NHSTA
+```{r nhtsa-reformat}
+
+
+```
+
+# Methods
+
+## Graph Kernels
+
+## Clustering
+
+# Analysis
+
+# Conclusion
+
+-------------------------------------------
+
+
+
+# WIP
+
+```{r}
+mental_health_df <- mental_health[[1]]
+
+for(i in 2:length(mental_health)){
+  #print(nrow(mental_health_df))
+  mental_health_df <- rbind(mental_health_df, mental_health[[i]])
+}
+
+rm(mental_health, i)
+```
+
+```{r}
+# mental_health_df
+source(here::here("Development/Scripts/df_to_graph_list.R"))
+
+result <- df_to_graph_list(mental_health_df$comment[1:10],2,2)
+
+# Plot example
+plot.igraph(result[[8]])
+```
+

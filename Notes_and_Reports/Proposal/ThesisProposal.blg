@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ThesisProposal.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: ThesisProposal.bib
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+Warning--`others' not consistent with 6th ed. of the APA Manual
+You've used 10 entries,
+            6951 wiz_defined-function locations,
+            1333 strings with 12737 characters,
+and the built_in function-call counts, 20076 in all, are:
+= -- 2508
+> -- 224
+< -- 824
++ -- 891
+- -- 24
+* -- 1226
+:= -- 3320
+add.period$ -- 44
+call.type$ -- 10
+change.case$ -- 173
+chr.to.int$ -- 0
+cite$ -- 20
+duplicate$ -- 607
+empty$ -- 809
+format.name$ -- 366
+if$ -- 3932
+int.to.chr$ -- 0
+int.to.str$ -- 30
+missing$ -- 0
+newline$ -- 269
+num.names$ -- 80
+pop$ -- 382
+preamble$ -- 1
+purify$ -- 40
+quote$ -- 0
+skip$ -- 1376
+stack$ -- 0
+substring$ -- 1012
+swap$ -- 378
+text.length$ -- 46
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 992
+warning$ -- 1
+while$ -- 129
+width$ -- 0
+write$ -- 361
+(There was 1 warning)

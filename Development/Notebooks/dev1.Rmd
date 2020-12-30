@@ -1,0 +1,186 @@
+---
+title: "Dev Notebook - 1"
+output: html_notebook
+---
+
+```{r Setup, message = F}
+library(igraph)
+library(tidyverse)
+library(ggraph)
+library(graphkernels)
+
+data(mutag)
+```
+
+
+# Intro
+
+In this notebook I am exploring developing the graph kernel and random walk processes in R, without relying on another's package. I am doing this because it will give me better command of the material and the `{graph kernels}` package is written in C++ ... which I really can't read at that level.
+
+So for the graph kernel I will need to have a graph and then perform a random walk on the graph before I can compute a kernel. So this is the first target.
+
+# Random Walk
+
+For this project I will be using the `{igraph}` package to let me focus more on the operations on the graphs instead of creating the graphs myself.
+
+I will use the `mutag` dataset for this development. This dataset features _rich_ graphs with node and edge attributes. In the future, the node attribute for my thesis will be a word; this will be fine for now. Below is a plot of one of the `mutag` graphs. 
+```{r Plot Ex 1}
+plot(mutag[[2]])
+```
+
+To complete a random walk, I will need to pick a node at random, and then randomly pick one of it's neighbors to visit, and repeat until the length I specify is met. So first let's pick a node at random!
+
+```{r Get init node}
+set.seed(23)
+
+# Get graph from mutag
+sample_graph <- mutag[[2]]
+
+# Find out how many nodes there are. May be a better function for this.
+num_nodes <- dim(igraph::as_adjacency_matrix(sample_graph))
+
+# Pick a random node.
+random_node <- sample(seq(from = 1,
+                   to = num_nodes[1]),1)
+
+# Perform random walk.
+my_rw <- igraph::random_walk(graph = sample_graph, 
+                    start = random_node, 
+                    steps = 1000)
+```
+
+Now that we performed a random walk with the help of `{igraph}`, I want to visualize it.
+
+
+```{r visualize RW}
+# count how many times a node was visited.
+node_counts <- as_tibble(unlist(as.list(my_rw))) %>% 
+  count(value)
+
+vertex.attributes(sample_graph)$count <- node_counts$n
+
+sample_graph %>% 
+  ggraph()+
+  geom_node_point(aes(color = count), size = 3.5) +
+  geom_edge_link(color = "grey") +
+  geom_node_text(aes(label = label), color = "black", size = 5, nudge_x = 0.2) +
+  scale_color_gradient(low = "#ffccff",
+                       high = "#4d004d") +
+  theme_void() +
+  labs(title = "Levi's First Random Walk: N=1000")
+  
+
+
+```
+
+# Other section (???)
+
+In the slides from _Vishwanathan_, available  [here](https://github.com/Levi-Nicklas/GraphKernels/blob/master/RelevantPapers_and_Resources/vish_presentation.pdf), he outlines the steps to compute a random walk graph kernel using prinicples from linear algebra. Let's dive in. I'll build a small section on each important mathematical concept in the slides.
+
+## Probability of Next Step
+
+_Vishwanathan_ shows in the slides that we can use the adjacency matrix, $A$, to find the probability of going from one node to another in $n$ step length random walk. For examle, in the example above (`mutag[2]`), we can find the probability of going from node 10 to node 13 like so:
+
+```{r mutag2_adj_mat}
+#Get the adjacency matrix.
+mutag2_adj_mat <- igraph::as_adjacency_matrix(sample_graph) %>% 
+  as.matrix()
+
+#Build matrix exponentiation.
+exp_mat <- function(your_matrix, n){
+  tmp <- your_matrix
+  
+  for(i in 1:(n-1)){
+   tmp <- tmp %*% your_matrix
+  }
+  
+  return(tmp)
+}
+
+#Check... 
+#exp_mat(mutag2_adj_mat,4) == (mutag2_adj_mat %*% mutag2_adj_mat %*% mutag2_adj_mat %*% mutag2_adj_mat)
+
+#Calculate random walks of length 7.
+exp_mat(mutag2_adj_mat, 7)
+```
+
+Now that we computed $A^n$, we need to compute $\tilde{A}^n$, which is the probability of walks length $n$. This is done by $\tilde{A} = A D^{-1}$, where $D$ is the diagonal matrix of node degrees.
+
+```{r norm_adj_mat}
+mutag2_deg_mat<- igraph::degree(sample_graph) %>% 
+  diag()
+
+# Check that solve() does what I think it does lol.
+# mutag2_deg_mat %*% solve(mutag2_deg_mat)
+# returns identity matrix... all good here :)
+
+# Normalize Adj matrix by degree matrix.
+mutag2_adjnorm_mat <- mutag2_adj_mat %*% solve(mutag2_deg_mat)
+```
+
+Great! Now when we compute $\tilde{A}^{n}$ we are computing the probability of a walk from $i$ to $j$ (the entry in the matrix, that is).
+
+```{r prob_i_to_j_test}
+# Check that probability sums to 1.
+# exp_mat(mutag2_adjnorm_mat, 7) %>%
+#  as.data.frame() %>% 
+#  summarise_all(.funs = sum)
+
+# Check probabilty of taking a walk of length 7
+# from node 10 to node 15.
+exp_mat(mutag2_adjnorm_mat, 7)[15,17]
+
+# Check probabilty of taking a walk of length 7
+# from node 10 to node 20.
+exp_mat(mutag2_adjnorm_mat, 7)[15,20]
+```
+
+```{r make_some_visual}
+#exp_mat(mutag2_adjnorm_mat, 7) %>% 
+#  image()
+
+# make a test df to try visualizations.
+test_df <- exp_mat(mutag2_adjnorm_mat, 7) %>% 
+  as.data.frame() 
+
+# store the row names.
+test_df$row <- rownames(test_df)
+
+# change colnames to integers
+colnames(test_df) <- c(1:26, "row")
+
+# pivot_longer()
+test_df_long<- test_df %>% 
+  pivot_longer(cols = (1:26)) %>% 
+  mutate(row = as.numeric(row),
+         column = as.numeric(name)) %>% 
+  select(row, column, value)
+
+test_df_long %>% 
+  ggplot(aes(x = column, y = row, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_viridis() +
+  theme_minimal()+
+  labs(x = "column", y = "row",
+       title = "Probability of Walk (n=7) from i to j")
+
+# ^^ Clean this up with more frequent labels on axis
+# remove excess gridlines
+# change scale from [0,1]
+```
+
+
+
+
+```{r}
+# Not like this...Im pretty sure.
+t(spectrum(sample_graph)$vectors / (factorial(7))) %*%  exp_mat(mutag2_adjnorm_mat, 7) %>% 
+  sum()
+```
+
+```{r}
+data(mutag)
+K <- CalculateVertexHistKernel(mutag[1:7])
+
+K
+```

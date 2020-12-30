@@ -1,0 +1,95 @@
+---
+title: "Dev Notebook -2"
+output: html_notebook
+---
+
+```{r Setup, message = F}
+library(igraph)
+library(tidyverse)
+library(tidytext)
+library(ggraph)
+library(graphkernels)
+library(here)
+
+mental_health <- readRDS(file = here("Data/RawData/mentalhealth_reddit_20201025.RDS"))
+```
+
+# Introduction
+
+
+# Data 
+
+Data was collected from [reddit]() on October 25, 2020 from the _r/mentalhealth_ subreddit. The subreddit was queried for the followign words: _anxious, anxiety, depressed, depression, mental, illness, scared, afraid, sad, emotion, anger, angry, upset, suicide, abuse, emotional, help, addiction_. Each word queried returns thousands of comments on posts in the subreddit. These posts/comments will be cross checked for duplicates. It is likely that we see duplicates as "mental" and "illness" are words that may appear in the same post, thus the post and its subsequent comments will be duplicated by searching both of these terms. This will be addressed in the cleaning of the data. In addition to cleaning the data, there is a need to  **reformat** the data. The data is presently in a list of data frames where each observation in a dataframe contains the full text of a comment/post. This data will have to be broken down and built back up into a _graph_ structure so that the graph kernel methods of interest can be utilized.
+
+```{r data-wrangling}
+# Get the data all in one frame.
+mental_health_df <- mental_health[[1]]
+
+for(i in 2:length(mental_health)){
+  mental_health_df <- rbind(mental_health_df, mental_health[[i]])
+}
+
+# Form Graphs
+reddit_graphs <- list()
+
+for(i in 1:length(mental_health)){
+  df_temp <- mental_health[[i]]
+  
+  # Tokenize
+  tidy_df <- unnest_tokens(df_temp, output = "words" , input = comment, token = "skip_ngrams", n = 2, k = 5) %>% 
+    select(id, structure, title, URL, words)
+  
+  # Clean Bigrams
+  graph_df <- tidy_df %>% 
+    separate(words, c("word1", "word2"), sep = " ") %>% 
+    anti_join(stop_words, by = c("word1" = "word")) %>% 
+    anti_join(stop_words, by = c("word2" = "word")) %>% 
+    filter(!is.na(word1),!is.na(word2)) %>% 
+    group_by(word1, word2) %>% 
+    count() %>% 
+    arrange(desc(n)) %>% 
+    #filter(n > 5) %>% 
+    graph_from_data_frame()
+  
+  reddit_graphs[[i]] <- graph_df
+}
+
+# To View, rerun loop with n>5 to avoid too many nodes.
+# graph_df %>% 
+#   ggraph(layout = "fr") +
+#   geom_edge_link() +
+#   geom_node_point() +
+#   geom_node_text(aes(label = name), vjust = 1, hjust = 1)
+```
+
+
+
+
+# Preprocessing
+
+
+
+
+
+
+## Kernel 1
+Edge Histogram
+
+```{r edge1}
+k1 <- graphkernels::CalculateEdgeHistKernel(reddit_graphs[1:18])
+#k2 <- graphkernels::CalculateVertexHistKernel(reddit_graphs[1:4])
+
+# kernlab::kkmeans()
+k1[1,1] + k1[2,2] - 2*k1[1,2]
+k1[1,1] + k1[3,3] - 2*k1[1,3]
+```
+
+## Kernel 2
+Weisfel Leman
+
+## Kernel 3 
+???
+
+## Comparison
+
+# Analysis
