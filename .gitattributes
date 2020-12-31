@@ -1,0 +1,6 @@
+# to change language of repo from HTML to R
+*.Rmd linguist-language=R
+*.html linguist-detectable=false
+*.js linguist-detectable=false
+*.css linguist-detectable=false
+*.scss linguist-detectable=false
