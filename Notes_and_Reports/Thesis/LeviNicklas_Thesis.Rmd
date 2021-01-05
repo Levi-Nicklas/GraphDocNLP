@@ -11,6 +11,7 @@ output: pdf_document
 # Libraries
 library(tidyverse)
 library(here)
+library(igraph)
 
 # ggplot theme
 
@@ -72,7 +73,7 @@ library(here)
 
 ```{r reddit-import}
 # Data Read In
-mental_health <- readRDS(here::here("Data/RawData/mentalhealth_reddit_20201025.RDS"))
+
 ```
 ## NHTSA
 
@@ -85,23 +86,9 @@ mental_health <- readRDS(here::here("Data/RawData/mentalhealth_reddit_20201025.R
 
 ## reddit 
 ```{r reddit-reformat}
-# Get first table.
-mental_health_df <- mental_health[[1]]
+reddit_graphs <- readRDS(here::here("Data/ProcessedData/reddit_graphs.RDS"))
 
-# Append other tables.
-for(i in 2:length(mental_health)){
-  #print(nrow(mental_health_df))
-  mental_health_df <- rbind(mental_health_df, mental_health[[i]])
-}
-
-# Remove old object and iterator.
-rm(mental_health, i)
-
-# Import df to graph function.
-source(here::here("Development/Scripts/df_to_graph_list.R"))
-
-# Convert comments into graphs. 
-reddit_graphs <- df_to_graph_list(mental_health_df$comment,2,2)
+reddit_graphs[[50]][[1]] %>% plot()
 ```
 
 ## NHSTA
@@ -113,6 +100,14 @@ reddit_graphs <- df_to_graph_list(mental_health_df$comment,2,2)
 # Methods
 
 ## Graph Kernels
+
+### reddit
+```{r}
+kernel_mat <- compute_graph_kernel(reddit_graphs)
+```
+
+
+
 
 ## Clustering
 

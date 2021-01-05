@@ -18,3 +18,8 @@ In this section you will find raw data and processed data folders.
 
 This is a collection of the relevant papers, articles, book excerpts, and presentation slides which may prove useful in my thesis.
 
+---------------------------------------
+
+**Conferences and Journals:**
+
+- http://wikicfp.com/cfp/servlet/event.showcfp?eventid=117477&copyownerid=166079
