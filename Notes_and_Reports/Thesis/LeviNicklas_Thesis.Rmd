@@ -64,6 +64,8 @@ library(tictoc)
 
 # Abstract
 
+ 
+
 # Introduction
 
 # Literature Review
@@ -72,10 +74,9 @@ library(tictoc)
 
 ## reddit
 
-```{r reddit-import}
-# Data Read In
+**(1/16/21)** Data was obtained from `reddit.com` using the `{RedditExtractoR}` package, querying for posts featuring one of eightteen words in the subreddit `r/mentalhealth`. Posts were additionally restricted to having at least 10 comments. Datasets were composed and saved to `.RDS` objects for later use. The focus of the study will be the similarity of a post as measured by the comments which belong to the post.
 
-```
+
 ## NHTSA
 
 ```{r nhtsa-import}
@@ -85,11 +86,13 @@ library(tictoc)
 
 # Data Preprocessing
 
+**(1/16/21)** Both datasets are converted to graph representations of the text. The graph representation is a skip-bigram graph composed of the observational unit of text. 
+
 ## reddit 
 ```{r reddit-reformat}
 reddit_graphs <- readRDS(here::here("Data/ProcessedData/reddit_graphs.RDS"))
 
-reddit_graphs[[50]][[1]] %>% plot()
+reddit_graphs[[2]][[1]] %>% plot()
 ```
 
 ## NHSTA
@@ -137,6 +140,7 @@ result[[1]] %>%
   ggplot() + 
   geom_density(aes(x = `.`), binwidth = 30)
 
+# Results from Tic-Toc assessment.
 compute_time <- data.frame(n = c(10, 50, 75, 100, 200, 300, 500),
                            t = c(0.405, 9.336, 19.833, 26.69,140.33, 263.008, 819.526))
 
@@ -147,6 +151,10 @@ compute_time %>%
   geom_smooth(method = NULL, formula = y ~ log(x))
 ```
 
+```{r}
+
+
+```
 
 
 
