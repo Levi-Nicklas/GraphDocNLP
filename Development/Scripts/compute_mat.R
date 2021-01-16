@@ -7,7 +7,7 @@
 #
 
 
-compute_mat <- function(){
+compute_kernel <- function(){
   # Libraries
   library(here)
   library(furrr)

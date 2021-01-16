@@ -12,6 +12,7 @@ output: pdf_document
 library(tidyverse)
 library(here)
 library(igraph)
+library(tictoc)
 
 # ggplot theme
 
@@ -102,8 +103,48 @@ reddit_graphs[[50]][[1]] %>% plot()
 ## Graph Kernels
 
 ### reddit
-```{r}
-kernel_mat <- compute_graph_kernel(reddit_graphs)
+```{r, message = F, warning = F, message = F}
+# TEST RUN
+# reddit_graphs_s <- list(reddit_graphs[[1]][[1]],
+#                         reddit_graphs[[2]][[1]],
+#                         reddit_graphs[[3]][[1]],
+#                         reddit_graphs[[4]][[1]],
+#                         reddit_graphs[[5]][[1]],
+#                         reddit_graphs[[6]][[1]],
+#                         reddit_graphs[[7]][[1]])
+# 
+# my_pars <- list(reddit_graphs_s,reddit_graphs_s[[1]])
+# 
+# my_pars[[1]][[1]] %>% is.igraph()
+# my_pars[[2]] %>% is.igraph()
+# 
+# graphkernels::CalculateEdgeHistKernel(list(my_pars[[1]][[3]],my_pars[[2]]))
+# 
+# compute_graph_similarity(my_pars)
+
+# Do 3 at once, TEST
+set.seed(23)
+reddit_graphs_s <- sample(reddit_graphs, 500)
+
+tic()
+compute_kernel()
+toc()
+beepr::beep(sound=3)
+result <- readRDS(here::here("Data/ProcessedData/reddit_graphkernel.RDS"))
+
+result[[1]] %>% 
+  as.data.frame() %>% 
+  ggplot() + 
+  geom_density(aes(x = `.`), binwidth = 30)
+
+compute_time <- data.frame(n = c(10, 50, 75, 100, 200, 300, 500),
+                           t = c(0.405, 9.336, 19.833, 26.69,140.33, 263.008, 819.526))
+
+compute_time %>% 
+  ggplot(aes(t, n))+
+  geom_point() +
+  #geom_line() +
+  geom_smooth(method = NULL, formula = y ~ log(x))
 ```
 
 
