@@ -45,7 +45,7 @@ df_to_graph_list <- function(text){
       igraph::graph_from_data_frame()
     
     # Store
-    graph_list[[i]] <- temp_df
+    graph_list[[i]] <- list(temp_df, text)
   }
 
   # Return a list of Graphs  

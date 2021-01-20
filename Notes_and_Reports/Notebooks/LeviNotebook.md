@@ -179,6 +179,14 @@ Today I met with Dr. Sanchez and reviewed my "elevator pitch" and the big ideas 
 
 More importantly, after doing a Google Scholar search for "graph+kernels+skip+grams" there were results :sweat:. However, it is not immediately apparent that the usage of graph kernels and skip-grams is in the same fashion that I am envisioning. So this afternoon I am reviewing some of these articles.
 
+## January 20, 2021
+
+Forgot I had this notebook to keep during my thesis. I should have kept up with this over the last few months, but things got crazy: new job, new house, found out we were having a baby, insurrection, pandemic...normal 2020 madness. Otherwise, I have been chipping away at this thesis. the most important updates to record in here is that I pivoted slightly to focusing on a 1 dimensional clustering, based on a shared graph that similarity is measured on. I am going to do this by essentially overfitting a kernel density estimate (KDE) and tuning the binwidth to optmize variation between clusters-- which will be defined by inflection points on the KDE. Additionally, I'm only using reddit and the NHTSA data. Also, converting text to its skip-graph representation is computationally slow, but I was able to make this fast and parallelize it with `{furrr}`. In a similar vein, the computation of the kernel is not as fast as I'd like; the kernel computation scales poorly when scaling vertically. I have tried to mitigate this with `{furrr}` as well, but making `{furrr}` work in this case is a little trickier... I'm still working on this. For now I'm just making a small time study to show that this doesn't scale well. 
+
+This morning I ran the revised computation of kernels (with label corrections included) for $n={25,50, 75, ... , 325}$, and the results are indicative of an operating time of $O(k^n)$ (where $k$ is some constant). These results are the basis of my decision to reduce the number of posts I will consider form the reddit. Next I am going to demonstrate a KDE clustering that I plan to use for 1-D clustering for both datasets.
+
+
+
 ...
 
 **Review of skip-grams:**

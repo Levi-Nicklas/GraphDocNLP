@@ -16,7 +16,7 @@ compute_kernel <- function(){
   text_kernel <- furrr::future_map(.x = reddit_graphs_s,
                                    .f = compute_graph_similarity)
   
-  saveRDS(text_kernel, "Data/ProcessedData/reddit_graphkernel_350.RDS")
+  saveRDS(text_kernel, "Data/ProcessedData/reddit_graphkernel_325.RDS")
 }
 
 

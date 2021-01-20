@@ -15,6 +15,14 @@ library(igraph)
 library(tictoc)
 
 # ggplot theme
+ thesis_theme <- theme(plot.background = element_rect(fill = "white", colour = NA),
+        panel.background = element_rect(fill = "white", colour = NA),
+        axis.line = element_line(colour = "black"),
+        panel.grid.major.x = element_line(color = "gray80", size = 0.5),
+        panel.grid.major.y = element_line(color = "gray80", size = 0.5),
+        title =element_text(size=12, face='bold'))
+
+ thesis_colors <- c("#0b21e8", "#e80b21", "#e8d20b") 
 
 
 ```
@@ -127,7 +135,7 @@ reddit_graphs[[2]][[1]] %>% plot()
 
 # Do 3 at once, TEST
 set.seed(23)
-reddit_graphs_s <- sample(reddit_graphs, 500)
+reddit_graphs_s <- sample(reddit_graphs, 10)
 
 tic()
 compute_kernel()
