@@ -30,14 +30,16 @@ reddit_graphs <- readRDS(here::here("Data/ProcessedData/reddit_graphs.RDS"))
 
 # Sample
 set.seed(23)
-reddit_graphs_s <- sample(reddit_graphs, 325)
+study_sample <- sample(1:length(reddit_graphs),size = 150 ,replace = F)
+reddit_graphs_s <- reddit_graphs[study_sample]
 
 # Compute the Kernel
 tic()
 compute_kernel()
 toc()
+saveRDS(reddit_graphs[study_sample], here::here("Data/ProcessedData/reddit_sample_150.RDS"))
 beepr::beep(sound = 7)
-result <- readRDS(here::here("Data/ProcessedData/reddit_graphkernel_325.RDS"))
+result <- readRDS(here::here("Data/ProcessedData/reddit_graphkernel_150.RDS"))
 
 # Record Results from compute time.
 # [x] Edge Histogram Kerenel

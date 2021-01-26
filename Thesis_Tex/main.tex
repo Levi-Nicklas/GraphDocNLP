@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Thesis template by Youssif Al-Nashif
+%
+%   May 2020
+%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+
+\usepackage{Styles/thesis-v1.0}
+
+%---- Set Thesis Name
+\newcommand{\thesisTitle}{\ft{Thesis title goes here}}
+
+            
+%---- Set Thesis by
+\newcommand{\thesisBy}{Levi C. Nicklas}
+
+%---- Degree Department
+\newcommand{\thesisDegreeDepartment}{\ft{Computer Science}}
+
+
+%---- Thesis Semester Year
+\newcommand{\thesisDate}{\ft{2021}}
+
+%---- First Committee Member
+\newcommand{\thesisComitteeFirstMember}{\ft{Dr. Grisselle Centeno}}
+
+%---- Second Committee Member
+\newcommand{\thesisComitteeSecondMember}{\ft{Dr. Harish Chintakunta}}
+
+\begin{document}
+
+
+%---- Signature Page
+\input{Content/01_Front_Matter/main}
+
+% %---- Chapters
+\input{Content/02_Chapters/main}
+
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{Bibliography/bibliography}
+
+
+
+\end{document}
