@@ -196,6 +196,19 @@ I downloaded my `.tex` template for my thesis, realized how behind I was, had a 
 
 Tonight, I fixed the location of the zero for the f''(x) so that tomorrow night I can form the actualy clusters now that I found break points.
 
+## January 30, 2021
+Hoping for a longer session today where I wrap up the clustering with KDE. Then I will get a presentation together to update the committee.
+
+...
+
+Didn't get a lot done, we had a nor'easter.
+
+## February 2, 2021
+
+Snow storm is slowing down. Back to work.
+
+I got _one_ example of the clustering with KDE done. This example was adapted from my " _Covid Tweets_ " project, but was focused on not hard coding anything so I can reuse this for additional posts/texts. Not going to do this now, I'll rerun all this code for other posts and do some analysis when I'm not feeling motiviated. For now, Im going to get together a presentation for my committee for an update once Dr.Sanchez returns from paternatity leave. 
+
 ...
 
 **Review of skip-grams:**
