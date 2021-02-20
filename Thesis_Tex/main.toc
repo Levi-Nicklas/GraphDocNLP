@@ -3,13 +3,13 @@
 \contentsline {chapter}{List of Algorithms}{iv}{chapter*.4}%
 \contentsline {chapter}{Abstract}{1}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Literature Review}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{2}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Subsection Testing}{2}{subsection.2.1.1}%
-\contentsline {chapter}{\numberline {3}Research work}{3}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{3}{section.3.1}%
-\contentsline {chapter}{\numberline {4}Discussion of results}{4}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{5}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{6}{chapter.6}%
-\contentsline {chapter}{Appendices}{7}{section*.5}%
-\contentsline {chapter}{\numberline {A}My first appendix}{8}{Appendix.1.A}%
+\contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Subsection Testing}{5}{subsection.2.1.1}%
+\contentsline {chapter}{\numberline {3}Research work}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{6}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Discussion of results}{7}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{8}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{9}{chapter.6}%
+\contentsline {chapter}{Appendices}{10}{section*.5}%
+\contentsline {chapter}{\numberline {A}My first appendix}{11}{Appendix.1.A}%
