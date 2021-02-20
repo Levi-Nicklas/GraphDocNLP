@@ -207,7 +207,15 @@ Didn't get a lot done, we had a nor'easter.
 
 Snow storm is slowing down. Back to work.
 
-I got _one_ example of the clustering with KDE done. This example was adapted from my " _Covid Tweets_ " project, but was focused on not hard coding anything so I can reuse this for additional posts/texts. Not going to do this now, I'll rerun all this code for other posts and do some analysis when I'm not feeling motiviated. For now, Im going to get together a presentation for my committee for an update once Dr.Sanchez returns from paternatity leave. 
+I got _one_ example of the clustering with KDE done. This example was adapted from my " _Covid Tweets_ " project, but was focused on not hard coding anything so I can reuse this for additional posts/texts. Not going to do this now, I'll rerun all this code for other posts and do some analysis when I'm not feeling motiviated. For now, I'm going to get together a presentation for my committee for an update once Dr.Sanchez returns from paternatity leave. Im off tomorrow to go to my wife's appointment for our baby.
+
+## February 19, 2021
+
+I continued work on this 1 example of KDE clustering, because it as not properly performed and required fixing. I fixed it, and the reuslts are not _convincing_. It is not clear to me when comparing the two most "similar" comments, how that similarity is evident in the text. From here, I am taking two steps: I will give a better cleaning to the text prior to kernel computation, and I will perform additional clustering given the kernel output (perhaps a h-clustering).
+
+## February 20, 2021
+
+
 
 ...
 

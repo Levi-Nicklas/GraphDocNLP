@@ -1,11 +1,13 @@
-# Study 1 - KDE Clustering
+# Study 2 - KDE Clustering
 # Author: Levi C. Nicklas
-# Date: 1/16/21
+# Date: 2/18/21
 #
 # Notes:  For this study, first I will have to demonstrate
 #         that computation and clustering with KDE works.
 #         Following that, I need to tune the binwidth to 
 #         optimize for variation within/between cluster(s).
+#         Additionally, this may feed into further clustering 
+#         results.
 ###############################
 library(tidyverse)
 library(here)
@@ -146,3 +148,55 @@ ex_df %>%
   ggplot(aes(x = x, y = y, color = name)) +
   geom_point()
   
+ex_df_summary <- ex_df %>% 
+  group_by(name) %>% 
+  summarize(group_sd = sd(x),
+            group_mean = mean(x),
+            group_med = median(x))
+
+##### CHECK FOR ACTUAL POSTS #####
+
+post_ids <- ex_df %>% 
+  filter(name == 26) %>% 
+  select(id) %>% 
+  pull()
+
+for(i in 1:length(post_ids)){
+  tmp_post <- post_ids[i]
+  
+  print(reddit_sample[[tmp_post]][[1]][[2]])
+}
+
+clustered_posts <- label_cluster(reddit_kernel_mat$V28, ex_cluster_breaks)
+
+clustered_posts <- cbind(1:nrow(clustered_posts), 
+      clustered_posts)
+
+colnames(clustered_posts) <- c("id", colnames(clustered_posts[,2:ncol(clustered_posts)]))
+
+clustered_post_labels <- clustered_posts[c(1,3:29)] %>% 
+  pivot_longer(cols = c("1":"27")) %>% 
+  filter(value == TRUE)
+
+clustered_posts <- left_join(clustered_posts, clustered_post_labels, by = c()) 
+
+clustered_posts %>% 
+  ggplot(aes(x = x, fill = name))+
+  geom_histogram(binwidth = 2500)
+
+clustered_posts %>% 
+  group_by(name) %>% 
+  count()
+
+clustered_posts %>% 
+  group_by(name) %>% 
+  summarize(group_sd = sd(x),
+            group_mean = mean(x),
+            group_med = median(x))
+
+clustered_posts %>% 
+  filter(name == 25)
+
+# Two posts with the lowest variation.
+reddit_sample[[25]][[1]][[2]]
+reddit_sample[[28]][[1]][[2]]
