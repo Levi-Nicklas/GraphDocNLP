@@ -20,12 +20,12 @@ reddit_sample <- readRDS(here::here("Data/ProcessedData/reddit_sample_150.RDS"))
 set.seed(23)
 random_comment <- sample(1:150, 1)
 study_post <- reddit_sample[[random_comment]][[1]][[2]]
-study_kernel <- reddit_kenrel[[random_comment]]
+study_kernel <- reddit_kernel[[random_comment]]
 
 study_kernel %>% as.data.frame() %>% 
   drop_na() %>% 
   ggplot(aes(x = `.`))+
-  geom_density(bw = 3000) +
+  geom_density(bw = 500) +
   theme(plot.background = element_rect(fill = "white", colour = NA),
         panel.background = element_rect(fill = "white", colour = NA),
         axis.line = element_line(colour = "black"),

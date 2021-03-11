@@ -1,0 +1,118 @@
+---
+title: "NHTSA Reports"
+output: html_notebook
+---
+
+
+#### Purpose: This notebook will use scripts from the `Development/Scripts` folder and read data from the `Data/NHTSA` folders to analyze the NHTSA reports. The NHTSA reports are strating as just text from the "summary" portion of the reports.
+
+# Initial Processing
+
+```{r, warning = F, message = F}
+# Libraries
+library(tidyverse)
+library(here)
+library(igraph)
+library(graphkernels)
+
+# Data Import
+file.names <- list.files(path = here::here("Data/NHTSA/RawData"))
+papers <- list()
+
+for(i in 1:length(file.names)){
+  temp.file.name <- here::here(paste0("Data/NHTSA/RawData/", file.names[i]))
+
+  if(grepl("paper_",temp.file.name)){
+    temp.file <- readRDS(temp.file.name)
+    
+    temp.file <- paste(temp.file, collapse = ". ")
+    
+    papers[i] <- temp.file
+  }
+}
+```
+
+We read the papers into memory. Now lets put them together in a nice way... perhaps a dataframe.
+
+```{r}
+papers <- data.frame(id = 1:length(papers),
+           text = unlist(papers))
+
+#saveRDS(papers, file = here::here("Data/NHTSA/RawData/ConsolidatedPapers.rds")) # object too big for github.
+```
+
+Now we can clean the data. Tokenizing, removing stop words, stemming words, etc.
+
+```{r, message = F, warning = F}
+#papers <- readRDS(here::here("Data/NHTSA/RawData/ConsolidatedPapers.rds")) # onject too big for github.
+source(here::here("Development/Scripts/df_to_graph_list.R"))
+
+nhtsa_graphs <- df_to_graph_list(papers$text)
+```
+
+Let's explore the object.
+
+```{r}
+# igraph object level
+nhtsa_graphs[[1]][[1]] %>% is.igraph()
+
+# Plot a graph
+nhtsa_graphs[[1]][[1]] %>% plot() #haha whoa
+
+# Get Text level
+#nhtsa_graphs[[1]][[2]][1]
+```
+
+Okay, the object looks like what we want now. Lets compute a graph kernel.
+
+```{r}
+source(here::here("Development/Scripts/compute_graph_similarity.R"))
+nhtsa_kernel <- matrix(rep(0,48*48), nrow = 48)
+
+
+
+for(i in 1:length(nhtsa_graphs)){
+  nhtsa_kernel[i,] <- compute_graph_similarity(nhtsa_graphs[[i]])
+}
+```
+
+Awesome. Im going to try clustering with this real quick.
+
+```{r}
+dendro1 <- dist(nhtsa_kernel, method = "manhattan") %>% 
+  hclust(method = "complete")
+
+dendro1 %>%
+  plot()
+
+papers$k3 <- dendro1 %>% 
+  cutree(k = 3)
+
+papers$k5 <- dendro1 %>% 
+  cutree(k = 5)
+
+papers$k7 <- dendro1 %>% 
+  cutree(k = 7)
+
+papers %>% 
+  select(id,k3,k5,k7)
+```
+
+```{r}
+set.seed(23)
+nhtsa_pts <- dist(nhtsa_kernel, method = "manhattan") %>% 
+  MASS::isoMDS()
+
+nhtsa_pts$points %>%
+  as.data.frame() %>% 
+  ggplot(aes(x = V1, y = V2))+
+  geom_point()
+```
+
+
+```{r}
+nhtsa_graphs[[23]][[2]][1]
+nhtsa_graphs[[41]][[2]]
+
+
+```
