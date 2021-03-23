@@ -48,6 +48,64 @@ Now we can clean the data. Tokenizing, removing stop words, stemming words, etc.
 source(here::here("Development/Scripts/df_to_graph_list.R"))
 
 nhtsa_graphs <- df_to_graph_list(papers$text)
+
+cleaned <- papers %>% 
+  select(id,text) %>% 
+  tidytext::unnest_tokens(output = "words" ,
+                                  input = text, 
+                                  token = "skip_ngrams",
+                                  n = 2,
+                                  k = 2) %>%  
+      # filter to only 1 document.
+      dplyr::filter(id == 1) %>% 
+      # split bigram
+      tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+      # remove stop words
+      anti_join(stop_words, by = c("word1" = "word")) %>% 
+      anti_join(stop_words, by = c("word2" = "word")) %>% 
+      # toss NA values.
+      tidyr::drop_na() %>% 
+      # clean out punctuation %>% 
+      mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+      mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      # clean out numebrs
+      select(id,word1,word2) %>% 
+      mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+      mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      select(id,word1,word2) %>% 
+      # only keep words of > len 3
+      mutate(word1_toss = (nchar(word1)<4)) %>% 
+      mutate(word2_toss = (nchar(word2)<4)) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      select(id, word1, word2) %>% 
+      # group each bigram.
+      group_by(word1, word2) %>% 
+      # count occurances.
+      count() %>% 
+      # produce Graph.
+      igraph::graph_from_data_frame()
+
+tally_components <- cleaned %>% components()
+
+tally_components <- tally_components$membership %>% 
+  table() %>% 
+  as.data.frame() %>% 
+  arrange(desc(Freq))
+component_id <- tally_components[1,1] %>% as.integer()
+
+
+# Add the component id's as an edge attribute?
+# then filter to only some edge attributes?
+
+cleaned %>% plot()
+
+cleaned %>% igraph::full
+
 ```
 
 Let's explore the object.
@@ -77,21 +135,74 @@ for(i in 1:length(nhtsa_graphs)){
 ```
 
 Awesome. Im going to try clustering with this real quick.
+# TRY SCALING
 
 ```{r}
-dendro1 <- dist(nhtsa_kernel, method = "manhattan") %>% 
+library(caret)
+
+scaled_kernel <- scale(nhtsa_kernel, center = T, scale = T)
+
+scaled_cluster <- dist(scaled_kernel, method = "euclidean", p = 4) %>% 
   hclust(method = "complete")
 
-dendro1 %>%
+scaled_cluster %>%
   plot()
 
-papers$k3 <- dendro1 %>% 
+papers$k3 <- scaled_cluster %>% 
   cutree(k = 3)
 
-papers$k5 <- dendro1 %>% 
+papers$k5 <- scaled_cluster %>% 
   cutree(k = 5)
 
-papers$k7 <- dendro1 %>% 
+papers$k7 <- scaled_cluster %>% 
+  cutree(k = 7)
+
+papers %>% 
+  select(id,k3,k5,k7)
+
+# viz
+
+set.seed(23)
+
+scaled_pts <- dist(scaled_kernel, method = "euclidean") %>% 
+  MASS::isoMDS()
+
+papers$x <- scaled_pts$points[,1]
+papers$y <- scaled_pts$points[,2]
+#papers$x <- pca_kernel$x[,1]
+#papers$y <- pca_kernel$x[,2]
+
+
+
+papers %>%
+  as.data.frame() %>% 
+  ggplot(aes(x = x, y = y, color = as.factor(k5)))+
+  geom_point()
+
+```
+
+# TRY PCA
+```{r}
+#dendro1 <- dist(nhtsa_kernel, method = "manhattan") %>% 
+#  hclust(method = "ward.D2")
+
+## PCA
+pca_kernel <- nhtsa_kernel %>% prcomp(scale. = T, center = T)
+
+# PCA analysis.
+dendro_pca <- dist(pca_kernel$rotation, method = "minkowski", p = 4) %>% 
+  hclust(method = "ward.D")
+
+dendro_pca %>%
+  plot()
+
+papers$k3 <- dendro_pca %>% 
+  cutree(k = 3)
+
+papers$k5 <- dendro_pca %>% 
+  cutree(k = 5)
+
+papers$k7 <- dendro_pca %>% 
   cutree(k = 7)
 
 papers %>% 
@@ -100,19 +211,43 @@ papers %>%
 
 ```{r}
 set.seed(23)
-nhtsa_pts <- dist(nhtsa_kernel, method = "manhattan") %>% 
-  MASS::isoMDS()
 
-nhtsa_pts$points %>%
+#nhtsa_pts <- dist(pca_kernel$rotation, method = "manhattan") %>% 
+#  MASS::isoMDS()
+
+papers$x <- nhtsa_pts$points[,1]
+papers$y <- nhtsa_pts$points[,2]
+#papers$x <- pca_kernel$x[,1]
+#papers$y <- pca_kernel$x[,2]
+
+library(factoextra)
+
+papers %>%
   as.data.frame() %>% 
-  ggplot(aes(x = V1, y = V2))+
+  ggplot(aes(x = x, y = y, color = as.factor(k3)))+
   geom_point()
+
+fviz_pca_ind(pca_kernel, label="none", habillage = papers$k3,
+             addEllipses=TRUE, ellipse.level=0.95)
+
+fviz_pca_var(pca_kernel)
+fviz_pca_biplot(pca_kernel, label ="ind")
+summary(pca_kernel)
 ```
 
 
+# WIP
 ```{r}
-nhtsa_graphs[[23]][[2]][1]
-nhtsa_graphs[[41]][[2]]
+nhtsa_graphs_only <- list()
 
+for(i in 1:length(nhtsa_graphs)){
+  nhtsa_graphs_only[[i]] <- nhtsa_graphs[[i]][[1]]
+}
 
+graphkernel_directcompute <- graphkernels::CalculateEdgeHistKernel(nhtsa_graphs_only)
+
+## Try CalculateEdgeHistGaus
+#fix the graph labels
+source(here::here("Development/Scripts/correcting_vertex_labels.R"))
+nhtsa_graphs_only[[1]] %>% igraph::vertex.attributes()
 ```

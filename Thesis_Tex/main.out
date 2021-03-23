@@ -8,8 +8,11 @@
 \BOOKMARK [2][-]{subsection.2.1.1}{Subsection Testing}{section.2.1}% 8
 \BOOKMARK [0][-]{chapter.3}{Methods}{}% 9
 \BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 10
-\BOOKMARK [0][-]{chapter.4}{Discussion of results}{}% 11
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 12
-\BOOKMARK [0][-]{chapter.6}{Future Work}{}% 13
-\BOOKMARK [0][-]{section*.5}{Appendices}{}% 14
-\BOOKMARK [0][-]{Appendix.1.A}{My first appendix}{}% 15
+\BOOKMARK [2][-]{subsection.3.1.1}{ Skip-grams}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.2}{ Graph Kernels}{section.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.1.3}{Using Kernel for Clustering}{section.3.1}% 13
+\BOOKMARK [0][-]{chapter.4}{Discussion of results}{}% 14
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 15
+\BOOKMARK [0][-]{chapter.6}{Future Work}{}% 16
+\BOOKMARK [0][-]{section*.5}{Appendices}{}% 17
+\BOOKMARK [0][-]{Appendix.1.A}{My first appendix}{}% 18
