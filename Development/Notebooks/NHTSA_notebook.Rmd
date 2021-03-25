@@ -14,6 +14,7 @@ library(tidyverse)
 library(here)
 library(igraph)
 library(graphkernels)
+library(tidytext)
 
 # Data Import
 file.names <- list.files(path = here::here("Data/NHTSA/RawData"))
@@ -90,21 +91,29 @@ cleaned <- papers %>%
       # produce Graph.
       igraph::graph_from_data_frame()
 
-tally_components <- cleaned %>% components()
+# Data frame of word cluster membership.
+cleaned_words_df <- cleaned %>% igraph::clusters()
+cleaned_words_df <- as.data.frame(cleaned_words_df$membership)
+cleaned_words_df$words <- rownames(cleaned_words_df)
+colnames(cleaned_words_df) <- c("member", "words")
+reduced_clusters <- cleaned_words_df %>% 
+  filter(member != 1)
 
-tally_components <- tally_components$membership %>% 
-  table() %>% 
+# Get single largest cluster.
+big_graph <- cleaned %>% 
+  as_edgelist() %>% 
   as.data.frame() %>% 
-  arrange(desc(Freq))
-component_id <- tally_components[1,1] %>% as.integer()
+  anti_join(y = reduced_clusters, by = c("V1" = "words")) %>% 
+  anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
+  graph_from_data_frame() %>% plot()
 
 
-# Add the component id's as an edge attribute?
-# then filter to only some edge attributes?
 
-cleaned %>% plot()
 
-cleaned %>% igraph::full
+
+
+
+
 
 ```
 
