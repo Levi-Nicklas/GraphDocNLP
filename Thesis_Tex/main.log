@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  28 MAR 2021 09:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  28 MAR 2021 09:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -938,7 +938,7 @@ LaTeX Info: Redefining \nameref on input line 33.
  ABD: EveryShipout initializing macros
 (./Content/01_Front_Matter/main.tex
 (./Content/01_Front_Matter/00_cover_page.tex
-<Content/Images/FLPoly_logo.pdf, id=78, 412.54124pt x 112.92188pt>
+<Content/Images/FLPoly_logo.pdf, id=82, 412.54124pt x 112.92188pt>
 File: Content/Images/FLPoly_logo.pdf Graphic file (type pdf)
 <use Content/Images/FLPoly_logo.pdf>
 Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
@@ -1005,7 +1005,7 @@ l.19  \includegraphics
 [1
 
 ]
-<Content/Images/proposal_diagram.png, id=192, 801.99625pt x 553.06625pt>
+<Content/Images/proposal_diagram.png, id=199, 801.99625pt x 553.06625pt>
 File: Content/Images/proposal_diagram.png Graphic file (type png)
 <use Content/Images/proposal_diagram.png>
 Package pdftex.def Info: Content/Images/proposal_diagram.png  used on input lin
@@ -1031,34 +1031,59 @@ l.9 \chapter
             {Literature Review} [4]
 Chapter 2.
 (./Content/02_Chapters/Chapter 02/Sections/01_introduction.tex
-(./Content/02_Chapters/Chapter 02/Sections/Subsections/02_01_subsection_testing
-.tex))) (./Content/02_Chapters/Chapter 03/main.tex [5
+
+LaTeX Warning: Citation `kondor2002diffusion' on page 5 undefined on input line
+ 12.
+
+
+LaTeX Warning: Citation `vishwanathan2010graph' on page 5 undefined on input li
+ne 12.
+
+
+LaTeX Warning: Citation `nikolentzos2017shortest' on page 5 undefined on input 
+line 14.
+
+
+LaTeX Warning: Citation `cheng2006n' on page 5 undefined on input line 14.
+
+
+LaTeX Warning: Citation `sugiyama2018graphkernels' on page 5 undefined on input
+ line 14.
+
+[5
 
 ]
-Chapter 3.
-(./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [6
 
-] [7]))
-(./Content/02_Chapters/Chapter 04/main.tex [8]
+LaTeX Warning: Citation `akioyamen2020framework' on page 6 undefined on input l
+ine 47.
+
+[6]
+(./Content/02_Chapters/Chapter 02/Sections/Subsections/02_01_subsection_testing
+.tex))) (./Content/02_Chapters/Chapter 03/main.tex [7]
+Chapter 3.
+(./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [8
+
+] [9]))
+(./Content/02_Chapters/Chapter 04/main.tex [10]
 Chapter 4.
-) (./Content/02_Chapters/Chapter 05/main.tex [9
+) (./Content/02_Chapters/Chapter 05/main.tex [11
 
 ]
 Chapter 5.
-) (./Content/02_Chapters/Chapter 06/main.tex [10
+) (./Content/02_Chapters/Chapter 06/main.tex [12
 
 ]
 Chapter 6.
-) (./Content/02_Chapters/appendix.tex [11
+) (./Content/02_Chapters/appendix.tex [13
 
-] [12
+] [14
 
 
 ]
 Appendix A.
 ))
 No file main.bbl.
-[13
+[15
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
@@ -1066,23 +1091,20 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 69A1BC3DA8ADFE834D6EEA2916CA4E8B;1103.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 106280FB331E865B57DFFA3681EE6B62;995
-(rerunfilecheck)             After:  7C4CA5AF29D1EE4F21B502522960C78C;1103.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 20702 strings out of 492162
- 395512 string characters out of 6125292
- 467062 words of memory out of 5000000
- 24531 multiletter control sequences out of 15000+600000
- 12861 words of font info for 48 fonts, out of 8000000 for 9000
+ 20714 strings out of 492162
+ 395679 string characters out of 6125292
+ 470063 words of memory out of 5000000
+ 24539 multiletter control sequences out of 15000+600000
+ 13208 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,11n,69p,1922b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -1093,11 +1115,12 @@ Here is how much of TeX's memory you used:
 sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
 /local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
 ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (23 pages, 224100 bytes).
+l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on main.pdf (25 pages, 240927 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
- 38 named destinations out of 1000 (max. 500000)
- 167 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 309 PDF objects out of 1000 (max. 8388607)
+ 250 compressed objects within 3 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 

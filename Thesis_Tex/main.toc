@@ -5,15 +5,15 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Subsection Testing}{5}{subsection.2.1.1}%
-\contentsline {chapter}{\numberline {3}Methods}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{6}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1} Skip-grams}{6}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2} Graph Kernels}{7}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Using Kernel for Clustering}{8}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Kernel Density Estimation Clustering for Linear Kernel}{8}{subsection.3.1.4}%
-\contentsline {chapter}{\numberline {4}Discussion of results}{9}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{10}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{11}{chapter.6}%
-\contentsline {chapter}{Appendices}{12}{section*.5}%
-\contentsline {chapter}{\numberline {A}My first appendix}{13}{Appendix.1.A}%
+\contentsline {subsection}{\numberline {2.1.1}Subsection Testing}{7}{subsection.2.1.1}%
+\contentsline {chapter}{\numberline {3}Methods}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{8}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1} Skip-grams}{8}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2} Graph Kernels}{9}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Using Kernel for Clustering}{10}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Kernel Density Estimation Clustering for Linear Kernel}{10}{subsection.3.1.4}%
+\contentsline {chapter}{\numberline {4}Discussion of results}{11}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{12}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{13}{chapter.6}%
+\contentsline {chapter}{Appendices}{14}{section*.6}%
+\contentsline {chapter}{\numberline {A}My first appendix}{15}{Appendix.1.A}%
