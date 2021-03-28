@@ -50,69 +50,64 @@ source(here::here("Development/Scripts/df_to_graph_list.R"))
 
 nhtsa_graphs <- df_to_graph_list(papers$text)
 
-cleaned <- papers %>% 
-  select(id,text) %>% 
-  tidytext::unnest_tokens(output = "words" ,
-                                  input = text, 
-                                  token = "skip_ngrams",
-                                  n = 2,
-                                  k = 2) %>%  
-      # filter to only 1 document.
-      dplyr::filter(id == 1) %>% 
-      # split bigram
-      tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
-      # remove stop words
-      anti_join(stop_words, by = c("word1" = "word")) %>% 
-      anti_join(stop_words, by = c("word2" = "word")) %>% 
-      # toss NA values.
-      tidyr::drop_na() %>% 
-      # clean out punctuation %>% 
-      mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
-      mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
-      mutate(toss_pair = word1_toss|word2_toss) %>% 
-      filter(toss_pair == F) %>% 
-      # clean out numebrs
-      select(id,word1,word2) %>% 
-      mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
-      mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
-      mutate(toss_pair = word1_toss|word2_toss) %>% 
-      filter(toss_pair == F) %>% 
-      select(id,word1,word2) %>% 
-      # only keep words of > len 3
-      mutate(word1_toss = (nchar(word1)<4)) %>% 
-      mutate(word2_toss = (nchar(word2)<4)) %>% 
-      mutate(toss_pair = word1_toss|word2_toss) %>% 
-      filter(toss_pair == F) %>% 
-      select(id, word1, word2) %>% 
-      # group each bigram.
-      group_by(word1, word2) %>% 
-      # count occurances.
-      count() %>% 
-      # produce Graph.
-      igraph::graph_from_data_frame()
-
-# Data frame of word cluster membership.
-cleaned_words_df <- cleaned %>% igraph::clusters()
-cleaned_words_df <- as.data.frame(cleaned_words_df$membership)
-cleaned_words_df$words <- rownames(cleaned_words_df)
-colnames(cleaned_words_df) <- c("member", "words")
-reduced_clusters <- cleaned_words_df %>% 
-  filter(member != 1)
-
-# Get single largest cluster.
-big_graph <- cleaned %>% 
-  as_edgelist() %>% 
-  as.data.frame() %>% 
-  anti_join(y = reduced_clusters, by = c("V1" = "words")) %>% 
-  anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
-  graph_from_data_frame() %>% plot()
-
-
-
-
-
-
-
+# cleaned <- papers %>% 
+#   select(id,text) %>% 
+#   tidytext::unnest_tokens(output = "words" ,
+#                                   input = text, 
+#                                   token = "skip_ngrams",
+#                                   n = 2,
+#                                   k = 2) %>%  
+#       # filter to only 1 document.
+#       dplyr::filter(id == 1) %>% 
+#       # split bigram
+#       tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+#       # remove stop words
+#       anti_join(stop_words, by = c("word1" = "word")) %>% 
+#       anti_join(stop_words, by = c("word2" = "word")) %>% 
+#       # toss NA values.
+#       tidyr::drop_na() %>% 
+#       # clean out punctuation %>% 
+#       mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+#       mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+#       mutate(toss_pair = word1_toss|word2_toss) %>% 
+#       filter(toss_pair == F) %>% 
+#       # clean out numebrs
+#       select(id,word1,word2) %>% 
+#       mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+#       mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+#       mutate(toss_pair = word1_toss|word2_toss) %>% 
+#       filter(toss_pair == F) %>% 
+#       select(id,word1,word2) %>% 
+#       # only keep words of > len 3
+#       mutate(word1_toss = (nchar(word1)<4)) %>% 
+#       mutate(word2_toss = (nchar(word2)<4)) %>% 
+#       mutate(toss_pair = word1_toss|word2_toss) %>% 
+#       filter(toss_pair == F) %>% 
+#       select(id, word1, word2) %>% 
+#       # group each bigram.
+#       group_by(word1, word2) %>% 
+#       # count occurances.
+#       count() %>% 
+#       # produce Graph.
+#       igraph::graph_from_data_frame()
+# 
+# # Data frame of word cluster membership.
+# cleaned_words_df <- cleaned %>% igraph::clusters()
+# cleaned_words_df <- as.data.frame(cleaned_words_df$membership)
+# cleaned_words_df$words <- rownames(cleaned_words_df)
+# colnames(cleaned_words_df) <- c("member", "words")
+# reduced_clusters <- cleaned_words_df %>% 
+#   filter(member != 1)
+# 
+# # Get single largest cluster.
+# big_graph <- cleaned %>% 
+#   as_edgelist() %>% 
+#   as.data.frame() %>% 
+#   anti_join(y = reduced_clusters, by = c("V1" = "words")) %>% 
+#   anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
+#   graph_from_data_frame() %>% plot()
+# 
+# plot(cleaned)
 
 
 ```
@@ -151,8 +146,8 @@ library(caret)
 
 scaled_kernel <- scale(nhtsa_kernel, center = T, scale = T)
 
-scaled_cluster <- dist(scaled_kernel, method = "euclidean", p = 4) %>% 
-  hclust(method = "complete")
+scaled_cluster <- dist(scaled_kernel, method = "manhattan", p = 4) %>% 
+  hclust(method = "average")
 
 scaled_cluster %>%
   plot()
@@ -173,19 +168,25 @@ papers %>%
 
 set.seed(23)
 
-scaled_pts <- dist(scaled_kernel, method = "euclidean") %>% 
+scaled_pts <- dist(scaled_kernel, method = "manhattan") %>% 
   MASS::isoMDS()
+
+
 
 papers$x <- scaled_pts$points[,1]
 papers$y <- scaled_pts$points[,2]
 #papers$x <- pca_kernel$x[,1]
 #papers$y <- pca_kernel$x[,2]
 
+test_kmeans <- papers %>% 
+  select(x,y) %>% 
+  kmeans(2)
 
+papers$kmeans <- test_kmeans$cluster
 
 papers %>%
   as.data.frame() %>% 
-  ggplot(aes(x = x, y = y, color = as.factor(k5)))+
+  ggplot(aes(x = x, y = y, color = as.factor(k3)))+
   geom_point()
 
 ```
@@ -199,7 +200,7 @@ papers %>%
 pca_kernel <- nhtsa_kernel %>% prcomp(scale. = T, center = T)
 
 # PCA analysis.
-dendro_pca <- dist(pca_kernel$rotation, method = "minkowski", p = 4) %>% 
+dendro_pca <- dist(pca_kernel$rotation, method = "manhattan", p = 3) %>% 
   hclust(method = "ward.D")
 
 dendro_pca %>%
@@ -224,20 +225,26 @@ set.seed(23)
 #nhtsa_pts <- dist(pca_kernel$rotation, method = "manhattan") %>% 
 #  MASS::isoMDS()
 
-papers$x <- nhtsa_pts$points[,1]
-papers$y <- nhtsa_pts$points[,2]
-#papers$x <- pca_kernel$x[,1]
-#papers$y <- pca_kernel$x[,2]
+#papers$x <- nhtsa_pts$points[,1]
+#papers$y <- nhtsa_pts$points[,2]
+papers$x <- pca_kernel$x[,1]
+papers$y <- pca_kernel$x[,2]
+
+test_kmeans <- papers %>% 
+  select(x,y) %>% 
+  kmeans(3)
+
+papers$kmeans <- test_kmeans$cluster
 
 library(factoextra)
 
 papers %>%
   as.data.frame() %>% 
-  ggplot(aes(x = x, y = y, color = as.factor(k3)))+
+  ggplot(aes(x = x, y = y, color = as.factor(kmeans)))+
   geom_point()
 
 fviz_pca_ind(pca_kernel, label="none", habillage = papers$k3,
-             addEllipses=TRUE, ellipse.level=0.95)
+             addEllipses=FALSE, ellipse.level=0.95)
 
 fviz_pca_var(pca_kernel)
 fviz_pca_biplot(pca_kernel, label ="ind")

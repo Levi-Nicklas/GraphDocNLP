@@ -30,7 +30,12 @@ To compute and edge histogram kernel on two graphs, $G_1$ and $G_2$, first defin
 
 \subsection{Using Kernel for Clustering}
 
-The output of the kernel is useful for a variety of tasks. Some other popular applications have included classification with support vector machines, which are popular with other kernel methods. In this case, the kernel is used for unsupervised clustering. Within the kernel matrix,$K$, the entry $k_{i,j}$ represents the similarity between graphs $i$ and $j$. This matrix which contains measures of similarity between points can be used as a distance matrix for hierarchical clustering. 
+The output of the kernel is useful for a variety of tasks. Some other popular applications have included classification with support vector machines, which are popular with other kernel methods. In this case, the kernel is used for unsupervised clustering. Within the kernel matrix, $K$, the entry $k_{i,j}$ represents the similarity between graphs $i$ and $j$. This matrix which contains measures of similarity between points can be used as a distance matrix for hierarchical clustering. Before using the graph kernel as a distance matrix, normalization or standardization takes place, and principal component analysis may be used. The end result is each row is a single graph-document being described by its similarity to all the other graphs, which are the column values. Once the values are transformed or rotated by preprocessing methods, the points are just represented by their similarity to one another, but in a transformed space. Various hyper parameters can be tuned for successful clustering; the graph kernel has a parameter that can be tuned, and the hierarchical clustering can be tried with differing types of linkage.
+
+
+\subsection{Kernel Density Estimation Clustering for Linear Kernel}
+
+
 
 
 

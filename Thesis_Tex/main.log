@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  20 MAR 2021 16:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  28 MAR 2021 09:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -938,7 +938,7 @@ LaTeX Info: Redefining \nameref on input line 33.
  ABD: EveryShipout initializing macros
 (./Content/01_Front_Matter/main.tex
 (./Content/01_Front_Matter/00_cover_page.tex
-<Content/Images/FLPoly_logo.pdf, id=74, 412.54124pt x 112.92188pt>
+<Content/Images/FLPoly_logo.pdf, id=78, 412.54124pt x 112.92188pt>
 File: Content/Images/FLPoly_logo.pdf Graphic file (type pdf)
 <use Content/Images/FLPoly_logo.pdf>
 Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
@@ -963,30 +963,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) [2]
 (./Content/01_Front_Matter/02_dedication.tex) [3]
 (./Content/01_Front_Matter/03_acknowledgments.tex) [4]
-(./Content/01_Front_Matter/04_front_matter.tex (./main.toc)
+(./Content/01_Front_Matter/04_front_matter.tex (./main.toc [1
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [1
-
-] (./main.lof)
+ [2] (./main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
-
-[2
+ [3
 
 ] (./main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
- [3
+ [4
 
 ] (./main.loa)
 \tf@loa=\write8
 \openout8 = `main.loa'.
 
- [4
+ [5
 
 ])
 (./Content/01_Front_Matter/05_abstract.texpdfTeX warning (ext4): destination wi
@@ -1006,7 +1005,7 @@ l.19  \includegraphics
 [1
 
 ]
-<Content/Images/proposal_diagram.png, id=183, 801.99625pt x 553.06625pt>
+<Content/Images/proposal_diagram.png, id=192, 801.99625pt x 553.06625pt>
 File: Content/Images/proposal_diagram.png Graphic file (type png)
 <use Content/Images/proposal_diagram.png>
 Package pdftex.def Info: Content/Images/proposal_diagram.png  used on input lin
@@ -1074,15 +1073,15 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 138FA8BE2B290B1C751CE6375F0A5238;914
-(rerunfilecheck)             After:  106280FB331E865B57DFFA3681EE6B62;995.
+(rerunfilecheck)             Before: 106280FB331E865B57DFFA3681EE6B62;995
+(rerunfilecheck)             After:  7C4CA5AF29D1EE4F21B502522960C78C;1103.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 20699 strings out of 492162
- 395472 string characters out of 6125292
+ 20702 strings out of 492162
+ 395512 string characters out of 6125292
  467062 words of memory out of 5000000
- 24530 multiletter control sequences out of 15000+600000
+ 24531 multiletter control sequences out of 15000+600000
  12861 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,11n,69p,1922b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1095,10 +1094,10 @@ sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
 /local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
 ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (22 pages, 221206 bytes).
+Output written on main.pdf (23 pages, 224100 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 36 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 290 PDF objects out of 1000 (max. 8388607)
+ 234 compressed objects within 3 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 167 words of extra memory for PDF output out of 10000 (max. 10000000)
 
