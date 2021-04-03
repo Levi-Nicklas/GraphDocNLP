@@ -8,7 +8,7 @@ output: html_notebook
 
 # Initial Processing
 
-```{r, warning = F, message = F}
+```{r, warning = F, message = F, error = F}
 # Libraries
 library(tidyverse)
 library(here)
@@ -44,7 +44,7 @@ papers <- data.frame(id = 1:length(papers),
 
 Now we can clean the data. Tokenizing, removing stop words, stemming words, etc.
 
-```{r, message = F, warning = F}
+```{r, message = F, warning = F, error = F}
 #papers <- readRDS(here::here("Data/NHTSA/RawData/ConsolidatedPapers.rds")) # onject too big for github.
 source(here::here("Development/Scripts/df_to_graph_list.R"))
 
@@ -107,7 +107,7 @@ nhtsa_graphs <- df_to_graph_list(papers$text)
 #   anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
 #   graph_from_data_frame() %>% plot()
 # 
-# plot(cleaned)
+
 
 
 ```
@@ -115,19 +115,14 @@ nhtsa_graphs <- df_to_graph_list(papers$text)
 Let's explore the object.
 
 ```{r}
-# igraph object level
+length(nhtsa_graphs)
+
 nhtsa_graphs[[1]][[1]] %>% is.igraph()
-
-# Plot a graph
-nhtsa_graphs[[1]][[1]] %>% plot() #haha whoa
-
-# Get Text level
-#nhtsa_graphs[[1]][[2]][1]
 ```
 
 Okay, the object looks like what we want now. Lets compute a graph kernel.
 
-```{r}
+```{r, warning = F, message = F}
 source(here::here("Development/Scripts/compute_graph_similarity.R"))
 nhtsa_kernel <- matrix(rep(0,48*48), nrow = 48)
 

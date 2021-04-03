@@ -32,7 +32,7 @@ df_to_graph_list <- function(text){
                                        n = n_gram,
                                        k = k_skip) %>%  
       # filter to only 1 document.
-      dplyr::filter(id == 1) %>% 
+      dplyr::filter(id == i) %>% 
       # split bigram
       tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
       # remove stop words
@@ -78,7 +78,7 @@ df_to_graph_list <- function(text){
       as.data.frame() %>% 
       anti_join(y = reduced_clusters, by = c("V1" = "words")) %>% 
       anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
-      graph_from_data_frame() %>% plot()
+      graph_from_data_frame()
     
     # Store
     graph_list[[i]] <- list(big_graph, text)
