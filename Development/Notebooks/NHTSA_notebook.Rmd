@@ -281,6 +281,14 @@ fviz_pca_biplot(pca_kernel, label ="ind")
 summary(pca_kernel)
 ```
 
+```{r}
+fviz_dend(dendro_pca, k = 3, cex = 0.5) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "NHTSA Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+
+```
 
 # WIP
 ```{r}
