@@ -136,13 +136,13 @@ for(i in 1:length(nhtsa_graphs)){
 Awesome. Im going to try clustering with this real quick.
 # TRY SCALING
 
-```{r}
+```{r, include = F, eval = F}
 library(caret)
 
 scaled_kernel <- scale(nhtsa_kernel, center = T, scale = T)
 
 scaled_cluster <- dist(scaled_kernel, method = "manhattan", p = 4) %>% 
-  hclust(method = "average")
+  hclust(method = "ward.D")
 
 scaled_cluster %>%
   plot()
@@ -182,7 +182,16 @@ papers$kmeans <- test_kmeans$cluster
 papers %>%
   as.data.frame() %>% 
   ggplot(aes(x = x, y = y, color = as.factor(k3)))+
-  geom_point()
+  geom_point() +
+  ggtitle("RBF space")
+
+papers %>%  
+  as.data.frame() %>% 
+  mutate(theta = atan(y/x),
+         r = sqrt(x^2 + y^2)) %>% 
+  ggplot(aes(x = r, y = theta, color = as.factor(k3)))+
+  geom_point() +
+  ggtitle("polar transform")
 
 ```
 
@@ -192,10 +201,18 @@ papers %>%
 #  hclust(method = "ward.D2")
 
 ## PCA
+
+# try inverting kernel
+#nhtsa_kernel_inv <- 1/nhtsa_kernel
+nhtsa_kernel <- 1/nhtsa_kernel
+
 pca_kernel <- nhtsa_kernel %>% prcomp(scale. = T, center = T)
+#pca_kernel_inv <- nhtsa_kernel_inv %>% prcomp(scale. = T, center = T)
+
+
 
 # PCA analysis.
-dendro_pca <- dist(pca_kernel$rotation, method = "manhattan", p = 3) %>% 
+dendro_pca <- dist(pca_kernel$rotation, method = "manhattan") %>% 
   hclust(method = "ward.D")
 
 dendro_pca %>%
@@ -235,11 +252,29 @@ library(factoextra)
 
 papers %>%
   as.data.frame() %>% 
-  ggplot(aes(x = x, y = y, color = as.factor(kmeans)))+
-  geom_point()
+  ggplot(aes(x = x, y = y, color = as.factor(k3)))+
+  geom_point() + 
+  ggtitle("rbf space")
+
+papers %>%
+  as.data.frame() %>% 
+  filter(x < 2) %>% 
+  filter(y < 2) %>% 
+  ggplot(aes(x = x, y = y, color = as.factor(k3)))+
+  geom_point() + 
+  ggtitle("rbf space - filtered")
+
+# papers %>%
+#   as.data.frame() %>% 
+#   mutate(theta = atan(y/x),
+#          r = sqrt(x^2 + y^2)) %>% 
+#   ggplot(aes(x = r, y = theta, color = as.factor(k3)))+
+#   geom_point() +
+#   ggtitle("polar transform")
 
 fviz_pca_ind(pca_kernel, label="none", habillage = papers$k3,
-             addEllipses=FALSE, ellipse.level=0.95)
+             addEllipses=F, ellipse.level=0.95)
+fviz_cluster()
 
 fviz_pca_var(pca_kernel)
 fviz_pca_biplot(pca_kernel, label ="ind")

@@ -32,7 +32,7 @@ df_to_graph_list <- function(text){
                                        n = n_gram,
                                        k = k_skip) %>%  
       # filter to only 1 document.
-      dplyr::filter(id == i) %>% 
+      dplyr::filter(id == is) %>% 
       # split bigram
       tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
       # remove stop words

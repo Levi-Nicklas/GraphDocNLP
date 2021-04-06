@@ -46,8 +46,8 @@ compute_graph_similarity <- function(input_graph){
       # Correct Labels Issue.
       tmp_graph_list <- convert_vertex_labels(graph_list[[i]][[1]], input_graph[[1]])
       #print(paste0("Calculating Graph: #",i))
-      K <- graphkernels::CalculateEdgeHistKernel(tmp_graph_list)
-      #K <- graphkernels::CalculateEdgeHistGaussKernel(tmp_graph_list,800)
+      #K <- graphkernels::CalculateEdgeHistKernel(tmp_graph_list)
+      K <- graphkernels::CalculateEdgeHistGaussKernel(tmp_graph_list,1100)
       similarity_value <- K[1,2]
       result[i] <- similarity_value
     } else {
