@@ -1,6 +1,6 @@
-\contentsline {chapter}{List of Figures}{iii}{chapter*.2}%
-\contentsline {chapter}{List of Tables}{iv}{chapter*.3}%
-\contentsline {chapter}{List of Algorithms}{v}{chapter*.4}%
+\contentsline {chapter}{List of Figures}{ii}{chapter*.2}%
+\contentsline {chapter}{List of Tables}{iii}{chapter*.3}%
+\contentsline {chapter}{List of Algorithms}{iv}{chapter*.4}%
 \contentsline {chapter}{Abstract}{1}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.2}%
@@ -14,8 +14,13 @@
 \contentsline {subsection}{\numberline {3.1.4}Kernel Density Estimation Clustering for Linear Kernel}{10}{subsection.3.1.4}%
 \contentsline {section}{\numberline {3.2}Processing Text into Graphs}{10}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Graph Kernels for Similarity}{12}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Discussion of results}{14}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{15}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{16}{chapter.6}%
-\contentsline {chapter}{Appendices}{17}{section*.6}%
-\contentsline {chapter}{\numberline {A}My first appendix}{18}{Appendix.1.A}%
+\contentsline {section}{\numberline {3.4}Graph Kernels for Similarity}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Alternate Clustering Method with KDE}{14}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Development of Methods}{15}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Results and Analysis}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Computation of Kernels}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Hierarchical Clustering}{20}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Conclusion}{21}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{22}{chapter.6}%
+\contentsline {chapter}{Appendices}{23}{section*.6}%
+\contentsline {chapter}{\numberline {A}My first appendix}{24}{Appendix.1.A}%

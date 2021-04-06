@@ -14,8 +14,13 @@
 \BOOKMARK [2][-]{subsection.3.1.4}{Kernel Density Estimation Clustering for Linear Kernel}{section.3.1}% 14
 \BOOKMARK [1][-]{section.3.2}{Processing Text into Graphs}{chapter.3}% 15
 \BOOKMARK [1][-]{section.3.3}{Graph Kernels for Similarity}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Discussion of results}{}% 17
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 18
-\BOOKMARK [0][-]{chapter.6}{Future Work}{}% 19
-\BOOKMARK [0][-]{section*.6}{Appendices}{}% 20
-\BOOKMARK [0][-]{Appendix.1.A}{My first appendix}{}% 21
+\BOOKMARK [1][-]{section.3.4}{Graph Kernels for Similarity}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.5}{Alternate Clustering Method with KDE}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.6}{Development of Methods}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{Results and Analysis}{}% 20
+\BOOKMARK [1][-]{section.4.1}{Computation of Kernels}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{Hierarchical Clustering}{chapter.4}% 22
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 23
+\BOOKMARK [0][-]{chapter.6}{Future Work}{}% 24
+\BOOKMARK [0][-]{section*.6}{Appendices}{}% 25
+\BOOKMARK [0][-]{Appendix.1.A}{My first appendix}{}% 26
