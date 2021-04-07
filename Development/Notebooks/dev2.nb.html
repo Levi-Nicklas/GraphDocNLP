@@ -1799,15 +1799,10 @@ summary {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShpZ3JhcGgpXG5saWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkodGlkeXRleHQpXG5saWJyYXJ5KGdncmFwaClcbmxpYnJhcnkoZ3JhcGhrZXJuZWxzKVxubGlicmFyeShoZXJlKVxuXG5tZW50YWxfaGVhbHRoIDwtIHJlYWRSRFMoZmlsZSA9IGhlcmUoXCJEYXRhL1Jhd0RhdGEvbWVudGFsaGVhbHRoX3JlZGRpdF8yMDIwMTAyNS5SRFNcIikpXG5gYGAifQ== -->
-<pre class="r"><code>library(igraph)
-library(tidyverse)
-library(tidytext)
-library(ggraph)
-library(graphkernels)
-library(here)
-
-mental_health &lt;- readRDS(file = here(&quot;Data/RawData/mentalhealth_reddit_20201025.RDS&quot;))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeShpZ3JhcGgpXG5saWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkodGlkeXRleHQpXG5saWJyYXJ5KGdncmFwaClcbmxpYnJhcnkoZ3JhcGhrZXJuZWxzKVxubGlicmFyeShoZXJlKVxuXG5tZW50YWxfaGVhbHRoIDwtIHJlYWRSRFMoZmlsZSA9IGhlcmUoXFxEYXRhL1Jhd0RhdGEvbWVudGFsaGVhbHRoX3JlZGRpdF8yMDIwMTAyNS5SRFNcXCkpXG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r library(igraph) library(tidyverse) library(tidytext) library(ggraph) library(graphkernels) library(here)</p>
+<p>mental_health &lt;- readRDS(file = here(/RawData/mentalhealth_reddit_20201025.RDS))</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1819,85 +1814,50 @@ mental_health &lt;- readRDS(file = here(&quot;Data/RawData/mentalhealth_reddit_2
 <p>Data was collected from <a href>reddit</a> on October 25, 2020 from the <em>r/mentalhealth</em> subreddit. The subreddit was queried for the followign words: <em>anxious, anxiety, depressed, depression, mental, illness, scared, afraid, sad, emotion, anger, angry, upset, suicide, abuse, emotional, help, addiction</em>. Each word queried returns thousands of comments on posts in the subreddit. These posts/comments will be cross checked for duplicates. It is likely that we see duplicates as “mental” and “illness” are words that may appear in the same post, thus the post and its subsequent comments will be duplicated by searching both of these terms. This will be addressed in the cleaning of the data. In addition to cleaning the data, there is a need to <strong>reformat</strong> the data. The data is presently in a list of data frames where each observation in a dataframe contains the full text of a comment/post. This data will have to be broken down and built back up into a <em>graph</em> structure so that the graph kernel methods of interest can be utilized.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBHZXQgdGhlIGRhdGEgYWxsIGluIG9uZSBmcmFtZS5cbm1lbnRhbF9oZWFsdGhfZGYgPC0gbWVudGFsX2hlYWx0aFtbMV1dXG5cbmZvcihpIGluIDI6bGVuZ3RoKG1lbnRhbF9oZWFsdGgpKXtcbiAgbWVudGFsX2hlYWx0aF9kZiA8LSByYmluZChtZW50YWxfaGVhbHRoX2RmLCBtZW50YWxfaGVhbHRoW1tpXV0pXG59XG5cbiMgRm9ybSBHcmFwaHNcbnJlZGRpdF9ncmFwaHMgPC0gbGlzdCgpXG5cbmZvcihpIGluIDE6bGVuZ3RoKG1lbnRhbF9oZWFsdGgpKXtcbiAgZGZfdGVtcCA8LSBtZW50YWxfaGVhbHRoW1tpXV1cbiAgXG4gICMgVG9rZW5pemVcbiAgdGlkeV9kZiA8LSB1bm5lc3RfdG9rZW5zKGRmX3RlbXAsIG91dHB1dCA9IFwid29yZHNcIiAsIGlucHV0ID0gY29tbWVudCwgdG9rZW4gPSBcInNraXBfbmdyYW1zXCIsIG4gPSAyLCBrID0gNSkgJT4lIFxuICAgIHNlbGVjdChpZCwgc3RydWN0dXJlLCB0aXRsZSwgVVJMLCB3b3JkcylcbiAgXG4gICMgQ2xlYW4gQmlncmFtc1xuICBncmFwaF9kZiA8LSB0aWR5X2RmICU+JSBcbiAgICBzZXBhcmF0ZSh3b3JkcywgYyhcIndvcmQxXCIsIFwid29yZDJcIiksIHNlcCA9IFwiIFwiKSAlPiUgXG4gICAgYW50aV9qb2luKHN0b3Bfd29yZHMsIGJ5ID0gYyhcIndvcmQxXCIgPSBcIndvcmRcIikpICU+JSBcbiAgICBhbnRpX2pvaW4oc3RvcF93b3JkcywgYnkgPSBjKFwid29yZDJcIiA9IFwid29yZFwiKSkgJT4lIFxuICAgIGZpbHRlcighaXMubmEod29yZDEpLCFpcy5uYSh3b3JkMikpICU+JSBcbiAgICBncm91cF9ieSh3b3JkMSwgd29yZDIpICU+JSBcbiAgICBjb3VudCgpICU+JSBcbiAgICBhcnJhbmdlKGRlc2MobikpICU+JSBcbiAgICAjZmlsdGVyKG4gPiA1KSAlPiUgXG4gICAgZ3JhcGhfZnJvbV9kYXRhX2ZyYW1lKClcbiAgXG4gIHJlZGRpdF9ncmFwaHNbW2ldXSA8LSBncmFwaF9kZlxufVxuXG4jIFRvIFZpZXcsIHJlcnVuIGxvb3Agd2l0aCBuPjUgdG8gYXZvaWQgdG9vIG1hbnkgbm9kZXMuXG4jIGdyYXBoX2RmICU+JSBcbiMgICBnZ3JhcGgobGF5b3V0ID0gXCJmclwiKSArXG4jICAgZ2VvbV9lZGdlX2xpbmsoKSArXG4jICAgZ2VvbV9ub2RlX3BvaW50KCkgK1xuIyAgIGdlb21fbm9kZV90ZXh0KGFlcyhsYWJlbCA9IG5hbWUpLCB2anVzdCA9IDEsIGhqdXN0ID0gMSlcbmBgYCJ9 -->
-<pre class="r"><code># Get the data all in one frame.
-mental_health_df &lt;- mental_health[[1]]
-
-for(i in 2:length(mental_health)){
-  mental_health_df &lt;- rbind(mental_health_df, mental_health[[i]])
-}
-
-# Form Graphs
-reddit_graphs &lt;- list()
-
-for(i in 1:length(mental_health)){
-  df_temp &lt;- mental_health[[i]]
-  
-  # Tokenize
-  tidy_df &lt;- unnest_tokens(df_temp, output = &quot;words&quot; , input = comment, token = &quot;skip_ngrams&quot;, n = 2, k = 5) %&gt;% 
-    select(id, structure, title, URL, words)
-  
-  # Clean Bigrams
-  graph_df &lt;- tidy_df %&gt;% 
-    separate(words, c(&quot;word1&quot;, &quot;word2&quot;), sep = &quot; &quot;) %&gt;% 
-    anti_join(stop_words, by = c(&quot;word1&quot; = &quot;word&quot;)) %&gt;% 
-    anti_join(stop_words, by = c(&quot;word2&quot; = &quot;word&quot;)) %&gt;% 
-    filter(!is.na(word1),!is.na(word2)) %&gt;% 
-    group_by(word1, word2) %&gt;% 
-    count() %&gt;% 
-    arrange(desc(n)) %&gt;% 
-    #filter(n &gt; 5) %&gt;% 
-    graph_from_data_frame()
-  
-  reddit_graphs[[i]] &lt;- graph_df
-}
-
-# To View, rerun loop with n&gt;5 to avoid too many nodes.
-# graph_df %&gt;% 
-#   ggraph(layout = &quot;fr&quot;) +
-#   geom_edge_link() +
-#   geom_node_point() +
-#   geom_node_text(aes(label = name), vjust = 1, hjust = 1)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBHZXQgdGhlIGRhdGEgYWxsIGluIG9uZSBmcmFtZS5cbm1lbnRhbF9oZWFsdGhfZGYgPC0gbWVudGFsX2hlYWx0aFtbMV1dXG5cbmZvcihpIGluIDI6bGVuZ3RoKG1lbnRhbF9oZWFsdGgpKXtcbiAgbWVudGFsX2hlYWx0aF9kZiA8LSByYmluZChtZW50YWxfaGVhbHRoX2RmLCBtZW50YWxfaGVhbHRoW1tpXV0pXG59XG5cbiMgRm9ybSBHcmFwaHNcbnJlZGRpdF9ncmFwaHMgPC0gbGlzdCgpXG5cbmZvcihpIGluIDE6bGVuZ3RoKG1lbnRhbF9oZWFsdGgpKXtcbiAgZGZfdGVtcCA8LSBtZW50YWxfaGVhbHRoW1tpXV1cbiAgXG4gICMgVG9rZW5pemVcbiAgdGlkeV9kZiA8LSB1bm5lc3RfdG9rZW5zKGRmX3RlbXAsIG91dHB1dCA9IFxcd29yZHNcXCAsIGlucHV0ID0gY29tbWVudCwgdG9rZW4gPSBcXHNraXBfbmdyYW1zXFwsIG4gPSAyLCBrID0gNSkgJT4lIFxuICAgIHNlbGVjdChpZCwgc3RydWN0dXJlLCB0aXRsZSwgVVJMLCB3b3JkcylcbiAgXG4gICMgQ2xlYW4gQmlncmFtc1xuICBncmFwaF9kZiA8LSB0aWR5X2RmICU+JSBcbiAgICBzZXBhcmF0ZSh3b3JkcywgYyhcXHdvcmQxXFwsIFxcd29yZDJcXCksIHNlcCA9IFxcIFxcKSAlPiUgXG4gICAgYW50aV9qb2luKHN0b3Bfd29yZHMsIGJ5ID0gYyhcXHdvcmQxXFwgPSBcXHdvcmRcXCkpICU+JSBcbiAgICBhbnRpX2pvaW4oc3RvcF93b3JkcywgYnkgPSBjKFxcd29yZDJcXCA9IFxcd29yZFxcKSkgJT4lIFxuICAgIGZpbHRlcighaXMubmEod29yZDEpLCFpcy5uYSh3b3JkMikpICU+JSBcbiAgICBncm91cF9ieSh3b3JkMSwgd29yZDIpICU+JSBcbiAgICBjb3VudCgpICU+JSBcbiAgICBhcnJhbmdlKGRlc2MobikpICU+JSBcbiAgICAjZmlsdGVyKG4gPiA1KSAlPiUgXG4gICAgZ3JhcGhfZnJvbV9kYXRhX2ZyYW1lKClcbiAgXG4gIHJlZGRpdF9ncmFwaHNbW2ldXSA8LSBncmFwaF9kZlxufVxuXG4jIFRvIFZpZXcsIHJlcnVuIGxvb3Agd2l0aCBuPjUgdG8gYXZvaWQgdG9vIG1hbnkgbm9kZXMuXG4jIGdyYXBoX2RmICU+JSBcbiMgICBnZ3JhcGgobGF5b3V0ID0gXFxmclxcKSArXG4jICAgZ2VvbV9lZGdlX2xpbmsoKSArXG4jICAgZ2VvbV9ub2RlX3BvaW50KCkgK1xuIyAgIGdlb21fbm9kZV90ZXh0KGFlcyhsYWJlbCA9IG5hbWUpLCB2anVzdCA9IDEsIGhqdXN0ID0gMSlcbmBgYFxuYGBgIn0= -->
+<p><code>r</code>r # Get the data all in one frame. mental_health_df &lt;- mental_health[[1]]</p>
+<p>for(i in 2:length(mental_health)){ mental_health_df &lt;- rbind(mental_health_df, mental_health[[i]]) }</p>
+</div>
+<div id="form-graphs" class="section level1">
+<h1>Form Graphs</h1>
+<p>reddit_graphs &lt;- list()</p>
+<p>for(i in 1:length(mental_health)){ df_temp &lt;- mental_health[[i]]</p>
+<p># Tokenize tidy_df &lt;- unnest_tokens(df_temp, output =  , input = comment, token = _ngrams, n = 2, k = 5) %&gt;% select(id, structure, title, URL, words)</p>
+<p># Clean Bigrams graph_df &lt;- tidy_df %&gt;% separate(words, c(1, 2), sep =  ) %&gt;% anti_join(stop_words, by = c(1 = )) %&gt;% anti_join(stop_words, by = c(2 = )) %&gt;% filter(!is.na(word1),!is.na(word2)) %&gt;% group_by(word1, word2) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% #filter(n &gt; 5) %&gt;% graph_from_data_frame()</p>
+<p>reddit_graphs[[i]] &lt;- graph_df }</p>
+</div>
+<div id="to-view-rerun-loop-with-n5-to-avoid-too-many-nodes." class="section level1">
+<h1>To View, rerun loop with n&gt;5 to avoid too many nodes.</h1>
+</div>
+<div id="graph_df" class="section level1">
+<h1>graph_df %&gt;%</h1>
+</div>
+<div id="ggraphlayout" class="section level1">
+<h1>ggraph(layout = ) +</h1>
+</div>
+<div id="geom_edge_link" class="section level1">
+<h1>geom_edge_link() +</h1>
+</div>
+<div id="geom_node_point" class="section level1">
+<h1>geom_node_point() +</h1>
+</div>
+<div id="geom_node_textaeslabel-name-vjust-1-hjust-1" class="section level1">
+<h1>geom_node_text(aes(label = name), vjust = 1, hjust = 1)</h1>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="preprocessing" class="section level1">
-<h1>Preprocessing</h1>
-<div id="kernel-1" class="section level2">
-<h2>Kernel 1</h2>
-<p>Edge Histogram</p>
+<div id="by-thread-analysis" class="section level1">
+<h1>By Thread Analysis</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuazEgPC0gZ3JhcGhrZXJuZWxzOjpDYWxjdWxhdGVFZGdlSGlzdEtlcm5lbChyZWRkaXRfZ3JhcGhzWzE6MThdKVxuI2syIDwtIGdyYXBoa2VybmVsczo6Q2FsY3VsYXRlVmVydGV4SGlzdEtlcm5lbChyZWRkaXRfZ3JhcGhzWzE6NF0pXG5cbiMga2VybmxhYjo6a2ttZWFucygpXG5rMVsxLDFdICsgazFbMiwyXSAtIDIqazFbMSwyXVxuazFbMSwxXSArIGsxWzMsM10gLSAyKmsxWzEsM11cbmBgYCJ9 -->
-<pre class="r"><code>k1 &lt;- graphkernels::CalculateEdgeHistKernel(reddit_graphs[1:18])
-#k2 &lt;- graphkernels::CalculateVertexHistKernel(reddit_graphs[1:4])
-
-# kernlab::kkmeans()
-k1[1,1] + k1[2,2] - 2*k1[1,2]
-k1[1,1] + k1[3,3] - 2*k1[1,3]</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="kernel-2" class="section level2">
-<h2>Kernel 2</h2>
-<p>Weisfel Leman</p>
-</div>
-<div id="kernel-3" class="section level2">
-<h2>Kernel 3</h2>
-<p>???</p>
-</div>
-<div id="comparison" class="section level2">
-<h2>Comparison</h2>
-</div>
-</div>
-<div id="analysis" class="section level1">
-<h1>Analysis</h1>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRGV2IE5vdGVib29rIC0yIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7ciBTZXR1cCwgbWVzc2FnZSA9IEZ9CmxpYnJhcnkoaWdyYXBoKQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeSh0aWR5dGV4dCkKbGlicmFyeShnZ3JhcGgpCmxpYnJhcnkoZ3JhcGhrZXJuZWxzKQpsaWJyYXJ5KGhlcmUpCgptZW50YWxfaGVhbHRoIDwtIHJlYWRSRFMoZmlsZSA9IGhlcmUoIkRhdGEvUmF3RGF0YS9tZW50YWxoZWFsdGhfcmVkZGl0XzIwMjAxMDI1LlJEUyIpKQpgYGAKCiMgSW50cm9kdWN0aW9uCgoKIyBEYXRhIAoKRGF0YSB3YXMgY29sbGVjdGVkIGZyb20gW3JlZGRpdF0oKSBvbiBPY3RvYmVyIDI1LCAyMDIwIGZyb20gdGhlIF9yL21lbnRhbGhlYWx0aF8gc3VicmVkZGl0LiBUaGUgc3VicmVkZGl0IHdhcyBxdWVyaWVkIGZvciB0aGUgZm9sbG93aWduIHdvcmRzOiBfYW54aW91cywgYW54aWV0eSwgZGVwcmVzc2VkLCBkZXByZXNzaW9uLCBtZW50YWwsIGlsbG5lc3MsIHNjYXJlZCwgYWZyYWlkLCBzYWQsIGVtb3Rpb24sIGFuZ2VyLCBhbmdyeSwgdXBzZXQsIHN1aWNpZGUsIGFidXNlLCBlbW90aW9uYWwsIGhlbHAsIGFkZGljdGlvbl8uIEVhY2ggd29yZCBxdWVyaWVkIHJldHVybnMgdGhvdXNhbmRzIG9mIGNvbW1lbnRzIG9uIHBvc3RzIGluIHRoZSBzdWJyZWRkaXQuIFRoZXNlIHBvc3RzL2NvbW1lbnRzIHdpbGwgYmUgY3Jvc3MgY2hlY2tlZCBmb3IgZHVwbGljYXRlcy4gSXQgaXMgbGlrZWx5IHRoYXQgd2Ugc2VlIGR1cGxpY2F0ZXMgYXMgIm1lbnRhbCIgYW5kICJpbGxuZXNzIiBhcmUgd29yZHMgdGhhdCBtYXkgYXBwZWFyIGluIHRoZSBzYW1lIHBvc3QsIHRodXMgdGhlIHBvc3QgYW5kIGl0cyBzdWJzZXF1ZW50IGNvbW1lbnRzIHdpbGwgYmUgZHVwbGljYXRlZCBieSBzZWFyY2hpbmcgYm90aCBvZiB0aGVzZSB0ZXJtcy4gVGhpcyB3aWxsIGJlIGFkZHJlc3NlZCBpbiB0aGUgY2xlYW5pbmcgb2YgdGhlIGRhdGEuIEluIGFkZGl0aW9uIHRvIGNsZWFuaW5nIHRoZSBkYXRhLCB0aGVyZSBpcyBhIG5lZWQgdG8gICoqcmVmb3JtYXQqKiB0aGUgZGF0YS4gVGhlIGRhdGEgaXMgcHJlc2VudGx5IGluIGEgbGlzdCBvZiBkYXRhIGZyYW1lcyB3aGVyZSBlYWNoIG9ic2VydmF0aW9uIGluIGEgZGF0YWZyYW1lIGNvbnRhaW5zIHRoZSBmdWxsIHRleHQgb2YgYSBjb21tZW50L3Bvc3QuIFRoaXMgZGF0YSB3aWxsIGhhdmUgdG8gYmUgYnJva2VuIGRvd24gYW5kIGJ1aWx0IGJhY2sgdXAgaW50byBhIF9ncmFwaF8gc3RydWN0dXJlIHNvIHRoYXQgdGhlIGdyYXBoIGtlcm5lbCBtZXRob2RzIG9mIGludGVyZXN0IGNhbiBiZSB1dGlsaXplZC4KCmBgYHtyIGRhdGEtd3JhbmdsaW5nfQojIEdldCB0aGUgZGF0YSBhbGwgaW4gb25lIGZyYW1lLgptZW50YWxfaGVhbHRoX2RmIDwtIG1lbnRhbF9oZWFsdGhbWzFdXQoKZm9yKGkgaW4gMjpsZW5ndGgobWVudGFsX2hlYWx0aCkpewogIG1lbnRhbF9oZWFsdGhfZGYgPC0gcmJpbmQobWVudGFsX2hlYWx0aF9kZiwgbWVudGFsX2hlYWx0aFtbaV1dKQp9CgojIEZvcm0gR3JhcGhzCnJlZGRpdF9ncmFwaHMgPC0gbGlzdCgpCgpmb3IoaSBpbiAxOmxlbmd0aChtZW50YWxfaGVhbHRoKSl7CiAgZGZfdGVtcCA8LSBtZW50YWxfaGVhbHRoW1tpXV0KICAKICAjIFRva2VuaXplCiAgdGlkeV9kZiA8LSB1bm5lc3RfdG9rZW5zKGRmX3RlbXAsIG91dHB1dCA9ICJ3b3JkcyIgLCBpbnB1dCA9IGNvbW1lbnQsIHRva2VuID0gInNraXBfbmdyYW1zIiwgbiA9IDIsIGsgPSA1KSAlPiUgCiAgICBzZWxlY3QoaWQsIHN0cnVjdHVyZSwgdGl0bGUsIFVSTCwgd29yZHMpCiAgCiAgIyBDbGVhbiBCaWdyYW1zCiAgZ3JhcGhfZGYgPC0gdGlkeV9kZiAlPiUgCiAgICBzZXBhcmF0ZSh3b3JkcywgYygid29yZDEiLCAid29yZDIiKSwgc2VwID0gIiAiKSAlPiUgCiAgICBhbnRpX2pvaW4oc3RvcF93b3JkcywgYnkgPSBjKCJ3b3JkMSIgPSAid29yZCIpKSAlPiUgCiAgICBhbnRpX2pvaW4oc3RvcF93b3JkcywgYnkgPSBjKCJ3b3JkMiIgPSAid29yZCIpKSAlPiUgCiAgICBmaWx0ZXIoIWlzLm5hKHdvcmQxKSwhaXMubmEod29yZDIpKSAlPiUgCiAgICBncm91cF9ieSh3b3JkMSwgd29yZDIpICU+JSAKICAgIGNvdW50KCkgJT4lIAogICAgYXJyYW5nZShkZXNjKG4pKSAlPiUgCiAgICAjZmlsdGVyKG4gPiA1KSAlPiUgCiAgICBncmFwaF9mcm9tX2RhdGFfZnJhbWUoKQogIAogIHJlZGRpdF9ncmFwaHNbW2ldXSA8LSBncmFwaF9kZgp9CgojIFRvIFZpZXcsIHJlcnVuIGxvb3Agd2l0aCBuPjUgdG8gYXZvaWQgdG9vIG1hbnkgbm9kZXMuCiMgZ3JhcGhfZGYgJT4lIAojICAgZ2dyYXBoKGxheW91dCA9ICJmciIpICsKIyAgIGdlb21fZWRnZV9saW5rKCkgKwojICAgZ2VvbV9ub2RlX3BvaW50KCkgKwojICAgZ2VvbV9ub2RlX3RleHQoYWVzKGxhYmVsID0gbmFtZSksIHZqdXN0ID0gMSwgaGp1c3QgPSAxKQpgYGAKCgoKCiMgUHJlcHJvY2Vzc2luZwoKCgoKCgojIyBLZXJuZWwgMQpFZGdlIEhpc3RvZ3JhbQoKYGBge3IgZWRnZTF9CmsxIDwtIGdyYXBoa2VybmVsczo6Q2FsY3VsYXRlRWRnZUhpc3RLZXJuZWwocmVkZGl0X2dyYXBoc1sxOjE4XSkKI2syIDwtIGdyYXBoa2VybmVsczo6Q2FsY3VsYXRlVmVydGV4SGlzdEtlcm5lbChyZWRkaXRfZ3JhcGhzWzE6NF0pCgojIGtlcm5sYWI6OmtrbWVhbnMoKQprMVsxLDFdICsgazFbMiwyXSAtIDIqazFbMSwyXQprMVsxLDFdICsgazFbMywzXSAtIDIqazFbMSwzXQpgYGAKCiMjIEtlcm5lbCAyCldlaXNmZWwgTGVtYW4KCiMjIEtlcm5lbCAzIAo/Pz8KCiMjIENvbXBhcmlzb24KCiMgQW5hbHlzaXM=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRGV2IE5vdGVib29rIC0yIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpgYGB7ciBTZXR1cCwgbWVzc2FnZSA9IEZ9CmxpYnJhcnkoaWdyYXBoKQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeSh0aWR5dGV4dCkKbGlicmFyeShnZ3JhcGgpCmxpYnJhcnkoZ3JhcGhrZXJuZWxzKQpsaWJyYXJ5KGhlcmUpCgptZW50YWxfaGVhbHRoIDwtIHJlYWRSRFMoZmlsZSA9IGhlcmUoIkRhdGEvUmF3RGF0YS9tZW50YWxoZWFsdGhfcmVkZGl0XzIwMjAxMDI1LlJEUyIpKQpgYGAKCiMgSW50cm9kdWN0aW9uCgoKIyBEYXRhIAoKRGF0YSB3YXMgY29sbGVjdGVkIGZyb20gW3JlZGRpdF0oKSBvbiBPY3RvYmVyIDI1LCAyMDIwIGZyb20gdGhlIF9yL21lbnRhbGhlYWx0aF8gc3VicmVkZGl0LiBUaGUgc3VicmVkZGl0IHdhcyBxdWVyaWVkIGZvciB0aGUgZm9sbG93aWduIHdvcmRzOiBfYW54aW91cywgYW54aWV0eSwgZGVwcmVzc2VkLCBkZXByZXNzaW9uLCBtZW50YWwsIGlsbG5lc3MsIHNjYXJlZCwgYWZyYWlkLCBzYWQsIGVtb3Rpb24sIGFuZ2VyLCBhbmdyeSwgdXBzZXQsIHN1aWNpZGUsIGFidXNlLCBlbW90aW9uYWwsIGhlbHAsIGFkZGljdGlvbl8uIEVhY2ggd29yZCBxdWVyaWVkIHJldHVybnMgdGhvdXNhbmRzIG9mIGNvbW1lbnRzIG9uIHBvc3RzIGluIHRoZSBzdWJyZWRkaXQuIFRoZXNlIHBvc3RzL2NvbW1lbnRzIHdpbGwgYmUgY3Jvc3MgY2hlY2tlZCBmb3IgZHVwbGljYXRlcy4gSXQgaXMgbGlrZWx5IHRoYXQgd2Ugc2VlIGR1cGxpY2F0ZXMgYXMgIm1lbnRhbCIgYW5kICJpbGxuZXNzIiBhcmUgd29yZHMgdGhhdCBtYXkgYXBwZWFyIGluIHRoZSBzYW1lIHBvc3QsIHRodXMgdGhlIHBvc3QgYW5kIGl0cyBzdWJzZXF1ZW50IGNvbW1lbnRzIHdpbGwgYmUgZHVwbGljYXRlZCBieSBzZWFyY2hpbmcgYm90aCBvZiB0aGVzZSB0ZXJtcy4gVGhpcyB3aWxsIGJlIGFkZHJlc3NlZCBpbiB0aGUgY2xlYW5pbmcgb2YgdGhlIGRhdGEuIEluIGFkZGl0aW9uIHRvIGNsZWFuaW5nIHRoZSBkYXRhLCB0aGVyZSBpcyBhIG5lZWQgdG8gICoqcmVmb3JtYXQqKiB0aGUgZGF0YS4gVGhlIGRhdGEgaXMgcHJlc2VudGx5IGluIGEgbGlzdCBvZiBkYXRhIGZyYW1lcyB3aGVyZSBlYWNoIG9ic2VydmF0aW9uIGluIGEgZGF0YWZyYW1lIGNvbnRhaW5zIHRoZSBmdWxsIHRleHQgb2YgYSBjb21tZW50L3Bvc3QuIFRoaXMgZGF0YSB3aWxsIGhhdmUgdG8gYmUgYnJva2VuIGRvd24gYW5kIGJ1aWx0IGJhY2sgdXAgaW50byBhIF9ncmFwaF8gc3RydWN0dXJlIHNvIHRoYXQgdGhlIGdyYXBoIGtlcm5lbCBtZXRob2RzIG9mIGludGVyZXN0IGNhbiBiZSB1dGlsaXplZC4KCmBgYHtyIGRhdGEtd3JhbmdsaW5nfQojIEdldCB0aGUgZGF0YSBhbGwgaW4gb25lIGZyYW1lLgptZW50YWxfaGVhbHRoX2RmIDwtIG1lbnRhbF9oZWFsdGhbWzFdXQoKZm9yKGkgaW4gMjpsZW5ndGgobWVudGFsX2hlYWx0aCkpewogIG1lbnRhbF9oZWFsdGhfZGYgPC0gcmJpbmQobWVudGFsX2hlYWx0aF9kZiwgbWVudGFsX2hlYWx0aFtbaV1dKQp9CgojIEZvcm0gR3JhcGhzCnJlZGRpdF9ncmFwaHMgPC0gbGlzdCgpCgpmb3IoaSBpbiAxOmxlbmd0aChtZW50YWxfaGVhbHRoKSl7CiAgZGZfdGVtcCA8LSBtZW50YWxfaGVhbHRoW1tpXV0KICAKICAjIFRva2VuaXplCiAgdGlkeV9kZiA8LSB1bm5lc3RfdG9rZW5zKGRmX3RlbXAsIG91dHB1dCA9ICJ3b3JkcyIgLCBpbnB1dCA9IGNvbW1lbnQsIHRva2VuID0gInNraXBfbmdyYW1zIiwgbiA9IDIsIGsgPSA1KSAlPiUgCiAgICBzZWxlY3QoaWQsIHN0cnVjdHVyZSwgdGl0bGUsIFVSTCwgd29yZHMpCiAgCiAgIyBDbGVhbiBCaWdyYW1zCiAgZ3JhcGhfZGYgPC0gdGlkeV9kZiAlPiUgCiAgICBzZXBhcmF0ZSh3b3JkcywgYygid29yZDEiLCAid29yZDIiKSwgc2VwID0gIiAiKSAlPiUgCiAgICBhbnRpX2pvaW4oc3RvcF93b3JkcywgYnkgPSBjKCJ3b3JkMSIgPSAid29yZCIpKSAlPiUgCiAgICBhbnRpX2pvaW4oc3RvcF93b3JkcywgYnkgPSBjKCJ3b3JkMiIgPSAid29yZCIpKSAlPiUgCiAgICBmaWx0ZXIoIWlzLm5hKHdvcmQxKSwhaXMubmEod29yZDIpKSAlPiUgCiAgICBncm91cF9ieSh3b3JkMSwgd29yZDIpICU+JSAKICAgIGNvdW50KCkgJT4lIAogICAgYXJyYW5nZShkZXNjKG4pKSAlPiUgCiAgICAjZmlsdGVyKG4gPiA1KSAlPiUgCiAgICBncmFwaF9mcm9tX2RhdGFfZnJhbWUoKQogIAogIHJlZGRpdF9ncmFwaHNbW2ldXSA8LSBncmFwaF9kZgp9CgojIFRvIFZpZXcsIHJlcnVuIGxvb3Agd2l0aCBuPjUgdG8gYXZvaWQgdG9vIG1hbnkgbm9kZXMuCiMgZ3JhcGhfZGYgJT4lIAojICAgZ2dyYXBoKGxheW91dCA9ICJmciIpICsKIyAgIGdlb21fZWRnZV9saW5rKCkgKwojICAgZ2VvbV9ub2RlX3BvaW50KCkgKwojICAgZ2VvbV9ub2RlX3RleHQoYWVzKGxhYmVsID0gbmFtZSksIHZqdXN0ID0gMSwgaGp1c3QgPSAxKQpgYGAKCgoKCiMgQnkgVGhyZWFkIEFuYWx5c2lzCgpgYGB7cn0KCgpgYGAKCgoKCgo=</div>
 
 
 

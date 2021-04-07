@@ -1,0 +1,102 @@
+---
+title: "reddit_Notebook"
+author: "Levi C. Nicklas"
+date: "4/7/2021"
+output: html_document
+---
+
+```{r setup, warning = FALSE, message=FALSE}
+# Libraries
+library(tidyverse)
+library(here)
+library(igraph)
+library(graphkernels)
+library(tidytext)
+
+# Data Import
+file.names <- list.files(path = here::here("Data/RawData"))
+
+threads <- list()
+
+for(i in 1:length(file.names)){
+  temp.file.name <- here::here(paste0("Data/RawData/", file.names[i]))
+
+  if(grepl("subreddit-",temp.file.name)){
+    temp.file <- readRDS(temp.file.name)
+    threads[[i]] <- temp.file
+  }
+}
+```
+
+Reformat the data to be text blobs _by thread_; observational unit in this analysis is now a **thread**.
+
+```{r}
+### Compress Thread text per post. ###
+
+thread_text_list <- list()
+
+for(j in 1:length(threads)){
+  thread_df <- threads[[j]] 
+
+  thread_df <- thread_df %>% 
+  # Get top level of thread.
+  mutate(thread_id = str_extract(structure,pattern = "[:digit:]{1,2}")) %>% 
+  # Make Composite key of thread_ID and 
+  mutate(post_thread_id = paste0(thread_id,"_x_",title)) 
+
+  thread_df_compressed <- data.frame(post_thread_id = c(),
+                                  text = c(),
+                                  URL = c())
+  post_threads <- unique(thread_df$post_thread_id)
+
+  for(i in 1:length(post_threads)){
+    thread_text <- thread_df %>% 
+      filter(post_thread_id == post_threads[i]) %>% 
+      select(comment) 
+    thread_post <- thread_df %>% 
+      filter(post_thread_id == post_threads[i]) %>% 
+      select(post_text) %>% 
+      unique() %>% 
+      pull()
+    thread_url <- thread_df %>% 
+      filter(post_thread_id == post_threads[i]) %>% 
+      select(URL) %>% 
+      unique() %>% 
+      pull()
+    
+    # Collapse Post and Comments into one blob.
+    thread_text <- paste(thread_post, thread_text, collapse = ".")
+    
+    tmp_df <- data.frame(post_thread_id = c(post_threads[i]),
+                                    text = c(thread_text),
+                                    URL = c(thread_url))
+    
+    thread_df_compressed <- rbind(thread_df_compressed, tmp_df)
+    #print(paste0("On Post ",j,", thread ",i))
+  }
+  thread_text_list[[j]] <- thread_df_compressed
+  
+}
+
+rm(thread_df, temp.file, thread_df_compressed)
+```
+
+
+```{r}
+# Make one big dataframe.
+
+post_thread_text <- thread_text_list[[1]]
+post_thread_text$queryword <- 1
+
+for(i in 2:length(thread_text_list)){
+  tmp_df <- thread_text_list[[i]]
+  tmp_df$queryword <- i
+  post_thread_text <- rbind(post_thread_text,tmp_df)
+}
+
+rm(thread_text_list, threads, tmp_df)
+```
+
+
+## DATA CLEANING WITH EXISTING FUNCTIONS ##
+
