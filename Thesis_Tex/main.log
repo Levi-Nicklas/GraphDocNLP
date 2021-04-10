@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  6 APR 2021 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  10 APR 2021 14:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -938,7 +938,7 @@ LaTeX Info: Redefining \nameref on input line 33.
  ABD: EveryShipout initializing macros
 (./Content/01_Front_Matter/main.tex
 (./Content/01_Front_Matter/00_cover_page.tex
-<Content/Images/FLPoly_logo.pdf, id=7, 412.54124pt x 112.92188pt>
+<Content/Images/FLPoly_logo.pdf, id=118, 412.54124pt x 112.92188pt>
 File: Content/Images/FLPoly_logo.pdf Graphic file (type pdf)
 <use Content/Images/FLPoly_logo.pdf>
 Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
@@ -963,45 +963,33 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) [2]
 (./Content/01_Front_Matter/02_dedication.tex) [3]
 (./Content/01_Front_Matter/03_acknowledgments.tex) [4]
-(./Content/01_Front_Matter/04_front_matter.tex
+(./Content/01_Front_Matter/04_front_matter.tex (./main.toc [1
 
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-[1
-
-]
-
-Package hyperref Warning: old lof file detected, not used; run LaTeX again.
-
+ [2] (./main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
-[2
+ [3
 
-]
-
-Package hyperref Warning: old lot file detected, not used; run LaTeX again.
-
+] (./main.lot)
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
-[3
+ [4
 
-]
-
-Package hyperref Warning: old loa file detected, not used; run LaTeX again.
-
+] (./main.loa)
 \tf@loa=\write8
 \openout8 = `main.loa'.
 
-[4
+ [5
 
-]) (./Content/01_Front_Matter/05_abstract.texpdfTeX warning (ext4): destination
- with the same identifier (name{page.1}) has been already used, duplicate ignor
-ed
+])
+(./Content/01_Front_Matter/05_abstract.texpdfTeX warning (ext4): destination wi
+th the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.14 \end{abstract}
@@ -1017,7 +1005,7 @@ l.19  \includegraphics
 [1
 
 ]
-<Content/Images/proposal_diagram.png, id=102, 801.99625pt x 553.06625pt>
+<Content/Images/proposal_diagram.png, id=252, 801.99625pt x 553.06625pt>
 File: Content/Images/proposal_diagram.png Graphic file (type png)
 <use Content/Images/proposal_diagram.png>
 Package pdftex.def Info: Content/Images/proposal_diagram.png  used on input lin
@@ -1081,7 +1069,7 @@ Chapter 3.
 (./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex) [13]
 (./Content/02_Chapters/Chapter 03/Sections/04_KDE_Cluster.tex)
 (./Content/02_Chapters/Chapter 03/Sections/05_Development.tex [14]
-<Content/Images/ScriptMap.png, id=182, 774.895pt x 643.40375pt>
+<Content/Images/ScriptMap.png, id=317, 774.895pt x 643.40375pt>
 File: Content/Images/ScriptMap.png Graphic file (type png)
 <use Content/Images/ScriptMap.png>
 Package pdftex.def Info: Content/Images/ScriptMap.png  used on input line 7.
@@ -1096,7 +1084,7 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              for symbol `textbraceleft' on input line 10.
 
 [15 <./Content/Images/ScriptMap.png>]
-<Content/Images/edgeHistTimePlot.png, id=188, 2107.875pt x 2107.875pt>
+<Content/Images/edgeHistTimePlot.png, id=324, 2107.875pt x 2107.875pt>
 File: Content/Images/edgeHistTimePlot.png Graphic file (type png)
 <use Content/Images/edgeHistTimePlot.png>
 Package pdftex.def Info: Content/Images/edgeHistTimePlot.png  used on input lin
@@ -1105,37 +1093,44 @@ e 13.
  [16 <./Content/Images/edgeHistTimePlot.png>])) (./Content/02_Chapters/Chapter 
 04/main.tex [17] [18]
 Chapter 4.
-(./Content/02_Chapters/Chapter 04/Sections/00_KernelsComputation.tex)
 (./Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex
-<Content/Images/hclust_variation.png, id=203, 1877.0125pt x 2262.4525pt>
+<Content/Images/hclust_variation.png, id=338, 1877.0125pt x 2262.4525pt>
 File: Content/Images/hclust_variation.png Graphic file (type png)
 <use Content/Images/hclust_variation.png>
 Package pdftex.def Info: Content/Images/hclust_variation.png  used on input lin
-e 13.
+e 19.
 (pdftex.def)             Requested size: 433.62pt x 522.6316pt.
-))
-(./Content/02_Chapters/Chapter 05/main.tex [19
+ [19
 
-]
-Overfull \vbox (17.00073pt too high) has occurred while \output is active []
-
-
-[20 <./Content/Images/hclust_variation.png>]
+] [20 <./Content/Images/hclust_variation.png>]
+<Content/Images/5cluster.png, id=348, 3914.625pt x 1806.75pt>
+File: Content/Images/5cluster.png Graphic file (type png)
+<use Content/Images/5cluster.png>
+Package pdftex.def Info: Content/Images/5cluster.png  used on input line 41.
+(pdftex.def)             Requested size: 433.62pt x 200.12155pt.
+<Content/Images/comembers5.png, id=349, 2409.0pt x 2409.0pt>
+File: Content/Images/comembers5.png Graphic file (type png)
+<use Content/Images/comembers5.png>
+Package pdftex.def Info: Content/Images/comembers5.png  used on input line 48.
+(pdftex.def)             Requested size: 433.62pt x 433.6013pt.
+ [21 <./Content/Images/5cluster.png>]
+[22 <./Content/Images/comembers5.png>]))
+(./Content/02_Chapters/Chapter 05/main.tex [23]
 Chapter 5.
-) (./Content/02_Chapters/Chapter 06/main.tex [21
+) (./Content/02_Chapters/Chapter 06/main.tex [24
 
 ]
 Chapter 6.
-) (./Content/02_Chapters/appendix.tex [22
+) (./Content/02_Chapters/appendix.tex [25
 
-] [23
+] [26
 
 
 ]
 Appendix A.
 ))
 No file main.bbl.
-[24
+[27
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
@@ -1143,31 +1138,22 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 0543177446AE054799A586B975A6A391;1779.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  30B4C6D0873160FE2D86B402018CE7F5;1617.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 20759 strings out of 492162
- 397584 string characters out of 6125292
- 469839 words of memory out of 5000000
- 24549 multiletter control sequences out of 15000+600000
+ 20814 strings out of 492162
+ 398311 string characters out of 6125292
+ 470018 words of memory out of 5000000
+ 24587 multiletter control sequences out of 15000+600000
  13377 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,11n,69p,1936b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1186,10 +1172,10 @@ ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
 019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (33 pages, 706071 bytes).
+Output written on main.pdf (37 pages, 1146570 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 449 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 272 words of extra memory for PDF output out of 10000 (max. 10000000)
 

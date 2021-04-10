@@ -12,6 +12,7 @@ library(here)
 library(igraph)
 library(graphkernels)
 library(tidytext)
+my_palette <-c("#ff333a","#f66025","#ffca3a","#8ac926","#1982c4","#6a4c93","#4b1592")
 
 # Data Import
 file.names <- list.files(path = here::here("Data/RawData"))
@@ -120,15 +121,89 @@ thread_graphs <- convert_to_graphs()
 ```{r, message = F}
 source(here::here("Development/Scripts/compute_graph_similarity.R"))
 source(here::here("Development/Scripts/compute_kernel.R"))
-reddit_thread_kernel <- compute_kernel()
+#reddit_thread_kernel <- compute_kernel()
 
 # This will take like 1 hr to run.
-saveRDS(reddit_thread_kernel, here::here("Data/ProcessedData/RedditThreadKerenel1000.RDS"))
+#saveRDS(reddit_thread_kernel, here::here("Data/ProcessedData/RedditThreadKerenel1000.RDS"))
+
+reddit_thread_kernel <- readRDS(here::here("Data/ProcessedData/RedditThreadKerenel1000.RDS"))
+```
+
+Make one matrix
+
+```{r}
+reddit_thread_kernel_matrix <- matrix(data = rep(0, 1000*1000), nrow = 1000)
+
+for(i in 1:length(reddit_thread_kernel)){
+  reddit_thread_kernel_matrix[i,] <- reddit_thread_kernel[[i]]
+}
+
+rm(reddit_thread_kernel)
+```
+
+# Hierarchical Cluster
+
+```{r}
+# Any NA values?
+thread_boolean <- reddit_thread_kernel_matrix[1,] %>% is.na() 
+
+# Remove bad text threads -> NA's
+post_thread_text_sample <- post_thread_text_sample[!thread_boolean,]
+
+# Resize
+reddit_thread_kernel_matrix <- reddit_thread_kernel_matrix[!thread_boolean,]
+reddit_thread_kernel_matrix <- reddit_thread_kernel_matrix[,!thread_boolean]
+
+#invert Matrix (Sim - > Dist)
+reddit_thread_kernel_matrix <- 1/reddit_thread_kernel_matrix
+
+library(caret)
+
+pca_kernel <- reddit_thread_kernel_matrix %>% prcomp(scale. = T, center = T)
+
+dendro_pca <- dist(pca_kernel$rotation, method = "manhattan") %>% 
+  hclust(method = "ward.D")
+
+dendro_pca %>% plot()
+
+reddit_thread_kernel_matrix$k3 <- dendro_pca %>% 
+  cutree(k = 3)
+
+reddit_thread_kernel_matrix$k5 <- dendro_pca %>% 
+  cutree(k = 5)
+
+reddit_thread_kernel_matrix$k7 <- dendro_pca %>% 
+  cutree(k = 7)
+
+```
+
+```{r, message=F}
+library(factoextra)
+
+reddit_dendo <- fviz_dend(dendro_pca, k = 3, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+
+ggsave(reddit_dendo, filename = here::here("Thesis_Tex/Content/Images/reddit_dendo.png"))
+```
+
+```{r}
+fviz_pca_ind(pca_kernel, label="none", habillage = post_thread_text_sample$k3,
+             addEllipses=F, ellipse.level=0.95)
+```
+
+
+```{r}
+fviz_pca_biplot(pca_kernel, label ="ind")
 ```
 
 ```{r}
 
 
-
 ```
+
+
+# Kernel Density Estimate Clustering
 

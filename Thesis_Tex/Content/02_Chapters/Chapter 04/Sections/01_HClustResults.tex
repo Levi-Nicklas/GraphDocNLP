@@ -9,9 +9,58 @@
 \section{Hierarchical Clustering}
 
 
-
- \includegraphics[width=6in]{Content/Images/hclust_variation.png}\\\vspace*{25mm}
+\subsection{NHTSA Special Crash Investigations}
+ For the NHTSA's Special Crash Investigation dataset, a hierarchical clustering was performed on the resulting graph kernel computed from the skip-gram graphs. Since this dataset was pretty small at $N=48$, it served as a good subject to study the interactions between modifying the skip window width, kernel hyper parameters, and number of clusters. This study on these interactions informs decisions made on which hyper parameters to use in final analysis of the NHTSA data as well as the reddit thread data. \\
  
+For the study on these interactions, hyper-parameters were varied and the value of cluster within sum of squares was tracked. Specifically, the values in Figure X were tested. \\
+ 
+
+\begin{figure}
+\includegraphics[width=6in]{Content/Images/hclust_variation.png}
+\caption{Hierarchical Clustering Variation (NHTSA) for differing hyperparameters.}
+\end{figure}
+
+In Figure X, we see some promising values occurring at more prominent ``elbow" points in the plots. These points will be further analyzed and compared. The hyper parameters for these points are:\\
+
+\begin{table}
+\begin{tabular}{c|c|c|c}
+Point&Skip-gram k& Graph Kernel sigma&No. of Clusters \\
+\hline
+A&3&1000&5\\
+B&2&1100&3\\
+C&3&1100&5\\
+D&3&800&6\\
+E&3&900&7
+\end{tabular}
+\caption{Hyperparameter for Variation Study in Figure X}
+\end{table}
+
+These hyper-parameter sets, and their corresponding graph kernel matrix, are used in a hierarchical clustering analysis. The results from the analysis perform well, and display prominent clusters, often of comparable sizes.In Figure X, we see the 5 dendrograms produced from hyper-parameter sets A,B,C,D, and E. Upon some examination, one will notice that documents often appear in the same clusters together, regardless of the hyper-parameter sets. This is most encouraging, as it indicates that these clusters are not a result of user-chosen parameters, but that the documents are similar. \\
+
+\begin{figure}
+\includegraphics[width=6in]{Content/Images/5cluster.png}
+\caption{Five hyper-parameter sets and their corresponding dendrograms.}
+\end{figure}
+
+To compare how often this co-membership in groups was appearing, a matrix of co-membership was created. In Figure X, we see that each document has a set of other documents with which it is always clustered with, regardless of hyper-parameter configurations. These small document sets are the document sets which we can expect to have the most in common with one another.\\
+
+\begin{figure}
+\includegraphics[width=6in]{Content/Images/comembers5.png}
+\caption{Co-membership of documents across hyper-parameter sets A,B,C,D, and E.}
+\end{figure}
+
+We can inspect the results by ...\\
+
+% WORD BUBBLES/GRAPHS HERE?????
+
+\subsection{reddit Threads}
+
+For the reddit threads dataset, ...\\
+
+
+\subsection{Comparative Analysis}
+
+Looking at the results from both hierarchical clusterings on the graph kernels...\\
  
 
 
