@@ -94,9 +94,41 @@ for(i in 2:length(thread_text_list)){
   post_thread_text <- rbind(post_thread_text,tmp_df)
 }
 
-rm(thread_text_list, threads, tmp_df)
+rm(threads, tmp_df)
 ```
 
 
 ## DATA CLEANING WITH EXISTING FUNCTIONS ##
+
+Use `{furrr}` to make this computable in a reasonable amount of time.
+```{r, warning = F, error = F, message = F}
+source(here::here("Development/Scripts/df_to_graph_list.R"))
+source(here::here("Development/Scripts/convert_to_graphs.R"))
+#thread_graphs <- df_to_graph_list(post_thread_text$text)
+
+# Will sample out 1000.
+set.seed(23)
+post_thread_text_sample <- sample_n(post_thread_text, 1000, replace = F)
+
+thread_graphs <- convert_to_graphs()
+
+#Takes a little bit, be patient.
+```
+
+## COMPUTE GRAPH KERNELS ##
+
+```{r, message = F}
+source(here::here("Development/Scripts/compute_graph_similarity.R"))
+source(here::here("Development/Scripts/compute_kernel.R"))
+reddit_thread_kernel <- compute_kernel()
+
+# This will take like 1 hr to run.
+saveRDS(reddit_thread_kernel, here::here("Data/ProcessedData/RedditThreadKerenel1000.RDS"))
+```
+
+```{r}
+
+
+
+```
 

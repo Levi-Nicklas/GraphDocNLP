@@ -14,7 +14,7 @@ df_to_graph_list <- function(text){
   require(igraph)
   
   n_gram <- 2
-  k_skip <- 4
+  k_skip <- 2
   
   # Prepare variables and space.
   text_df <- as.data.frame(text)
@@ -65,24 +65,31 @@ df_to_graph_list <- function(text){
       # produce Graph.
       igraph::graph_from_data_frame()
     
-    cleaned_words_df <- temp_graph %>% igraph::clusters()
-    cleaned_words_df <- as.data.frame(cleaned_words_df$membership)
-    cleaned_words_df$words <- rownames(cleaned_words_df)
-    colnames(cleaned_words_df) <- c("member", "words")
-    reduced_clusters <- cleaned_words_df %>% 
-      filter(member != 1)
-    
-    # Get single largest cluster.
-    big_graph <- temp_graph %>% 
-      as_edgelist() %>% 
-      as.data.frame() %>% 
-      anti_join(y = reduced_clusters, by = c("V1" = "words")) %>% 
-      anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
-      graph_from_data_frame()
+    # cleaned_words_df <- temp_graph %>% igraph::clusters()
+    # cleaned_words_df <- as.data.frame(cleaned_words_df$membership)
+    # cleaned_words_df$words <- rownames(cleaned_words_df)
+    # colnames(cleaned_words_df) <- c("member", "words")
+    # reduced_clusters <- cleaned_words_df %>% 
+    #   filter(member != 1)
+    # 
+    # # Get single largest cluster.
+    # big_graph <- temp_graph %>% 
+    #   as_edgelist() %>% 
+    #   as.data.frame() %>% 
+    #   anti_join(y = reduced_clusters, by = c("V1" = "words")) %>% 
+    #   anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
+    #   graph_from_data_frame()
     
     # Store
-    graph_list[[i]] <- list(big_graph, text)
+    #graph_list[[i]] <- list(big_graph, text)
+    graph_list[[i]] <- list(temp_graph, text)
+    
+    # if(i %% 1000 == 0){
+    #   print(paste0("On Row: ",i))
+    # }
   }
+  
+  
 
   # Return a list of Graphs  
   return(graph_list)

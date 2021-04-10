@@ -11,12 +11,15 @@ compute_kernel <- function(){
   # Libraries
   require(furrr)
   
-  plan(multicore)
+  plan(multisession, workers = 8)
   
-  text_kernel <- furrr::future_map(.x = reddit_graphs_s,
-                                   .f = compute_graph_similarity)
+  text_kernel <- furrr::future_map(.x = thread_graphs,
+                                   .f = compute_graph_similarity,
+                                   .options = furrr_options(seed = T))
   
-  saveRDS(text_kernel, "Data/ProcessedData/reddit_graphkernel_325.RDS")
+  #saveRDS(text_kernel, "Data/ProcessedData/reddit_graphkernel_325.RDS")
+  return(text_kernel)
+  saveRDS(text_kernel, "Data/ProcessedData/redditthreads_graphkernel_all.RDS")
 }
 
 
