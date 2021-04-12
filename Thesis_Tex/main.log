@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  10 APR 2021 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  12 APR 2021 17:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1114,23 +1114,31 @@ File: Content/Images/comembers5.png Graphic file (type png)
 Package pdftex.def Info: Content/Images/comembers5.png  used on input line 48.
 (pdftex.def)             Requested size: 433.62pt x 433.6013pt.
  [21 <./Content/Images/5cluster.png>]
-[22 <./Content/Images/comembers5.png>]))
-(./Content/02_Chapters/Chapter 05/main.tex [23]
+[22 <./Content/Images/comembers5.png>]
+<Content/Images/nhtsa_tf_idf.png, id=361, 2571.6075pt x 1956.30875pt>
+File: Content/Images/nhtsa_tf_idf.png Graphic file (type png)
+<use Content/Images/nhtsa_tf_idf.png>
+Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 56
+.
+(pdftex.def)             Requested size: 433.62pt x 329.85167pt.
+))
+(./Content/02_Chapters/Chapter 05/main.tex [23 <./Content/Images/nhtsa_tf_idf.p
+ng>] [24]
 Chapter 5.
-) (./Content/02_Chapters/Chapter 06/main.tex [24
+) (./Content/02_Chapters/Chapter 06/main.tex [25
 
 ]
 Chapter 6.
-) (./Content/02_Chapters/appendix.tex [25
+) (./Content/02_Chapters/appendix.tex [26
 
-] [26
+] [27
 
 
 ]
 Appendix A.
 ))
 No file main.bbl.
-[27
+[28
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
@@ -1138,9 +1146,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0543177446AE054799A586B975A6A391;1779.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 0543177446AE054799A586B975A6A391;1779
+(rerunfilecheck)             After:  32CCEF86394676325FAA615AA56BAE18;1779.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1150,32 +1164,35 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
  ) 
 Here is how much of TeX's memory you used:
- 20814 strings out of 492162
- 398311 string characters out of 6125292
+ 20823 strings out of 492162
+ 398536 string characters out of 6125292
  470018 words of memory out of 5000000
- 24587 multiletter control sequences out of 15000+600000
+ 24592 multiletter control sequences out of 15000+600000
  13377 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,11n,69p,1936b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (37 pages, 1146570 bytes).
+pdfTeX warning (dest): name{section*.10} has been referenced but does not exi
+st, replaced by a fixed one
+
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
+ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
+/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (38 pages, 1334471 bytes).
 PDF statistics:
- 449 PDF objects out of 1000 (max. 8388607)
- 362 compressed objects within 4 object streams
- 66 named destinations out of 1000 (max. 500000)
- 272 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 458 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 277 words of extra memory for PDF output out of 10000 (max. 10000000)
 

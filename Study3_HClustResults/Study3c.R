@@ -243,22 +243,354 @@ heatmap_matrix %>%
   
 
 #################################
-## POINTS PLOT ##
-## Add PCA Locations
-#papers$x <- pca_kernel$rotation[,1]
-#papers$y <- pca_kernel$rotation[,2]       
-#
-# papers %>% 
-#   ggplot(aes(x = x,
-#              y = y,
-#              color = factor(k5))) +
-#   geom_point(size = 2)+
-#   scale_color_manual(values = my_palette) +
-#   theme_light()+
-#   theme(aspect.ratio = 1/1.618,
-#         plot.title = element_text(size = 18),
-#         axis.line = element_line(color = "black"),
-#         axis.ticks = element_line(color = "black"),
-#         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25),
-#         strip.background = element_rect(fill = "white"),
-#         strip.text = element_text(color = "#370617", face = "bold"))
+
+### EXAMINE CLUSTER WORDS
+#Compute PCA.
+pca_kernel <- nhtsa_a %>% prcomp(scale. = T, center = T)
+# Hierarchical Clustering.
+dendro_pca <- dist(pca_kernel$rotation, method = "manhattan") %>% 
+  hclust(method = "ward.D")
+# Cut Trees.
+papers$k2 <- dendro_pca %>% 
+  cutree(k = 2)
+papers$k3 <- dendro_pca %>% 
+  cutree(k = 3)
+papers$k4 <- dendro_pca %>% 
+  cutree(k = 4)
+papers$k5 <- dendro_pca %>% 
+  cutree(k = 5)
+papers$k6 <- dendro_pca %>% 
+  cutree(k = 6)
+papers$k7 <- dendro_pca %>% 
+  cutree(k = 7)
+
+papers %>% 
+  group_by(k5) %>% 
+  tidytext::unnest_tokens(output = "words", input = "text") %>% 
+  # remove stop words
+  anti_join(stop_words, by = c("words" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  mutate(words_toss = stringr::str_detect(words, "\\.")) %>% 
+  filter(words_toss == F) %>% 
+  # clean out numebrs
+  mutate(words_toss = stringr::str_detect(words,"[:digit:]")) %>% 
+  filter(words_toss == F) %>% 
+  # only keep words of > len 3
+  mutate(words_toss = (nchar(words)<4)) %>% 
+  filter(words_toss == F) %>% 
+  mutate(k5 = as.factor(k5)) %>% 
+  group_by(k5, words) %>% 
+  count() %>% 
+  
+papers_counts <- papers %>% 
+  group_by(k5) %>% 
+  tidytext::unnest_tokens(output = "words", input = "text") %>% 
+  # remove stop words
+  anti_join(stop_words, by = c("words" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  mutate(words_toss = stringr::str_detect(words, "\\.")) %>% 
+  filter(words_toss == F) %>% 
+  # clean out numebrs
+  mutate(words_toss = stringr::str_detect(words,"[:digit:]")) %>% 
+  filter(words_toss == F) %>% 
+  # only keep words of > len 3
+  mutate(words_toss = (nchar(words)<4)) %>% 
+  filter(words_toss == F) %>% 
+  mutate(k5 = as.factor(k5)) %>% 
+  group_by(k5, words) %>% 
+  count()  
+  
+papers_totals <- papers %>% 
+  group_by(k5) %>% 
+  tidytext::unnest_tokens(output = "words", input = "text") %>% 
+  # remove stop words
+  anti_join(stop_words, by = c("words" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  mutate(words_toss = stringr::str_detect(words, "\\.")) %>% 
+  filter(words_toss == F) %>% 
+  # clean out numebrs
+  mutate(words_toss = stringr::str_detect(words,"[:digit:]")) %>% 
+  filter(words_toss == F) %>% 
+  # only keep words of > len 3
+  mutate(words_toss = (nchar(words)<4)) %>% 
+  filter(words_toss == F) %>% 
+  mutate(k5 = as.factor(k5)) %>% 
+  group_by(k5) %>% 
+  count()
+
+paper_counts <- papers_counts %>% 
+  left_join(papers_totals, by = "k5")
+
+paper_counts <- papers_counts %>% 
+  bind_tf_idf(words, document = k5, n)
+  
+  
+p_tf_idf <- paper_counts %>% 
+  group_by(k5) %>% 
+  arrange(desc(tf_idf)) %>% 
+  top_n(n = 15) %>% 
+  ggplot(aes(x = reorder(words, tf_idf, order = T),
+             y = tf_idf))+
+  geom_col(fill = my_palette[1])+
+  coord_flip()+
+  facet_wrap(~k5, scales = "free")+
+  labs(x = "words",y = "TF/IDF",
+       title = "Defining words by Cluster: NHTSA Reports")+
+  theme_light()+
+  theme(aspect.ratio = 1,
+        legend.position = "bottom",
+        plot.title = element_text(size = 13),
+        panel.grid = element_line(color = "white", linetype = 1,size = 0.25),
+        panel.border = element_rect(color = "white"),
+        strip.background = element_rect(fill = "white"),
+        strip.text = element_text(color = "black", face = "bold"),
+        axis.text.x = element_text(size = 8))
+
+ggsave(plot = p_tf_idf,
+       filename = here::here("Thesis_Tex/Content/Images/nhtsa_tf_idf.png"))
+
+
+### GRAPH
+graph_k5_1 <- papers %>% 
+  tidytext::unnest_tokens( 
+                        output = "words" ,
+                        input = text, 
+                        token = "skip_ngrams",
+                        n = 2,
+                        k = 3) %>%  
+  filter(k5 == 1) %>% 
+  # split bigram
+  tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+  # remove stop words
+  anti_join(stop_words, by = c("word1" = "word")) %>% 
+  anti_join(stop_words, by = c("word2" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  # clean out punctuation %>% 
+  mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # clean out numebrs
+  mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # only keep words of > len 3
+  mutate(word1_toss = (nchar(word1)<4)) %>% 
+  mutate(word2_toss = (nchar(word2)<4)) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # group each bigram.
+  group_by(word1, word2) %>% 
+  # count occurances.
+  count() %>% 
+  ungroup() %>% 
+  arrange(desc(n)) %>% 
+  filter(n > 50) %>% 
+  #filter(k5 == 1) %>%
+  select(word1,word2) %>% 
+  # produce Graph.
+  igraph::graph_from_data_frame() %>% 
+  ggraph::ggraph(layout = "fr")+
+  geom_edge_link(alpha = 0.7) +
+  geom_node_point(color = my_palette[1]) +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1, alpha = 0.6)+
+  ggtitle("Cluster #2")
+
+graph_k5_2 <- papers %>% 
+  tidytext::unnest_tokens( 
+    output = "words" ,
+    input = text, 
+    token = "skip_ngrams",
+    n = 2,
+    k = 3) %>%  
+  filter(k5 == 2) %>% 
+  # split bigram
+  tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+  # remove stop words
+  anti_join(stop_words, by = c("word1" = "word")) %>% 
+  anti_join(stop_words, by = c("word2" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  # clean out punctuation %>% 
+  mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # clean out numebrs
+  mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # only keep words of > len 3
+  mutate(word1_toss = (nchar(word1)<4)) %>% 
+  mutate(word2_toss = (nchar(word2)<4)) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # group each bigram.
+  group_by(word1, word2) %>% 
+  # count occurances.
+  count() %>% 
+  ungroup() %>% 
+  arrange(desc(n)) %>% 
+  filter(n > 100) %>% 
+  #filter(k5 == 1) %>%
+  select(word1,word2) %>% 
+  # produce Graph.
+  igraph::graph_from_data_frame() %>% 
+  ggraph::ggraph(layout = "fr")+
+  geom_edge_link(alpha = 0.7) +
+  geom_node_point(color = my_palette[1]) +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1, alpha = 0.6)+
+  ggtitle("Cluster #2")
+
+graph_k5_3 <- papers %>% 
+  tidytext::unnest_tokens( 
+    output = "words" ,
+    input = text, 
+    token = "skip_ngrams",
+    n = 2,
+    k = 3) %>%  
+  filter(k5 == 3) %>% 
+  # split bigram
+  tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+  # remove stop words
+  anti_join(stop_words, by = c("word1" = "word")) %>% 
+  anti_join(stop_words, by = c("word2" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  # clean out punctuation %>% 
+  mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # clean out numebrs
+  mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # only keep words of > len 3
+  mutate(word1_toss = (nchar(word1)<4)) %>% 
+  mutate(word2_toss = (nchar(word2)<4)) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # group each bigram.
+  group_by(word1, word2) %>% 
+  # count occurances.
+  count() %>% 
+  ungroup() %>% 
+  arrange(desc(n)) %>% 
+  filter(n > 30) %>% 
+  #filter(k5 == 1) %>%
+  select(word1,word2) %>% 
+  # produce Graph.
+  igraph::graph_from_data_frame() %>% 
+  ggraph::ggraph(layout = "fr")+
+  geom_edge_link(alpha = 0.7) +
+  geom_node_point(color = my_palette[1]) +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1, alpha = 0.6)+
+  ggtitle("Cluster #3")
+
+graph_k5_4 <- papers %>% 
+  tidytext::unnest_tokens( 
+    output = "words" ,
+    input = text, 
+    token = "skip_ngrams",
+    n = 2,
+    k = 3) %>%  
+  filter(k5 == 4) %>% 
+  # split bigram
+  tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+  # remove stop words
+  anti_join(stop_words, by = c("word1" = "word")) %>% 
+  anti_join(stop_words, by = c("word2" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  # clean out punctuation %>% 
+  mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # clean out numebrs
+  mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # only keep words of > len 3
+  mutate(word1_toss = (nchar(word1)<4)) %>% 
+  mutate(word2_toss = (nchar(word2)<4)) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # group each bigram.
+  group_by(word1, word2) %>% 
+  # count occurances.
+  count() %>% 
+  ungroup() %>% 
+  arrange(desc(n)) %>% 
+  filter(n > 30) %>% 
+  #filter(k5 == 1) %>%
+  select(word1,word2) %>% 
+  # produce Graph.
+  igraph::graph_from_data_frame() %>% 
+  ggraph::ggraph(layout = "fr")+
+  geom_edge_link(alpha = 0.7) +
+  geom_node_point(color = my_palette[1]) +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1, alpha = 0.6)+
+  ggtitle("Cluster #4")
+
+graph_k5_5 <- papers %>% 
+  tidytext::unnest_tokens( 
+    output = "words" ,
+    input = text, 
+    token = "skip_ngrams",
+    n = 2,
+    k = 3) %>%  
+  filter(k5 == 5) %>% 
+  # split bigram
+  tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+  # remove stop words
+  anti_join(stop_words, by = c("word1" = "word")) %>% 
+  anti_join(stop_words, by = c("word2" = "word")) %>% 
+  # toss NA values.
+  tidyr::drop_na() %>% 
+  # clean out punctuation %>% 
+  mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # clean out numebrs
+  mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+  mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # only keep words of > len 3
+  mutate(word1_toss = (nchar(word1)<4)) %>% 
+  mutate(word2_toss = (nchar(word2)<4)) %>% 
+  mutate(toss_pair = word1_toss|word2_toss) %>% 
+  filter(toss_pair == F) %>% 
+  # group each bigram.
+  group_by(word1, word2) %>% 
+  # count occurances.
+  count() %>% 
+  ungroup() %>% 
+  arrange(desc(n)) %>% 
+  filter(n > 50) %>% 
+  #filter(k5 == 1) %>%
+  select(word1,word2) %>% 
+  # produce Graph.
+  igraph::graph_from_data_frame() %>% 
+  ggraph::ggraph(layout = "fr")+
+  geom_edge_link(alpha = 0.7) +
+  geom_node_point(color = my_palette[1]) +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1, alpha = 0.6)+
+  ggtitle("Cluster #5")
+
+ggsave(filename = here::here("Thesis_Tex/Content/Images/graph_k5_1.png"), graph_k5_1)
+ggsave(filename = here::here("Thesis_Tex/Content/Images/graph_k5_2.png"), graph_k5_2)
+ggsave(filename = here::here("Thesis_Tex/Content/Images/graph_k5_3.png"), graph_k5_3)
+ggsave(filename = here::here("Thesis_Tex/Content/Images/graph_k5_4.png"), graph_k5_4)
+ggsave(filename = here::here("Thesis_Tex/Content/Images/graph_k5_5.png"), graph_k5_5)

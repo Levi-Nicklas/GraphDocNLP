@@ -49,7 +49,15 @@ To compare how often this co-membership in groups was appearing, a matrix of co-
 \caption{Co-membership of documents across hyper-parameter sets A,B,C,D, and E.}
 \end{figure}
 
-We can inspect the results by ...\\
+We can inspect the results by checking some of the co-members' text. For example, document two (which was an ambulance crash in Angola, Delaware), has only 3 other co-members. Document two's co-members are: document 11, document 30, and document 38. Document 11 was an ambulance crash in Sheridan, Indiana. Document 30 was an ambulance crash in Pasadena, California. Document 38 was an ambulance crash in Ocilla, Georgia.\\
+Now, we can examine some information about these four incidents that may explain their clustering. For example, all of these incidents had fatalities, three of them had roll over events, and these four were all front end collisions to the ambulance where they struck another vehicle, or object, head on. While this is just one example of the clustering methods identifying similarities in the text, we can examine similarities across the dataset through use of term-frequency/inverse document frequency.\\
+
+\begin{figure}
+\includegraphics[width=6in]{Content/Images/nhtsa_tf_idf.png}
+\caption{Term-Frequency/Inverse Document-Frequency for NHTSA reports, using hyper parameter set A.}
+\end{figure}
+
+In Figure 4.4, we see that words that appear frequently, and are unique to that cluster appear to be vehicle manufacturers, medical terms, and words that describe a crash situation (e.g. guardrail, tree, interstate). We can use these to get an idea of the crash situation. Alternatively, we can also examine portions of the skip-gram graph produced, which was used for the graph kernel calculation. Thes
 
 % WORD BUBBLES/GRAPHS HERE?????
 

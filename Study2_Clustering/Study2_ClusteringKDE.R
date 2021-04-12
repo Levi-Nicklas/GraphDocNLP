@@ -13,7 +13,7 @@ library(tidyverse)
 library(here)
 
 # Read in a comment from the reddit datasets.
-reddit_kenrel <- readRDS(here::here("Data/ProcessedData/reddit_graphkernel_150.RDS"))
+reddit_kenrel <- readRDS(here::here("Data/ProcessedData/RedditThreadKernel1000.RDS"))
 reddit_sample <- readRDS(here::here("Data/ProcessedData/reddit_sample_150.RDS"))
 
 # Pick a comment to assess.
