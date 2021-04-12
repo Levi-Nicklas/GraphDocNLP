@@ -166,13 +166,22 @@ dendro_pca <- dist(pca_kernel$rotation, method = "manhattan") %>%
 
 dendro_pca %>% plot()
 
-reddit_thread_kernel_matrix$k3 <- dendro_pca %>% 
+post_thread_text_sample$k2 <- dendro_pca %>% 
+  cutree(k = 2)
+
+post_thread_text_sample$k3 <- dendro_pca %>% 
   cutree(k = 3)
 
-reddit_thread_kernel_matrix$k5 <- dendro_pca %>% 
+post_thread_text_sample$k4 <- dendro_pca %>% 
+  cutree(k = 4)
+
+post_thread_text_sample$k5 <- dendro_pca %>% 
   cutree(k = 5)
 
-reddit_thread_kernel_matrix$k7 <- dendro_pca %>% 
+post_thread_text_sample$k6 <- dendro_pca %>% 
+  cutree(k = 6)
+
+post_thread_text_sample$k7 <- dendro_pca %>% 
   cutree(k = 7)
 
 ```
@@ -189,20 +198,418 @@ reddit_dendo <- fviz_dend(dendro_pca, k = 3, cex = 0.5,  show_labels = F, k_colo
 ggsave(reddit_dendo, filename = here::here("Thesis_Tex/Content/Images/reddit_dendo.png"))
 ```
 
-```{r}
+```{r, include = F, eval = F}
 fviz_pca_ind(pca_kernel, label="none", habillage = post_thread_text_sample$k3,
              addEllipses=F, ellipse.level=0.95)
 ```
 
 
-```{r}
+```{r, include = F, eval = F}
 fviz_pca_biplot(pca_kernel, label ="ind")
 ```
 
 ```{r}
+post_thread_text_sample$x <- pca_kernel$x[,1]
+post_thread_text_sample$y <- pca_kernel$x[,2]
 
+#K2
+# Compute Centroids
+cluster_centroids <- post_thread_text_sample %>% 
+  group_by(k2) %>% 
+  summarize( x.mean = mean(x),
+             y.mean = mean(y))
+
+# Compute WSS for this K value.
+WSS_k2 <- post_thread_text_sample %>% 
+  left_join(cluster_centroids, by = "k2") %>% 
+  select(post_thread_id, k2, 
+         x, y,
+         x.mean, y.mean) %>% 
+  mutate(dist.centr = sqrt((x - x.mean)^2 + (y - y.mean)^2)) %>% 
+  group_by(k2) %>% 
+  summarize(WSS = sum(dist.centr)) %>% 
+  summarise(TWSS = sum(WSS)) %>% 
+  pull()
+
+
+#K3
+# Compute Centroids
+cluster_centroids <- post_thread_text_sample %>% 
+  group_by(k3) %>% 
+  summarize( x.mean = mean(x),
+             y.mean = mean(y))
+
+# Compute WSS for this K value.
+WSS_k3 <- post_thread_text_sample %>% 
+  left_join(cluster_centroids, by = "k3") %>% 
+  select(post_thread_id, k3, 
+         x, y,
+         x.mean, y.mean) %>% 
+  mutate(dist.centr = sqrt((x - x.mean)^2 + (y - y.mean)^2)) %>% 
+  group_by(k3) %>% 
+  summarize(WSS = sum(dist.centr)) %>% 
+  summarise(TWSS = sum(WSS)) %>% 
+  pull()
+
+#K4
+# Compute Centroids
+cluster_centroids <- post_thread_text_sample %>% 
+  group_by(k4) %>% 
+  summarize( x.mean = mean(x),
+             y.mean = mean(y))
+
+# Compute WSS for this K value.
+WSS_k4 <- post_thread_text_sample %>% 
+  left_join(cluster_centroids, by = "k4") %>% 
+  select(post_thread_id, k4, 
+         x, y,
+         x.mean, y.mean) %>% 
+  mutate(dist.centr = sqrt((x - x.mean)^2 + (y - y.mean)^2)) %>% 
+  group_by(k4) %>% 
+  summarize(WSS = sum(dist.centr)) %>% 
+  summarise(TWSS = sum(WSS)) %>% 
+  pull()
+
+#K5
+# Compute Centroids
+cluster_centroids <- post_thread_text_sample %>% 
+  group_by(k5) %>% 
+  summarize( x.mean = mean(x),
+             y.mean = mean(y))
+
+# Compute WSS for this K value.
+WSS_k5 <- post_thread_text_sample %>% 
+  left_join(cluster_centroids, by = "k5") %>% 
+  select(post_thread_id, k5, 
+         x, y,
+         x.mean, y.mean) %>% 
+  mutate(dist.centr = sqrt((x - x.mean)^2 + (y - y.mean)^2)) %>% 
+  group_by(k5) %>% 
+  summarize(WSS = sum(dist.centr)) %>% 
+  summarise(TWSS = sum(WSS)) %>% 
+  pull()
+
+#K6
+# Compute Centroids
+cluster_centroids <- post_thread_text_sample %>% 
+  group_by(k6) %>% 
+  summarize( x.mean = mean(x),
+             y.mean = mean(y))
+
+# Compute WSS for this K value.
+WSS_k6 <- post_thread_text_sample %>% 
+  left_join(cluster_centroids, by = "k6") %>% 
+  select(post_thread_id, k6, 
+         x, y,
+         x.mean, y.mean) %>% 
+  mutate(dist.centr = sqrt((x - x.mean)^2 + (y - y.mean)^2)) %>% 
+  group_by(k6) %>% 
+  summarize(WSS = sum(dist.centr)) %>% 
+  summarise(TWSS = sum(WSS)) %>% 
+  pull()
+    
+#K7
+# Compute Centroids
+cluster_centroids <- post_thread_text_sample %>% 
+  group_by(k7) %>% 
+  summarize( x.mean = mean(x),
+             y.mean = mean(y))
+
+# Compute WSS for this K value.
+WSS_k7 <- post_thread_text_sample %>% 
+  left_join(cluster_centroids, by = "k7") %>% 
+  select(post_thread_id, k7, 
+         x, y,
+         x.mean, y.mean) %>% 
+  mutate(dist.centr = sqrt((x - x.mean)^2 + (y - y.mean)^2)) %>% 
+  group_by(k7) %>% 
+  summarize(WSS = sum(dist.centr)) %>% 
+  summarise(TWSS = sum(WSS)) %>% 
+  pull()
+    
+data.frame(clusters = c(2:7),
+           WSS = c(WSS_k2,WSS_k3,WSS_k4,WSS_k5,WSS_k6,WSS_k7)) %>% 
+  ggplot(aes(x = clusters,
+             y = WSS))+
+  geom_line(color = my_palette[1])+
+  geom_point(size = 2, color = my_palette[1]) +
+  labs(title = "Reddit Threads Clustering Variation",
+       subtitle = "Within Sum of Squares for Hierarchical Clustering",
+       x = "Number of Clusters (k clusters)",
+       y = "Within Sum of Squares")+
+  theme_light()+
+  theme(aspect.ratio = 1/1.618,
+        plot.title = element_text(size = 18),
+        axis.line = element_line(color = "black"),
+        axis.ticks = element_line(color = "black"),
+        panel.grid = element_line(color = "grey", linetype = 1,size = 0.25))
+```
+
+```{r}
+fviz_dend(dendro_pca, k = 3, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+
+fviz_dend(dendro_pca, k = 4, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
 
 ```
+
+
+```{r}
+colnames(post_thread_text_sample)
+
+post_thread_text_sample$queryword %>% unique() %>% sort()
+
+querywords_df <- data.frame(id = 1:18,
+                            word = c("anxious", "anxiety", 
+                   "depressed", "depression",
+                   "mental", "illness", "scared",
+                   "afraid", "sad", "emotion", "anger",
+                   "angry", "upset", "suicide", "abuse",
+                   "emotional","help", "addiction"))
+post_thread_text_sample <- left_join(post_thread_text_sample, querywords_df, by = c("queryword" = "id"))
+
+post_thread_text_sample %>% 
+  select(post_thread_id, word, k3, k5, k7)
+```
+
+```{r}
+query_words_denominators <- post_thread_text_sample %>% 
+  select(word) %>% 
+  group_by(word) %>% 
+  count()
+
+cluster_denoms_k2 <- post_thread_text_sample %>% 
+  select(k2) %>% 
+  group_by(k2) %>% 
+  count()
+cluster_denoms_k3 <- post_thread_text_sample %>% 
+  select(k3) %>% 
+  group_by(k3) %>% 
+  count()
+cluster_denoms_k4 <- post_thread_text_sample %>% 
+  select(k4) %>% 
+  group_by(k4) %>% 
+  count()
+cluster_denoms_k5 <- post_thread_text_sample %>% 
+  select(k5) %>% 
+  group_by(k5) %>% 
+  count()
+cluster_denoms_k6 <- post_thread_text_sample %>% 
+  select(k6) %>% 
+  group_by(k6) %>% 
+  count()
+cluster_denoms_k7 <- post_thread_text_sample %>% 
+  select(k7) %>% 
+  group_by(k7) %>% 
+  count()
+
+# K2
+pk2 <- post_thread_text_sample %>% 
+  select(word, k2) %>%
+  group_by(word, k2) %>% 
+  count() %>% 
+  left_join(cluster_denoms_k2, by = "k2") %>% 
+  mutate(prop=n.x/n.y) %>% 
+  ggplot(aes(x = as.factor(word),
+             y = as.factor(k2), 
+             fill = prop))+
+    geom_tile(color = "black", size = 0.1)+
+  scale_fill_gradient(low= my_palette[3] , high = my_palette[1])+
+  #coord_flip()+
+  theme_light()+
+  theme(aspect.ratio = 1/1.618,
+        plot.title = element_text(size = 18),
+        axis.line = element_line(color = "black"),
+        legend.position = "bottom",
+        axis.ticks = element_line(color = "black"),
+        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
+  labs(x = "", y = "Cluster",
+       fill = "Proportion",
+       title = "Cluster Membership: 2 clusters")
+
+# K3
+pk3 <- post_thread_text_sample %>% 
+  select(word, k3) %>%
+  group_by(word, k3) %>% 
+  count() %>% 
+  left_join(cluster_denoms_k3, by = "k3") %>% 
+  mutate(prop=n.x/n.y) %>% 
+  ggplot(aes(x = as.factor(word),
+             y = as.factor(k3), 
+             fill = prop))+
+    geom_tile(color = "black", size = 0.1)+
+  scale_fill_gradient(low= my_palette[3] , high = my_palette[1])+
+  #coord_flip()+
+  theme_light()+
+  theme(aspect.ratio = 1/1.618,
+        plot.title = element_text(size = 18),
+        axis.line = element_line(color = "black"),
+        legend.position = "bottom",
+        axis.ticks = element_line(color = "black"),
+        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
+  labs(x = "", y = "Cluster",
+       fill = "Proportion",
+       title = "Cluster Membership: 3 clusters")
+
+# K3
+pk4 <- post_thread_text_sample %>% 
+  select(word, k4) %>%
+  group_by(word, k4) %>% 
+  count() %>% 
+  left_join(cluster_denoms_k4, by = "k4") %>% 
+  mutate(prop=n.x/n.y) %>% 
+  ggplot(aes(x = as.factor(word),
+             y = as.factor(k4), 
+             fill = prop))+
+    geom_tile(color = "black", size = 0.1)+
+  scale_fill_gradient(low= my_palette[3] , high = my_palette[1])+
+  #coord_flip()+
+  theme_light()+
+  theme(aspect.ratio = 1/1.618,
+        plot.title = element_text(size = 18),
+        axis.line = element_line(color = "black"),
+        legend.position = "bottom",
+        axis.ticks = element_line(color = "black"),
+        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
+  labs(x = "", y = "Cluster",
+       fill = "Proportion",
+       title = "Cluster Membership: 4 clusters")
+
+# K5
+pk5 <- post_thread_text_sample %>% 
+  select(word, k5) %>%
+  group_by(word, k5) %>% 
+  count() %>% 
+  left_join(cluster_denoms_k5, by = "k5") %>% 
+  mutate(prop=n.x/n.y) %>% 
+  ggplot(aes(x = as.factor(word),
+             y = as.factor(k5), 
+             fill = prop))+
+    geom_tile(color = "black", size = 0.1)+
+  scale_fill_gradient(low= my_palette[3] , high = my_palette[1])+
+  #coord_flip()+
+  theme_light()+
+  theme(aspect.ratio = 1/1.618,
+        plot.title = element_text(size = 18),
+        axis.line = element_line(color = "black"),
+        legend.position = "bottom",
+        axis.ticks = element_line(color = "black"),
+        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
+  labs(x = "", y = "Cluster",
+       fill = "Proportion",
+       title = "Cluster Membership: 5 clusters")
+
+# K6
+pk6 <- post_thread_text_sample %>% 
+  select(word, k6) %>%
+  group_by(word, k6) %>% 
+  count() %>% 
+  left_join(cluster_denoms_k6, by = "k6") %>% 
+  mutate(prop=n.x/n.y) %>% 
+  ggplot(aes(x = as.factor(word),
+             y = as.factor(k6), 
+             fill = prop))+
+    geom_tile(color = "black", size = 0.1)+
+  scale_fill_gradient(low= my_palette[3] , high = my_palette[1])+
+  #coord_flip()+
+  theme_light()+
+  theme(aspect.ratio = 1/1.618,
+        plot.title = element_text(size = 18),
+        axis.line = element_line(color = "black"),
+        legend.position = "bottom",
+        axis.ticks = element_line(color = "black"),
+        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
+  labs(x = "", y = "Cluster",
+       fill = "Proportion",
+       title = "Cluster Membership: 6 clusters")
+
+# K7
+pk7 <- post_thread_text_sample %>% 
+  select(word, k7) %>%
+  group_by(word, k7) %>% 
+  count() %>% 
+  left_join(cluster_denoms_k7, by = "k7") %>% 
+  mutate(prop=n.x/n.y) %>% 
+  ggplot(aes(x = as.factor(word),
+             y = as.factor(k7), 
+             fill = prop))+
+    geom_tile(color = "black", size = 0.1)+
+  scale_fill_gradient(low= my_palette[3] , high = my_palette[1])+
+  #coord_flip()+
+  theme_light()+
+  theme(aspect.ratio = 1/1.618,
+        plot.title = element_text(size = 18),
+        axis.line = element_line(color = "black"),
+        legend.position = "bottom",
+        axis.ticks = element_line(color = "black"),
+        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
+  labs(x = "", y = "Cluster",
+       fill = "Proportion",
+       title = "Cluster Membership: 7 clusters")
+
+
+## Dendrograms 
+dend2 <- fviz_dend(dendro_pca, k = 2, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+dend3 <- fviz_dend(dendro_pca, k = 3, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+dend4 <- fviz_dend(dendro_pca, k = 4, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+dend5 <- fviz_dend(dendro_pca, k = 5, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+dend6 <- fviz_dend(dendro_pca, k = 6, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+dend7 <- fviz_dend(dendro_pca, k = 7, cex = 0.5,  show_labels = F, k_colors = my_palette) +
+  labs(x = "Document ID",
+       y = "Height",
+       title = "reddit Thread Documents - HClust",
+       subtitle = "Manhattan Distance & Ward.D Linkage")
+
+```
+
+```{r}
+library(patchwork)
+
+pk2+dend2
+pk3+dend3
+pk4+dend4
+pk5+dend5
+pk6+dend6
+pk7+dend7
+```
+
+```{r}
+
+```
+
 
 
 # Kernel Density Estimate Clustering
