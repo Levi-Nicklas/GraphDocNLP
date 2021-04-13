@@ -57,9 +57,15 @@ Now, we can examine some information about these four incidents that may explain
 \caption{Term-Frequency/Inverse Document-Frequency for NHTSA reports, using hyper parameter set A.}
 \end{figure}
 
-In Figure 4.4, we see that words that appear frequently, and are unique to that cluster appear to be vehicle manufacturers, medical terms, and words that describe a crash situation (e.g. guardrail, tree, interstate). We can use these to get an idea of the crash situation. Alternatively, we can also examine portions of the skip-gram graph produced, which was used for the graph kernel calculation. Thes
+In Figure 4.4, we see that words that appear frequently, and are unique to that cluster appear to be vehicle manufacturers, medical terms, and words that describe a crash situation (e.g. guardrail, tree, interstate). We can use these to get an idea of the crash situation. Alternatively, we can also examine portions of the skip-gram graph produced, which was used for the graph kernel calculation. \\
 
-% WORD BUBBLES/GRAPHS HERE?????
+\begin{figure}
+\includegraphics[width=6in]{Content/Images/graph_k5_2.png}
+\caption{Skip-grams which occurred more than 50 times in hierarchical clustering with hyper-parameter set A, in cluster 3.}
+\end{figure}
+
+We can put together some of the ideas and topics discussed in the cluster. For example, in Figure 4.5 we see that "Front Left Passenger", "Rear Facing Seat", and "Patient Compartment" are all skip-grams which appeared frequently in this cluster.\\
+
 
 \subsection{reddit Threads}
 
