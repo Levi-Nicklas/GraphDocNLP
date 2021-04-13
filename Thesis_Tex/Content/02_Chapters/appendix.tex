@@ -17,5 +17,17 @@
 \begin{appendices}
 \chapter{My first appendix}
 
+% Listing Example
+\begin{lstlisting}
+reddit_thread_kernel_matrix <- matrix(data = rep(0, 1000*1000), nrow = 1000)
+
+for(i in 1:length(reddit_thread_kernel)){
+  reddit_thread_kernel_matrix[i,] <- reddit_thread_kernel[[i]]
+}
+
+rm(reddit_thread_kernel)
+\end{lstlisting}
+
+
 \end{appendices}
 

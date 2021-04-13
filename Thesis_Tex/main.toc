@@ -4,8 +4,6 @@
 \contentsline {chapter}{Abstract}{1}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Subsection Testing}{7}{subsection.2.1.1}%
 \contentsline {chapter}{\numberline {3}Methods}{8}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introduction}{8}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1} Skip-grams}{8}{subsection.3.1.1}%
@@ -15,14 +13,12 @@
 \contentsline {section}{\numberline {3.2}Processing Text into Graphs}{10}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Graph Kernels for Similarity}{12}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Graph Kernels for Similarity}{13}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Alternate Clustering Method with KDE}{14}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Development of Methods}{15}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Results and Analysis}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Hierarchical Clustering}{19}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}NHTSA Special Crash Investigations}{19}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}reddit Threads}{24}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Comparative Analysis}{25}{subsection.4.1.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{26}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{27}{chapter.6}%
-\contentsline {chapter}{Appendices}{28}{section*.12}%
-\contentsline {chapter}{\numberline {A}My first appendix}{29}{Appendix.1.A}%
+\contentsline {section}{\numberline {3.5}Development of Methods}{14}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Results and Analysis}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}NHTSA Special Crash Investigations}{18}{section.4.1}%
+\contentsline {section}{\numberline {4.2}reddit Threads}{24}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Comparative Analysis}{27}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusion}{29}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{31}{chapter.6}%
+\contentsline {chapter}{Appendices}{32}{section*.14}%
+\contentsline {chapter}{\numberline {A}My first appendix}{33}{Appendix.1.A}%

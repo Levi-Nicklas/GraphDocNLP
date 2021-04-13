@@ -327,7 +327,7 @@ WSS_k7 <- post_thread_text_sample %>%
   summarise(TWSS = sum(WSS)) %>% 
   pull()
     
-data.frame(clusters = c(2:7),
+reddit_WSS <- data.frame(clusters = c(2:7),
            WSS = c(WSS_k2,WSS_k3,WSS_k4,WSS_k5,WSS_k6,WSS_k7)) %>% 
   ggplot(aes(x = clusters,
              y = WSS))+
@@ -343,6 +343,8 @@ data.frame(clusters = c(2:7),
         axis.line = element_line(color = "black"),
         axis.ticks = element_line(color = "black"),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25))
+
+ggsave(filename = here::here("Thesis_Tex/Content/Images/reddit_wss.png"), reddit_WSS)
 ```
 
 ```{r}

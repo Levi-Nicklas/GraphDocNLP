@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  12 APR 2021 20:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  13 APR 2021 18:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -23,6 +23,11 @@ File: size12.clo 2019/10/25 v1.4k Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
 )
 (./Styles/thesis-v1.0.sty
 Package: Styles/thesis-v1.0 2020/04/01 Custom Package
@@ -92,7 +97,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks14
+\@emptytoks=\toks16
 \ex@=\dimen109
 ))
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -122,21 +127,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \dotsspace@=\muskip10
 \c@parentequation=\count101
 \dspbrk@lvl=\count102
-\tag@help=\toks15
+\tag@help=\toks17
 \row@=\count103
 \column@=\count104
 \maxfields@=\count105
-\andhelp@=\toks16
+\andhelp@=\toks18
 \eqnshift@=\dimen112
 \alignsep@=\dimen113
 \tagshift@=\dimen114
 \tagwidth@=\dimen115
 \totwidth@=\dimen116
 \lineht@=\dimen117
-\@envbody=\toks17
+\@envbody=\toks19
 \multlinegap=\skip63
 \multlinetaggap=\skip64
-\mathdisplay@stack=\toks18
+\mathdisplay@stack=\toks20
 LaTeX Info: Redefining \[ on input line 2858.
 LaTeX Info: Redefining \] on input line 2859.
 )
@@ -153,7 +158,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen118
 \ar@mcellbox=\box37
 \extrarowheight=\dimen119
-\NC@list=\toks19
+\NC@list=\toks21
 \extratabsurround=\skip65
 \backup@length=\skip66
 \ar@cellbox=\box38
@@ -167,7 +172,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks20
+\KV@toks@=\toks22
 )
 \captionmargin=\dimen120
 \captionmargin@=\dimen121
@@ -194,7 +199,7 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
-\everycr=\toks21
+\everycr=\toks23
 \minrowclearance=\skip67
 )
 \rownum=\count108
@@ -210,14 +215,14 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks22
+\@enLab=\toks24
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count109
-\float@exts=\toks23
+\float@exts=\toks25
 \float@box=\box39
-\@float@everytoks=\toks24
+\@float@everytoks=\toks26
 \@floatcapt=\box40
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/geometry/geometry.sty
@@ -240,7 +245,7 @@ Package: iftex 2019/11/07 v1.0c TeX engine tests
 \Gm@layoutheight=\dimen132
 \Gm@layouthoffset=\dimen133
 \Gm@layoutvoffset=\dimen134
-\Gm@dimlist=\toks25
+\Gm@dimlist=\toks27
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -388,12 +393,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
 \Hy@SectionHShift=\skip68
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks26
-\inpenc@posthook=\toks27
-)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/longtable.sty
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTleft=\skip69
 \LTright=\skip70
@@ -831,26 +831,61 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count164
 \c@@ppsaveapp=\count165
 ))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count166
+\lst@gtempboxa=\box85
+\lst@token=\toks45
+\lst@length=\count167
+\lst@currlwidth=\dimen291
+\lst@column=\count168
+\lst@pos=\count169
+\lst@lostspace=\dimen292
+\lst@width=\dimen293
+\lst@newlines=\count170
+\lst@lineno=\count171
+\lst@maxwidth=\dimen294
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+\c@lstnumber=\count172
+\lst@skipnumbers=\count173
+\lst@framebox=\box86
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2019/09/10 1.8c listings configuration
+))
+Package: listings 2019/09/10 1.8c (Carsten Heinz)
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2019/09/10 1.8c listings language file
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2019/09/10 1.8c listings language file
+)
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/caption/ltcaption.sty
@@ -860,17 +895,17 @@ Package caption Info: End \AtBeginDocument code.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count166
-\scratchdimen=\dimen291
-\scratchbox=\box85
-\nofMPsegments=\count167
-\nofMParguments=\count168
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count169
-\MPscratchDim=\dimen292
-\MPnumerator=\count170
-\makeMPintoPDFobject=\count171
-\everyMPtoPDFconversion=\toks46
+\scratchcounter=\count174
+\scratchdimen=\dimen295
+\scratchbox=\box87
+\nofMPsegments=\count175
+\nofMParguments=\count176
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count177
+\MPscratchDim=\dimen296
+\MPnumerator=\count178
+\makeMPintoPDFobject=\count179
+\everyMPtoPDFconversion=\toks47
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2019-12-09 v2.10 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -914,8 +949,8 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box86
-Package hyperref Info: Link coloring OFF on input line 33.
+\AtBeginShipoutBox=\box88
+Package hyperref Info: Link coloring OFF on input line 59.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -926,19 +961,21 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count172
+\c@section@level=\count180
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
  ABD: EveryShipout initializing macros
+\c@lstlisting=\count181
+
 (./Content/01_Front_Matter/main.tex
 (./Content/01_Front_Matter/00_cover_page.tex
-<Content/Images/FLPoly_logo.pdf, id=118, 412.54124pt x 112.92188pt>
+<Content/Images/FLPoly_logo.pdf, id=102, 412.54124pt x 112.92188pt>
 File: Content/Images/FLPoly_logo.pdf Graphic file (type pdf)
 <use Content/Images/FLPoly_logo.pdf>
 Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
@@ -1005,7 +1042,7 @@ l.19  \includegraphics
 [1
 
 ]
-<Content/Images/proposal_diagram.png, id=258, 801.99625pt x 553.06625pt>
+<Content/Images/proposal_diagram.png, id=243, 801.99625pt x 553.06625pt>
 File: Content/Images/proposal_diagram.png Graphic file (type png)
 <use Content/Images/proposal_diagram.png>
 Package pdftex.def Info: Content/Images/proposal_diagram.png  used on input lin
@@ -1030,36 +1067,33 @@ te ignored
 l.9 \chapter
             {Literature Review} [4]
 Chapter 2.
-(./Content/02_Chapters/Chapter 02/Sections/01_introduction.tex
 
 LaTeX Warning: Citation `kondor2002diffusion' on page 5 undefined on input line
- 12.
+ 16.
 
 
 LaTeX Warning: Citation `vishwanathan2010graph' on page 5 undefined on input li
-ne 12.
+ne 16.
 
 
 LaTeX Warning: Citation `nikolentzos2017shortest' on page 5 undefined on input 
-line 14.
+line 18.
 
 
-LaTeX Warning: Citation `cheng2006n' on page 5 undefined on input line 14.
+LaTeX Warning: Citation `cheng2006n' on page 5 undefined on input line 18.
 
 
 LaTeX Warning: Citation `sugiyama2018graphkernels' on page 5 undefined on input
- line 14.
+ line 18.
 
 [5
 
 ]
 
 LaTeX Warning: Citation `akioyamen2020framework' on page 6 undefined on input l
-ine 49.
+ine 53.
 
-[6]
-(./Content/02_Chapters/Chapter 02/Sections/Subsections/02_01_subsection_testing
-.tex))) (./Content/02_Chapters/Chapter 03/main.tex [7]
+[6]) (./Content/02_Chapters/Chapter 03/main.tex [7]
 Chapter 3.
 (./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [8
 
@@ -1067,13 +1101,13 @@ Chapter 3.
 (./Content/02_Chapters/Chapter 03/Sections/01_TextProcessing.tex [10] [11])
 (./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [12])
 (./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex) [13]
-(./Content/02_Chapters/Chapter 03/Sections/04_KDE_Cluster.tex)
-(./Content/02_Chapters/Chapter 03/Sections/05_Development.tex [14]
-<Content/Images/ScriptMap.png, id=323, 774.895pt x 643.40375pt>
+(./Content/02_Chapters/Chapter 03/Sections/05_Development.tex
+<Content/Images/ScriptMap.png, id=302, 774.895pt x 643.40375pt>
 File: Content/Images/ScriptMap.png Graphic file (type png)
 <use Content/Images/ScriptMap.png>
 Package pdftex.def Info: Content/Images/ScriptMap.png  used on input line 7.
 (pdftex.def)             Requested size: 433.62pt x 360.03856pt.
+ [14]
 LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
 10.
 LaTeX Font Info:    No file OMScmtt.fd. on input line 10.
@@ -1083,76 +1117,88 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbraceleft' on input line 10.
 
-[15 <./Content/Images/ScriptMap.png>]
-<Content/Images/edgeHistTimePlot.png, id=330, 2107.875pt x 2107.875pt>
+<Content/Images/edgeHistTimePlot.png, id=307, 2107.875pt x 2107.875pt>
 File: Content/Images/edgeHistTimePlot.png Graphic file (type png)
 <use Content/Images/edgeHistTimePlot.png>
 Package pdftex.def Info: Content/Images/edgeHistTimePlot.png  used on input lin
 e 13.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
- [16 <./Content/Images/edgeHistTimePlot.png>])) (./Content/02_Chapters/Chapter 
-04/main.tex [17] [18]
+[15 <./Content/Images/ScriptMap.png>] [16 <./Content/Images/edgeHistTimePlot.pn
+g>])) (./Content/02_Chapters/Chapter 04/main.tex [17]
 Chapter 4.
 (./Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex
-<Content/Images/hclust_variation.png, id=344, 1877.0125pt x 2262.4525pt>
+<Content/Images/hclust_variation.png, id=325, 1877.0125pt x 2262.4525pt>
 File: Content/Images/hclust_variation.png Graphic file (type png)
 <use Content/Images/hclust_variation.png>
 Package pdftex.def Info: Content/Images/hclust_variation.png  used on input lin
 e 19.
 (pdftex.def)             Requested size: 433.62pt x 522.6316pt.
- [19
+ [18
 
-] [20 <./Content/Images/hclust_variation.png>]
-<Content/Images/5cluster.png, id=354, 3914.625pt x 1806.75pt>
+] [19 <./Content/Images/hclust_variation.png>]
+<Content/Images/5cluster.png, id=335, 3914.625pt x 1806.75pt>
 File: Content/Images/5cluster.png Graphic file (type png)
 <use Content/Images/5cluster.png>
 Package pdftex.def Info: Content/Images/5cluster.png  used on input line 41.
 (pdftex.def)             Requested size: 433.62pt x 200.12155pt.
-<Content/Images/comembers5.png, id=355, 2409.0pt x 2409.0pt>
+<Content/Images/comembers5.png, id=336, 2409.0pt x 2409.0pt>
 File: Content/Images/comembers5.png Graphic file (type png)
 <use Content/Images/comembers5.png>
 Package pdftex.def Info: Content/Images/comembers5.png  used on input line 48.
 (pdftex.def)             Requested size: 433.62pt x 433.6013pt.
- [21 <./Content/Images/5cluster.png>]
-[22 <./Content/Images/comembers5.png>]
-<Content/Images/nhtsa_tf_idf.png, id=367, 2571.6075pt x 1956.30875pt>
+ [20 <./Content/Images/5cluster.png>]
+[21 <./Content/Images/comembers5.png>]
+<Content/Images/nhtsa_tf_idf.png, id=348, 2571.6075pt x 1956.30875pt>
 File: Content/Images/nhtsa_tf_idf.png Graphic file (type png)
 <use Content/Images/nhtsa_tf_idf.png>
 Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 56
 .
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
- [23 <./Content/Images/nhtsa_tf_idf.png>]
-<Content/Images/graph_k5_2.png, id=373, 2571.6075pt x 1956.30875pt>
+<Content/Images/graph_k5_2.png, id=349, 2571.6075pt x 1956.30875pt>
 File: Content/Images/graph_k5_2.png Graphic file (type png)
 <use Content/Images/graph_k5_2.png>
 Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 63.
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
-)) (./Content/02_Chapters/Chapter 05/main.tex [24 <./Content/Images/graph_k5_2.
-png>] [25]
-Chapter 5.
-) (./Content/02_Chapters/Chapter 06/main.tex [26
-
+ [22 <./Content/Images/nhtsa_tf_idf.png>] [23 <./Content/Images/graph_k5_2.png>
 ]
-Chapter 6.
-) (./Content/02_Chapters/appendix.tex [27
+<Content/Images/reddit_wss.png, id=360, 2107.875pt x 2107.875pt>
+File: Content/Images/reddit_wss.png Graphic file (type png)
+<use Content/Images/reddit_wss.png>
+Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 76.
+(pdftex.def)             Requested size: 433.62pt x 433.5967pt.
+<Content/Images/k4_reddit_clusters.png, id=361, 2107.875pt x 2107.875pt>
+File: Content/Images/k4_reddit_clusters.png Graphic file (type png)
+<use Content/Images/k4_reddit_clusters.png>
+Package pdftex.def Info: Content/Images/k4_reddit_clusters.png  used on input l
+ine 84.
+(pdftex.def)             Requested size: 433.62pt x 433.5967pt.
+ [24] [25 <./Content/Images/reddit_wss.png>] [26 <./Content/Images/k4_reddit_cl
+usters.png>]))
+(./Content/02_Chapters/Chapter 05/main.tex [27] [28]
+Chapter 5.
+) [29
 
-] [28
+] (./Content/02_Chapters/Chapter 06/main.tex [30]
+Chapter 6.
+) (./Content/02_Chapters/appendix.tex [31
+
+] [32
 
 
 ]
 Appendix A.
 ))
 No file main.bbl.
-[29
+[33
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B4333F9CF7674A5D5461CFE7788A6ECF;1779.
+(rerunfilecheck)             Checksum: F5B6AA6387653174C9B0A93E37701453;1474.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1160,16 +1206,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
  ) 
 Here is how much of TeX's memory you used:
- 20830 strings out of 492162
- 398727 string characters out of 6125292
- 470018 words of memory out of 5000000
- 24597 multiletter control sequences out of 15000+600000
- 13377 words of font info for 50 fonts, out of 8000000 for 9000
+ 23140 strings out of 492162
+ 427218 string characters out of 6125292
+ 682653 words of memory out of 5000000
+ 26883 multiletter control sequences out of 15000+600000
+ 13545 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,11n,69p,1936b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,11n,69p,1936b,1833s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1184,11 +1230,12 @@ live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
 e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (39 pages, 1556379 bytes).
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
+19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (43 pages, 1818708 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 375 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 282 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 489 PDF objects out of 1000 (max. 8388607)
+ 387 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 260 words of extra memory for PDF output out of 10000 (max. 10000000)
 
