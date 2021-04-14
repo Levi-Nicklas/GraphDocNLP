@@ -20,5 +20,11 @@
 \BOOKMARK [1][-]{section.4.3}{Comparative Analysis}{chapter.4}% 20
 \BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 21
 \BOOKMARK [0][-]{chapter.6}{Future Work}{}% 22
-\BOOKMARK [0][-]{section*.14}{Appendices}{}% 23
-\BOOKMARK [0][-]{Appendix.1.A}{My first appendix}{}% 24
+\BOOKMARK [0][-]{section*.15}{Appendices}{}% 23
+\BOOKMARK [0][-]{Appendix.1.A}{Major Code Modules Used}{}% 24
+\BOOKMARK [1][-]{section.1.A.1}{data\137collect\137mentalhealth.R}{Appendix.1.A}% 25
+\BOOKMARK [1][-]{section.1.A.2}{correcting\137vertex\137labels.R}{Appendix.1.A}% 26
+\BOOKMARK [1][-]{section.1.A.3}{convert\137to\137graphs.R}{Appendix.1.A}% 27
+\BOOKMARK [1][-]{section.1.A.4}{compute\137kernel.R}{Appendix.1.A}% 28
+\BOOKMARK [1][-]{section.1.A.5}{df\137to\137graph\137list.R}{Appendix.1.A}% 29
+\BOOKMARK [1][-]{section.1.A.6}{compute\137graph\137similarity.R}{Appendix.1.A}% 30

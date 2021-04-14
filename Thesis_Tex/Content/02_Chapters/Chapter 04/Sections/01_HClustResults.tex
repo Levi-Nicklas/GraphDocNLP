@@ -17,7 +17,7 @@ For the study on these interactions, hyper-parameters were varied and the value 
 
 \begin{figure}
 \includegraphics[width=6in]{Content/Images/hclust_variation.png}
-\caption{Hierarchical Clustering Variation (NHTSA) for differing hyperparameters.}
+\caption{Hierarchical Clustering Variation (NHTSA) for differing hyper parameters.}
 \end{figure}
 
 In Figure X, we see some promising values occurring at more prominent ``elbow" points in the plots. These points will be further analyzed and compared. The hyper parameters for these points are:\\
@@ -64,13 +64,13 @@ In Figure 4.4, we see that words that appear frequently, and are unique to that 
 \caption{Skip-grams which occurred more than 50 times in hierarchical clustering with hyper-parameter set A, in cluster 3.}
 \end{figure}
 
-We can put together some of the ideas and topics discussed in the cluster. For example, in Figure 4.5 we see that "Front Left Passenger", "Rear Facing Seat", and "Patient Compartment" are all skip-grams which appeared frequently in this cluster.\\
+We can put together some of the ideas and topics discussed in the cluster. For example, in Figure 4.5 we see that ``Front Left Passenger", ``Rear Facing Seat", and ``Patient Compartment" are all skip-grams which appeared frequently in this cluster.\\
 
 
 \section{reddit Threads}
 
 For the reddit threads dataset, analysis was focused on the ability of the clusterings to organize threads based on their query words. The words used to query the MentalHealth subreddit all returned threads which were then clustered into new groups. Some of these clusters expressed strong preference for posts that corresponded with specific key words. \\
-To assess how many clusters to use, an "elbow blot" was formed similar to those in Figure 4.1. For the reddit threads, the hyper parameters from the NHTSA analysis was used, and the consistently lowest metric parameter set was chosen; skip-grams of $k=3$ and kernel parameter $\sigma = 1200$ were used in the reddit clustering analysis. In Figure X, we see that 4 clusters is the optimal value, where additional clusters provides diminishing results. \\
+To assess how many clusters to use, an ``elbow blot" was formed similar to those in Figure 4.1. For the reddit threads, the hyper parameters from the NHTSA analysis was used, and the consistently lowest metric parameter set was chosen; skip-grams of $k=3$ and kernel parameter $\sigma = 1200$ were used in the reddit clustering analysis. In Figure X, we see that 4 clusters is the optimal value, where additional clusters provides diminishing results. \\
 
 \begin{figure}
 \includegraphics[width=6in]{Content/Images/reddit_wss.png}
