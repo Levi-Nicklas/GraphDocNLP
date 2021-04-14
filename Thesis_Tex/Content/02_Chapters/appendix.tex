@@ -15,17 +15,354 @@
 
 % appendixes go here
 \begin{appendices}
-\chapter{My first appendix}
+\chapter{Major Code Modules Used}
 
-% Listing Example
+
+\section{data\_collect\_mentalhealth.R}
 \begin{lstlisting}
-reddit_thread_kernel_matrix <- matrix(data = rep(0, 1000*1000), nrow = 1000)
+### Reddit Data Collect
+### Levi C. Nicklas
+### 10/25/20
+###
+###
+### Notes:  This data collected will be from reddit. 
+###         Target data is that which related to mental
+###         health and the open forum discussion of 
+###         the issues, stigmas, and other challenges
+###         surrounding those experiencing mental health
+###         issues.
+###
+###         The package {RedditExtractoR} will be used 
+###         to obtain the data. This will then be written
+###         out to the data folder in an .RDS or .csv format.
 
-for(i in 1:length(reddit_thread_kernel)){
-  reddit_thread_kernel_matrix[i,] <- reddit_thread_kernel[[i]]
+library(tidyverse)
+library(RedditExtractoR)
+
+
+mental_health <- c("anxious", "anxiety", 
+                   "depressed", "depression",
+                   "mental", "illness", "scared",
+                   "afraid", "sad", "emotion", "anger",
+                   "angry", "upset", "suicide", "abuse",
+                   "emotional","help", "addiction")
+
+reddit_data <- list()
+
+for(i in 1:length(mental_health)){
+  reddit_temp <- RedditExtractoR::get_reddit(search_terms = mental_health[i], 
+                             #regex_filter = ,
+                             subreddit = "mentalhealth",
+                             cn_threshold = 10,
+                             sort_by = "comments",
+                             wait_time = 3)
+  
+  reddit_data[[i]] <- reddit_temp
+}
+
+write_rds(reddit_data, "Data/RawData/mentalhealth_reddit_20201025.RDS")
+
 }
 
 rm(reddit_thread_kernel)
+\end{lstlisting}
+
+\section{correcting\_vertex\_labels.R}
+\begin{lstlisting}
+# convert_vertex_labels
+# Levi C. Nicklas
+# 1/20/2021 -- *Happy Inauguration Day*
+#
+#
+# Notes:  This function converts text labels of two graphs and maps them to integer values.
+#         {graphkernels} only works with integer labels on verticies. The function finds 
+#         the union of unique words/labels and then maps each unique label to an integer
+#         and then assigns the corresponding label to the correct vertex.
+
+convert_vertex_labels <-  function(g1, g2){
+  # Libs Req.
+  require(magrittr)
+  require(dplyr)
+  require(igraph)
+  require(graphkernels)
+  
+  # Grab vertex labels (words).
+  v.g1 <- unlist(get.vertex.attribute(g1))
+  v.g2 <- unlist(get.vertex.attribute(g2))
+  
+  # Build a dataframe that maps words to integers (1 to 1).
+  map_to_int <- seq(1,length(unique(c(v.g1,v.g2))))
+  map_to_int <- data.frame(word = unique(unique(c(v.g1,v.g2))),
+                           int = map_to_int)
+  
+  # Change g1 vertex names.
+  vertex.attributes(g1)$name <- left_join(data.frame(word = vertex.attributes(g1)$name), map_to_int, by = "word") %>% 
+    select(int) %>% pull()
+  
+  # Change g2 vertex names.
+  vertex.attributes(g2)$name <- left_join(data.frame(word = vertex.attributes(g2)$name), map_to_int, by = "word") %>% 
+    select(int) %>% pull()
+  
+  return(list(g1,g2))
+}
+
+
+### Worked Example -- not functionized ###
+# g1 <- reddit_graphs_s[[1]][[1]]
+# g2 <- reddit_graphs_s[[2]][[1]]
+# 
+# v.g1 <- unlist(get.vertex.attribute(g1))
+# v.g2 <- unlist(get.vertex.attribute(g2))
+# 
+# unique(c(v.g1,v.g2))
+# 
+# map_to_int <- seq(1,length(unique(c(v.g1,v.g2))))
+# 
+# map_to_int <- data.frame(word = unique(unique(c(v.g1,v.g2))),
+#                          int = map_to_int)
+# 
+# vertex.attributes(g1)$name <- left_join(data.frame(word = vertex.attributes(g1)$name), map_to_int, by = "word") %>% 
+#   select(int) %>% pull()
+# 
+# vertex.attributes(g2)$name <- left_join(data.frame(word = vertex.attributes(g2)$name), map_to_int, by = "word") %>% 
+#   select(int) %>% pull()
+# 
+# CalculateVertexHistKernel(list(g1,g2))
+# CalculateVertexHistKernel(list(reddit_graphs_s[[1]][[1]],
+#                                reddit_graphs_s[[2]][[1]]))
+\end{lstlisting}
+
+\section{convert\_to\_graphs.R}
+\begin{lstlisting}
+### Reddit df -> skip_gram graph
+### Levi C. Nicklas
+### 12/30/20
+###
+###
+### Notes:  
+
+
+convert_to_graphs <- function(){
+  # Libraries
+  library(here)
+  library(furrr)
+  
+  plan(multisession, workers = 4)
+  
+  ### REDDIT POSTS ###
+  
+  post_thread_graphs <- list()
+
+  source(here::here("Development/Scripts/df_to_graph_list.R"))
+  
+  text_graphs <- furrr::future_map(.x = post_thread_text_sample$text,
+                                   .f = df_to_graph_list)
+  return(text_graphs)
+  
+  ### NHTSA PAPERS ###
+  # papers <- readRDS(here::here("Data/NHTSA/RawData/ConsolidatedPapers.rds"))
+  # 
+  # # import function
+  # source(here::here("Development/Scripts/df_to_graph_list.R"))
+  # text_graphs <- furrr::future_map(.x = papers$text,
+  #                                 .f = df_to_graph_list)
+  # 
+  # saveRDS(text_graphs, "Data/NHTSA/ProcessedData/nhtsa_graphs.RDS")
+}
+\end{lstlisting}
+
+\section{compute\_kernel.R}
+\begin{lstlisting}
+# Compute Graph Kernels
+# Levi C. Nicklas
+# Date: 1/4/2021
+#
+#
+# Notes:  
+#
+
+
+compute_kernel <- function(){
+  # Libraries
+  require(furrr)
+  
+  plan(multisession, workers = 8)
+  
+  text_kernel <- furrr::future_map(.x = thread_graphs,
+                                   .f = compute_graph_similarity,
+                                   .options = furrr_options(seed = T))
+  
+  #saveRDS(text_kernel, "Data/ProcessedData/reddit_graphkernel_325.RDS")
+  return(text_kernel)
+  saveRDS(text_kernel, "Data/ProcessedData/redditthreads_graphkernel_all.RDS")
+}
+\end{lstlisting}
+
+\section{df\_to\_graph\_list.R}
+\begin{lstlisting}
+# Process into Graph Objects
+# Levi C. Nicklas
+# Date: 12/19/2020
+#
+#
+# Notes:  This script features a function which takes a text vector
+#         and returns a list of graph representations of the text file.
+
+df_to_graph_list <- function(text){
+  # Check libraries
+  require(dplyr)
+  require(tidyr)
+  require(tidytext)
+  require(igraph)
+  
+  n_gram <- 2
+  k_skip <- 2
+  
+  # Prepare variables and space.
+  text_df <- as.data.frame(text)
+  colnames(text_df) <- c("text")
+  text_df$id <- seq(1,nrow(text_df))
+  graph_list <- list()
+  
+  # Loop over rows in data.
+  for(i in 1:nrow(text_df)){
+    # tokenize as skip grams.
+    temp_graph <- tidytext::unnest_tokens(text_df, 
+                                       output = "words" ,
+                                       input = text, 
+                                       token = "skip_ngrams",
+                                       n = n_gram,
+                                       k = k_skip) %>%  
+      # filter to only 1 document.
+      dplyr::filter(id == i) %>% 
+      # split bigram
+      tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+      # remove stop words
+      anti_join(stop_words, by = c("word1" = "word")) %>% 
+      anti_join(stop_words, by = c("word2" = "word")) %>% 
+      # toss NA values.
+      tidyr::drop_na() %>% 
+      # clean out punctuation %>% 
+      mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+      mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      # clean out numebrs
+      select(id,word1,word2) %>% 
+      mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+      mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      select(id,word1,word2) %>% 
+      # only keep words of > len 3
+      mutate(word1_toss = (nchar(word1)<4)) %>% 
+      mutate(word2_toss = (nchar(word2)<4)) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      select(id, word1, word2) %>% 
+      # group each bigram.
+      group_by(word1, word2) %>% 
+      # count occurances.
+      count() %>% 
+      # produce Graph.
+      igraph::graph_from_data_frame()
+    
+    # cleaned_words_df <- temp_graph %>% igraph::clusters()
+    # cleaned_words_df <- as.data.frame(cleaned_words_df$membership)
+    # cleaned_words_df$words <- rownames(cleaned_words_df)
+    # colnames(cleaned_words_df) <- c("member", "words")
+    # reduced_clusters <- cleaned_words_df %>% 
+    #   filter(member != 1)
+    # 
+    # # Get single largest cluster.
+    # big_graph <- temp_graph %>% 
+    #   as_edgelist() %>% 
+    #   as.data.frame() %>% 
+    #   anti_join(y = reduced_clusters, by = c("V1" = "words")) %>% 
+    #   anti_join(y = reduced_clusters, by = c("V2" = "words")) %>% 
+    #   graph_from_data_frame()
+    
+    # Store
+    #graph_list[[i]] <- list(big_graph, text)
+    graph_list[[i]] <- list(temp_graph, text)
+    
+    # if(i %% 1000 == 0){
+    #   print(paste0("On Row: ",i))
+    # }
+  }
+  
+  
+
+  # Return a list of Graphs  
+  return(graph_list)
+  
+}
+\end{lstlisting}
+
+\section{compute\_graph\_similarity.R}
+\begin{lstlisting}
+# Compute Graph Similarity
+# Levi C. Nicklas
+# Date: 1/4/2021
+#
+#
+# Notes:  
+#
+
+
+compute_graph_similarity <- function(input_graph){
+  require(graphkernels)
+  require(igraph)
+  require(here)
+  
+  source(here::here("Development/Scripts/convert_vertex_labels.R"))
+  
+  # Edit Graph List to Op on.
+  #graph_list <- reddit_graphs_s
+  #graph_list <- nhtsa_graphs
+  graph_list <- thread_graphs
+  
+  #Allocate Storage
+  result <- rep(0,length(graph_list))
+  
+  #Compute Similarity btwn 1 graph and all others. FOR REDDIT
+  for(i in 1:length(graph_list)){
+    if(length(igraph::vertex.attributes(graph_list[[i]][[1]][[1]])) > 0 &
+       length(igraph::vertex.attributes(input_graph[[1]][[1]])) > 0 ){
+
+      # Correct Labels Issue.
+      tmp_graph_list <- convert_vertex_labels(graph_list[[i]][[1]][[1]], input_graph[[1]][[1]])
+      #print(paste0("Calculating Graph: #",i))
+      #K <- graphkernels::CalculateEdgeHistKernel(tmp_graph_list)
+      K <- graphkernels::CalculateEdgeHistGaussKernel(tmp_graph_list,1200)
+      similarity_value <- K[1,2]
+      result[i] <- similarity_value
+    } else {
+      #print(paste0("Skipping Graph: #",i))
+      result[i] <- NA
+    }
+  }
+  
+  # FOR NHTSA
+  # for(i in 1:length(graph_list)){
+  #   if(length(igraph::vertex.attributes(graph_list[[i]][[1]])) > 0 & 
+  #      length(igraph::vertex.attributes(input_graph[[1]])) > 0 ){
+  #     
+  #     # Correct Labels Issue.
+  #     tmp_graph_list <- convert_vertex_labels(graph_list[[i]][[1]], input_graph[[1]])
+  #     #print(paste0("Calculating Graph: #",i))
+  #     #K <- graphkernels::CalculateEdgeHistKernel(tmp_graph_list)
+  #     K <- graphkernels::CalculateEdgeHistGaussKernel(tmp_graph_list,1200)
+  #     similarity_value <- K[1,2]
+  #     result[i] <- similarity_value
+  #   } else {
+  #     #print(paste0("Skipping Graph: #",i))
+  #     result[i] <- NA
+  #   }
+  # }
+  
+  return(result)
+}
 \end{lstlisting}
 
 

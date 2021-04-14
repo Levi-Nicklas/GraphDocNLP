@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  13 APR 2021 18:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  13 APR 2021 21:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -975,7 +975,7 @@ LaTeX Info: Redefining \nameref on input line 59.
 
 (./Content/01_Front_Matter/main.tex
 (./Content/01_Front_Matter/00_cover_page.tex
-<Content/Images/FLPoly_logo.pdf, id=102, 412.54124pt x 112.92188pt>
+<Content/Images/FLPoly_logo.pdf, id=126, 412.54124pt x 112.92188pt>
 File: Content/Images/FLPoly_logo.pdf Graphic file (type pdf)
 <use Content/Images/FLPoly_logo.pdf>
 Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
@@ -1033,35 +1033,33 @@ l.14 \end{abstract}
                     [1])) (./Content/02_Chapters/main.tex
 (./Content/02_Chapters/Chapter 01/main.tex
 Chapter 1.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.19  \includegraphics
-                      [width=6in]{Content/Images/proposal_diagram.png}\\\vsp...
-[1
+<Content/Images/Concept_map.png, id=274, 834.11626pt x 812.03375pt>
+File: Content/Images/Concept_map.png Graphic file (type png)
+<use Content/Images/Concept_map.png>
+Package pdftex.def Info: Content/Images/Concept_map.png  used on input line 19.
 
-]
-<Content/Images/proposal_diagram.png, id=243, 801.99625pt x 553.06625pt>
-File: Content/Images/proposal_diagram.png Graphic file (type png)
-<use Content/Images/proposal_diagram.png>
-Package pdftex.def Info: Content/Images/proposal_diagram.png  used on input lin
-e 19.
-(pdftex.def)             Requested size: 433.62pt x 299.03108pt.
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
-been already used, duplicate ignored
+(pdftex.def)             Requested size: 433.62pt x 422.14847pt.
+)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 
-      [2 <./Content/Images/proposal_diagram.png>]pdfTeX warning (ext4): destina
-tion with the same identifier (name{page.3}) has been already used, duplicate i
-gnored
+l.11 
+      [1
+
+]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 
-      [3]) (./Content/02_Chapters/Chapter 02/main.texpdfTeX warning (ext4): des
-tination with the same identifier (name{page.4}) has been already used, duplica
-te ignored
+l.11 
+      [2 <./Content/Images/Concept_map.png>]pdfTeX warning (ext4): destination 
+with the same identifier (name{page.3}) has been already used, duplicate ignore
+d
+<to be read again> 
+                   \relax 
+l.11 
+      [3] (./Content/02_Chapters/Chapter 02/main.texpdfTeX warning (ext4): dest
+ination with the same identifier (name{page.4}) has been already used, duplicat
+e ignored
 <to be read again> 
                    \relax 
 l.9 \chapter
@@ -1077,37 +1075,37 @@ ne 16.
 
 
 LaTeX Warning: Citation `nikolentzos2017shortest' on page 5 undefined on input 
-line 18.
+line 17.
 
 
-LaTeX Warning: Citation `cheng2006n' on page 5 undefined on input line 18.
+LaTeX Warning: Citation `cheng2006n' on page 5 undefined on input line 17.
 
 
 LaTeX Warning: Citation `sugiyama2018graphkernels' on page 5 undefined on input
- line 18.
+ line 17.
 
 [5
 
 ]
 
-LaTeX Warning: Citation `akioyamen2020framework' on page 6 undefined on input l
-ine 53.
+LaTeX Warning: Citation `sugiyama2018graphkernels' on page 6 undefined on input
+ line 41.
 
-[6]) (./Content/02_Chapters/Chapter 03/main.tex [7]
+) (./Content/02_Chapters/Chapter 03/main.tex [6]
 Chapter 3.
-(./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [8
+(./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [7
 
-] [9])
-(./Content/02_Chapters/Chapter 03/Sections/01_TextProcessing.tex [10] [11])
-(./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [12])
-(./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex) [13]
+] [8])
+(./Content/02_Chapters/Chapter 03/Sections/01_TextProcessing.tex [9] [10])
+(./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [11])
+(./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex) [12]
 (./Content/02_Chapters/Chapter 03/Sections/05_Development.tex
-<Content/Images/ScriptMap.png, id=302, 774.895pt x 643.40375pt>
+<Content/Images/ScriptMap.png, id=332, 774.895pt x 643.40375pt>
 File: Content/Images/ScriptMap.png Graphic file (type png)
 <use Content/Images/ScriptMap.png>
 Package pdftex.def Info: Content/Images/ScriptMap.png  used on input line 7.
 (pdftex.def)             Requested size: 433.62pt x 360.03856pt.
- [14]
+ [13]
 LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
 10.
 LaTeX Font Info:    No file OMScmtt.fd. on input line 10.
@@ -1117,88 +1115,88 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbraceleft' on input line 10.
 
-<Content/Images/edgeHistTimePlot.png, id=307, 2107.875pt x 2107.875pt>
+<Content/Images/edgeHistTimePlot.png, id=337, 2107.875pt x 2107.875pt>
 File: Content/Images/edgeHistTimePlot.png Graphic file (type png)
 <use Content/Images/edgeHistTimePlot.png>
 Package pdftex.def Info: Content/Images/edgeHistTimePlot.png  used on input lin
 e 13.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-[15 <./Content/Images/ScriptMap.png>] [16 <./Content/Images/edgeHistTimePlot.pn
-g>])) (./Content/02_Chapters/Chapter 04/main.tex [17]
+[14 <./Content/Images/ScriptMap.png>] [15 <./Content/Images/edgeHistTimePlot.pn
+g>])) (./Content/02_Chapters/Chapter 04/main.tex [16]
 Chapter 4.
 (./Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex
-<Content/Images/hclust_variation.png, id=325, 1877.0125pt x 2262.4525pt>
+<Content/Images/hclust_variation.png, id=354, 1877.0125pt x 2262.4525pt>
 File: Content/Images/hclust_variation.png Graphic file (type png)
 <use Content/Images/hclust_variation.png>
 Package pdftex.def Info: Content/Images/hclust_variation.png  used on input lin
 e 19.
 (pdftex.def)             Requested size: 433.62pt x 522.6316pt.
- [18
+ [17
 
-] [19 <./Content/Images/hclust_variation.png>]
-<Content/Images/5cluster.png, id=335, 3914.625pt x 1806.75pt>
+] [18 <./Content/Images/hclust_variation.png>]
+<Content/Images/5cluster.png, id=364, 3914.625pt x 1806.75pt>
 File: Content/Images/5cluster.png Graphic file (type png)
 <use Content/Images/5cluster.png>
 Package pdftex.def Info: Content/Images/5cluster.png  used on input line 41.
 (pdftex.def)             Requested size: 433.62pt x 200.12155pt.
-<Content/Images/comembers5.png, id=336, 2409.0pt x 2409.0pt>
+<Content/Images/comembers5.png, id=365, 2409.0pt x 2409.0pt>
 File: Content/Images/comembers5.png Graphic file (type png)
 <use Content/Images/comembers5.png>
 Package pdftex.def Info: Content/Images/comembers5.png  used on input line 48.
 (pdftex.def)             Requested size: 433.62pt x 433.6013pt.
- [20 <./Content/Images/5cluster.png>]
-[21 <./Content/Images/comembers5.png>]
-<Content/Images/nhtsa_tf_idf.png, id=348, 2571.6075pt x 1956.30875pt>
+ [19 <./Content/Images/5cluster.png>]
+[20 <./Content/Images/comembers5.png>]
+<Content/Images/nhtsa_tf_idf.png, id=376, 2571.6075pt x 1956.30875pt>
 File: Content/Images/nhtsa_tf_idf.png Graphic file (type png)
 <use Content/Images/nhtsa_tf_idf.png>
 Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 56
 .
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
-<Content/Images/graph_k5_2.png, id=349, 2571.6075pt x 1956.30875pt>
+<Content/Images/graph_k5_2.png, id=377, 2571.6075pt x 1956.30875pt>
 File: Content/Images/graph_k5_2.png Graphic file (type png)
 <use Content/Images/graph_k5_2.png>
 Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 63.
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
- [22 <./Content/Images/nhtsa_tf_idf.png>] [23 <./Content/Images/graph_k5_2.png>
+ [21 <./Content/Images/nhtsa_tf_idf.png>] [22 <./Content/Images/graph_k5_2.png>
 ]
-<Content/Images/reddit_wss.png, id=360, 2107.875pt x 2107.875pt>
+<Content/Images/reddit_wss.png, id=389, 2107.875pt x 2107.875pt>
 File: Content/Images/reddit_wss.png Graphic file (type png)
 <use Content/Images/reddit_wss.png>
 Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 76.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-<Content/Images/k4_reddit_clusters.png, id=361, 2107.875pt x 2107.875pt>
+<Content/Images/k4_reddit_clusters.png, id=390, 2107.875pt x 2107.875pt>
 File: Content/Images/k4_reddit_clusters.png Graphic file (type png)
 <use Content/Images/k4_reddit_clusters.png>
 Package pdftex.def Info: Content/Images/k4_reddit_clusters.png  used on input l
 ine 84.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
- [24] [25 <./Content/Images/reddit_wss.png>] [26 <./Content/Images/k4_reddit_cl
+ [23] [24 <./Content/Images/reddit_wss.png>] [25 <./Content/Images/k4_reddit_cl
 usters.png>]))
-(./Content/02_Chapters/Chapter 05/main.tex [27] [28]
+(./Content/02_Chapters/Chapter 05/main.tex [26] [27]
 Chapter 5.
-) [29
+) [28
 
-] (./Content/02_Chapters/Chapter 06/main.tex [30]
+] (./Content/02_Chapters/Chapter 06/main.tex [29]
 Chapter 6.
-) (./Content/02_Chapters/appendix.tex [31
+) (./Content/02_Chapters/appendix.tex [30
 
-] [32
+] [31
 
 
 ]
 Appendix A.
-))
-No file main.bbl.
-[33
+[32
 
-]
+] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]))
+No file main.bbl.
+[43]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F5B6AA6387653174C9B0A93E37701453;1474.
+(rerunfilecheck)             Checksum: AE835953EEE6EC8C9443C17422AD4143;1960.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1209,13 +1207,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
  ) 
 Here is how much of TeX's memory you used:
- 23140 strings out of 492162
- 427218 string characters out of 6125292
- 682653 words of memory out of 5000000
- 26883 multiletter control sequences out of 15000+600000
+ 23565 strings out of 492162
+ 433057 string characters out of 6125292
+ 716653 words of memory out of 5000000
+ 26970 multiletter control sequences out of 15000+600000
  13545 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,11n,69p,1936b,1833s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,11n,69p,1936b,2585s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
@@ -1232,10 +1230,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
 2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
 019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
 19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (43 pages, 1818708 bytes).
+Output written on main.pdf (53 pages, 1843241 bytes).
 PDF statistics:
- 489 PDF objects out of 1000 (max. 8388607)
- 387 compressed objects within 4 object streams
- 80 named destinations out of 1000 (max. 500000)
- 260 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 956 PDF objects out of 1000 (max. 8388607)
+ 839 compressed objects within 9 object streams
+ 418 named destinations out of 1000 (max. 500000)
+ 308 words of extra memory for PDF output out of 10000 (max. 10000000)
 

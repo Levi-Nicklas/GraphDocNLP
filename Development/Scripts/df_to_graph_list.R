@@ -3,7 +3,7 @@
 # Date: 12/19/2020
 #
 #
-# Notes:  This script features a function which takes .. <what am I feeding this bad boy?> ...
+# Notes:  This script features a function which takes a text vector
 #         and returns a list of graph representations of the text file.
 
 df_to_graph_list <- function(text){
