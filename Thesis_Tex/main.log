@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  13 APR 2021 21:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  15 APR 2021 00:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -831,24 +831,33 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count164
 \c@@ppsaveapp=\count165
 ))
+(/usr/local/texlive/2019/texmf-dist/tex/latex/apacite/apacite.sty
+Package: apacite 2013/07/21 v6.03 APA citation
+\c@BibCnt=\count166
+\bibleftmargin=\skip77
+\bibindent=\skip78
+\bibparsep=\skip79
+\bibitemsep=\skip80
+\biblabelsep=\skip81
+)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count166
+\lst@mode=\count167
 \lst@gtempboxa=\box85
 \lst@token=\toks45
-\lst@length=\count167
+\lst@length=\count168
 \lst@currlwidth=\dimen291
-\lst@column=\count168
-\lst@pos=\count169
+\lst@column=\count169
+\lst@pos=\count170
 \lst@lostspace=\dimen292
 \lst@width=\dimen293
-\lst@newlines=\count170
-\lst@lineno=\count171
+\lst@newlines=\count171
+\lst@lineno=\count172
 \lst@maxwidth=\dimen294
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count172
-\lst@skipnumbers=\count173
+\c@lstnumber=\count173
+\lst@skipnumbers=\count174
 \lst@framebox=\box86
 )
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/listings.cfg
@@ -868,20 +877,20 @@ File: lstlang3.sty 2019/09/10 1.8c listings language file
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -895,16 +904,16 @@ Package caption Info: End \AtBeginDocument code.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count174
+\scratchcounter=\count175
 \scratchdimen=\dimen295
 \scratchbox=\box87
-\nofMPsegments=\count175
-\nofMParguments=\count176
+\nofMPsegments=\count176
+\nofMParguments=\count177
 \everyMPshowfont=\toks46
-\MPscratchCnt=\count177
+\MPscratchCnt=\count178
 \MPscratchDim=\dimen296
-\MPnumerator=\count178
-\makeMPintoPDFobject=\count179
+\MPnumerator=\count179
+\makeMPintoPDFobject=\count180
 \everyMPtoPDFconversion=\toks47
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2019-12-09 v2.10 Base part for package epstopdf
@@ -950,7 +959,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box88
-Package hyperref Info: Link coloring OFF on input line 59.
+Package hyperref Info: Link coloring OFF on input line 63.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -961,21 +970,28 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count180
+\c@section@level=\count181
 )
-LaTeX Info: Redefining \ref on input line 59.
-LaTeX Info: Redefining \pageref on input line 59.
-LaTeX Info: Redefining \nameref on input line 59.
+LaTeX Info: Redefining \ref on input line 63.
+LaTeX Info: Redefining \pageref on input line 63.
+LaTeX Info: Redefining \nameref on input line 63.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
  ABD: EveryShipout initializing macros
-\c@lstlisting=\count181
+\c@maskedRefs=\count182
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/apacite/english.apc
+File: english.apc 2013/07/21 v6.03 apacite language file
+LaTeX Info: Redefining \BPBI on input line 129.
+LaTeX Info: Redefining \BHBI on input line 130.
+)
+\c@lstlisting=\count183
 
 (./Content/01_Front_Matter/main.tex
 (./Content/01_Front_Matter/00_cover_page.tex
-<Content/Images/FLPoly_logo.pdf, id=126, 412.54124pt x 112.92188pt>
+<Content/Images/FLPoly_logo.pdf, id=130, 412.54124pt x 112.92188pt>
 File: Content/Images/FLPoly_logo.pdf Graphic file (type pdf)
 <use Content/Images/FLPoly_logo.pdf>
 Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
@@ -986,13 +1002,13 @@ Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Conte
 nt/Images/FLPoly_logo.pdf>]
 (./Content/01_Front_Matter/01_signatures_page.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
 
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
 
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1018,27 +1034,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [4
 
-] (./main.loa)
-\tf@loa=\write8
-\openout8 = `main.loa'.
-
- [5
-
-])
-(./Content/01_Front_Matter/05_abstract.texpdfTeX warning (ext4): destination wi
-th the same identifier (name{page.1}) has been already used, duplicate ignored
+]) (./Content/01_Front_Matter/05_abstract.texpdfTeX warning (ext4): destination
+ with the same identifier (name{page.1}) has been already used, duplicate ignor
+ed
 <to be read again> 
                    \relax 
 l.14 \end{abstract}
                     [1])) (./Content/02_Chapters/main.tex
 (./Content/02_Chapters/Chapter 01/main.tex
 Chapter 1.
-<Content/Images/Concept_map.png, id=274, 834.11626pt x 812.03375pt>
+<Content/Images/Concept_map.png, id=281, 834.11626pt x 812.03375pt>
 File: Content/Images/Concept_map.png Graphic file (type png)
 <use Content/Images/Concept_map.png>
-Package pdftex.def Info: Content/Images/Concept_map.png  used on input line 19.
+Package pdftex.def Info: Content/Images/Concept_map.png  used on input line 18.
 
 (pdftex.def)             Requested size: 433.62pt x 422.14847pt.
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
+25.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 25.
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 25.
+
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
 <to be read again> 
@@ -1065,175 +1083,158 @@ e ignored
 l.9 \chapter
             {Literature Review} [4]
 Chapter 2.
-
-LaTeX Warning: Citation `kondor2002diffusion' on page 5 undefined on input line
- 16.
-
-
-LaTeX Warning: Citation `vishwanathan2010graph' on page 5 undefined on input li
-ne 16.
-
-
-LaTeX Warning: Citation `nikolentzos2017shortest' on page 5 undefined on input 
-line 17.
-
-
-LaTeX Warning: Citation `cheng2006n' on page 5 undefined on input line 17.
-
-
-LaTeX Warning: Citation `sugiyama2018graphkernels' on page 5 undefined on input
- line 17.
-
 [5
 
-]
-
-LaTeX Warning: Citation `sugiyama2018graphkernels' on page 6 undefined on input
- line 41.
-
-) (./Content/02_Chapters/Chapter 03/main.tex [6]
+]) (./Content/02_Chapters/Chapter 03/main.tex [6]
 Chapter 3.
 (./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [7
 
 ] [8])
 (./Content/02_Chapters/Chapter 03/Sections/01_TextProcessing.tex [9] [10])
 (./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [11])
-(./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex) [12]
-(./Content/02_Chapters/Chapter 03/Sections/05_Development.tex
-<Content/Images/ScriptMap.png, id=332, 774.895pt x 643.40375pt>
+(./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex [12])
+(./Content/02_Chapters/Chapter 03/Sections/05_Development.tex [13]
+<Content/Images/ScriptMap.png, id=387, 774.895pt x 643.40375pt>
 File: Content/Images/ScriptMap.png Graphic file (type png)
 <use Content/Images/ScriptMap.png>
 Package pdftex.def Info: Content/Images/ScriptMap.png  used on input line 7.
 (pdftex.def)             Requested size: 433.62pt x 360.03856pt.
- [13]
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
-10.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 10.
-
-
-LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 10.
-
-<Content/Images/edgeHistTimePlot.png, id=337, 2107.875pt x 2107.875pt>
+<Content/Images/edgeHistTimePlot.png, id=388, 2107.875pt x 2107.875pt>
 File: Content/Images/edgeHistTimePlot.png Graphic file (type png)
 <use Content/Images/edgeHistTimePlot.png>
 Package pdftex.def Info: Content/Images/edgeHistTimePlot.png  used on input lin
-e 13.
+e 14.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-[14 <./Content/Images/ScriptMap.png>] [15 <./Content/Images/edgeHistTimePlot.pn
-g>])) (./Content/02_Chapters/Chapter 04/main.tex [16]
+ [14 <./Content/Images/ScriptMap.png>] [15 <./Content/Images/edgeHistTimePlot.p
+ng>]))
+(./Content/02_Chapters/Chapter 04/main.tex [16]
 Chapter 4.
 (./Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex
-<Content/Images/hclust_variation.png, id=354, 1877.0125pt x 2262.4525pt>
+<Content/Images/hclust_variation.png, id=404, 2257.43375pt x 2174.1225pt>
 File: Content/Images/hclust_variation.png Graphic file (type png)
 <use Content/Images/hclust_variation.png>
 Package pdftex.def Info: Content/Images/hclust_variation.png  used on input lin
 e 19.
-(pdftex.def)             Requested size: 433.62pt x 522.6316pt.
+(pdftex.def)             Requested size: 433.62pt x 417.59929pt.
  [17
 
 ] [18 <./Content/Images/hclust_variation.png>]
-<Content/Images/5cluster.png, id=364, 3914.625pt x 1806.75pt>
+<Content/Images/5cluster.png, id=414, 3914.625pt x 1806.75pt>
 File: Content/Images/5cluster.png Graphic file (type png)
 <use Content/Images/5cluster.png>
-Package pdftex.def Info: Content/Images/5cluster.png  used on input line 41.
+Package pdftex.def Info: Content/Images/5cluster.png  used on input line 42.
 (pdftex.def)             Requested size: 433.62pt x 200.12155pt.
-<Content/Images/comembers5.png, id=365, 2409.0pt x 2409.0pt>
+<Content/Images/comembers5.png, id=415, 2409.0pt x 2409.0pt>
 File: Content/Images/comembers5.png Graphic file (type png)
 <use Content/Images/comembers5.png>
-Package pdftex.def Info: Content/Images/comembers5.png  used on input line 48.
+Package pdftex.def Info: Content/Images/comembers5.png  used on input line 49.
 (pdftex.def)             Requested size: 433.62pt x 433.6013pt.
  [19 <./Content/Images/5cluster.png>]
 [20 <./Content/Images/comembers5.png>]
-<Content/Images/nhtsa_tf_idf.png, id=376, 2571.6075pt x 1956.30875pt>
+<Content/Images/nhtsa_tf_idf.png, id=426, 2571.6075pt x 1956.30875pt>
 File: Content/Images/nhtsa_tf_idf.png Graphic file (type png)
 <use Content/Images/nhtsa_tf_idf.png>
-Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 56
+Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 57
 .
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
-<Content/Images/graph_k5_2.png, id=377, 2571.6075pt x 1956.30875pt>
+<Content/Images/graph_k5_2.png, id=427, 2571.6075pt x 1956.30875pt>
 File: Content/Images/graph_k5_2.png Graphic file (type png)
 <use Content/Images/graph_k5_2.png>
-Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 63.
+Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 64.
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
  [21 <./Content/Images/nhtsa_tf_idf.png>] [22 <./Content/Images/graph_k5_2.png>
 ]
-<Content/Images/reddit_wss.png, id=389, 2107.875pt x 2107.875pt>
+<Content/Images/reddit_wss.png, id=447, 2107.875pt x 2107.875pt>
 File: Content/Images/reddit_wss.png Graphic file (type png)
 <use Content/Images/reddit_wss.png>
-Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 76.
+Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 78.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-<Content/Images/k4_reddit_clusters.png, id=390, 2107.875pt x 2107.875pt>
+ [23] [24 <./Content/Images/reddit_wss.png>]
+<Content/Images/k4_reddit_clusters.png, id=461, 2107.875pt x 2107.875pt>
 File: Content/Images/k4_reddit_clusters.png Graphic file (type png)
 <use Content/Images/k4_reddit_clusters.png>
 Package pdftex.def Info: Content/Images/k4_reddit_clusters.png  used on input l
-ine 84.
+ine 86.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
- [23] [24 <./Content/Images/reddit_wss.png>] [25 <./Content/Images/k4_reddit_cl
-usters.png>]))
-(./Content/02_Chapters/Chapter 05/main.tex [26] [27]
+ [25 <./Content/Images/k4_reddit_clusters.png>]))
+(./Content/02_Chapters/Chapter 05/main.tex [26]
 Chapter 5.
-) [28
+[27
 
-] (./Content/02_Chapters/Chapter 06/main.tex [29]
+]) (./Content/02_Chapters/Chapter 06/main.tex [28]
 Chapter 6.
-) (./Content/02_Chapters/appendix.tex [30
+) (./Content/02_Chapters/appendix.tex [29
 
-] [31
+] [30
 
 
 ]
 Appendix A.
-[32
+[31
 
-] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]))
-No file main.bbl.
-[43]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
+] [32] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42]
+Appendix B.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 370.
+
+
+Overfull \hbox (45.80733pt too wide) in paragraph at lines 372--423
+[][] 
+ []
+
+[43
+
+] [44]
+Appendix C.
+)) (./main.bbl [45
+
+] [46
+
+]) [47]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AE835953EEE6EC8C9443C17422AD4143;1960.
+(rerunfilecheck)             Checksum: 8EE7369CFDE95D6C03F63428F464D97F;1952.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
- 23565 strings out of 492162
- 433057 string characters out of 6125292
- 716653 words of memory out of 5000000
- 26970 multiletter control sequences out of 15000+600000
- 13545 words of font info for 51 fonts, out of 8000000 for 9000
+ 24055 strings out of 492162
+ 439923 string characters out of 6125292
+ 724786 words of memory out of 5000000
+ 27424 multiletter control sequences out of 15000+600000
+ 14502 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,11n,69p,1936b,2585s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,11n,69p,1936b,2583s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (53 pages, 1843241 bytes).
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
+live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (56 pages, 1878010 bytes).
 PDF statistics:
- 956 PDF objects out of 1000 (max. 8388607)
- 839 compressed objects within 9 object streams
- 418 named destinations out of 1000 (max. 500000)
- 308 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1054 PDF objects out of 1200 (max. 8388607)
+ 931 compressed objects within 10 object streams
+ 444 named destinations out of 1000 (max. 500000)
+ 316 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -123,13 +123,15 @@ for(i in 1:length(results)){
   study3$wss[row_indicies] <- results[[i]]$wss
 }
 
+my_palette <-c("#ff333a","#f66025","#ffca3a","#8ac926","#1982c4","#6a4c93","#4b1592")
+
 study3plot <- study3 %>% 
   group_by(skip,sig) %>% 
   ggplot(aes(x = k_tree,
              y = wss,
              group = .group))+
-  geom_line(color = "#370617")+
-  geom_point(size = 2, color = "#370617") +
+  geom_line(color = my_palette[1])+
+  geom_point(size = 2, color = my_palette[1]) +
   facet_grid(rows = vars(sig), 
              cols = vars(skip))+
   labs(title = "Hierarchical Clustering Variation",
@@ -142,9 +144,9 @@ study3plot <- study3 %>%
         axis.line = element_line(color = "black"),
         axis.ticks = element_line(color = "black"),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25),
-        strip.background = element_rect(fill = "#E85D04"),
-        strip.text = element_text(color = "#370617", face = "bold"))
+        strip.background = element_rect(fill = my_palette[5]),
+        strip.text = element_text(color = "white", face = "bold"))
 
-#ggsave(study3plot, file = here::here("Study3_HClustResults/hclust_variation.png"))
+ggsave(study3plot, file = here::here("Study3_HClustResults/hclust_variation.png"))
 
   
