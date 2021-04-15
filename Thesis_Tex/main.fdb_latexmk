@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1618462169 "main.aux" "main.bbl" "main" 1618462175
+["bibtex main"] 1618462601 "main.aux" "main.bbl" "main" 1618462607
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/apacite/apacite.bst" 1374530685 141073 9d7b79dbf9d91133318126032cff8c27 ""
   "Bibliography/bibliography.bib" 1618460768 5192 4f3ebef588a7dc0df915c6cca522003a ""
-  "main.aux" 1618462174 13630 aa25f1f5a58690cc2626742346d462d7 "pdflatex"
+  "main.aux" 1618462606 13630 354d7a87493949cdb30ef56de4413b68 "pdflatex"
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1618462169 "main.tex" "main.pdf" "main" 1618462175
+["pdflatex"] 1618462601 "main.tex" "main.pdf" "main" 1618462607
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -227,7 +227,7 @@
   "Content/02_Chapters/Chapter 03/Sections/03_HClust.tex" 1618457360 1681 89f7bcdd7dd51e4b2bab360e6a88851e ""
   "Content/02_Chapters/Chapter 03/Sections/05_Development.tex" 1618459025 4171 fd66064abdace3a483dc1da5853cd997 ""
   "Content/02_Chapters/Chapter 03/main.tex" 1618458676 458 7565106636a98fabeabbe9ff4cb2d2be ""
-  "Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex" 1618460885 9685 026dda2d2798cf25800298563013f564 ""
+  "Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex" 1618462586 9884 c6a2d13fc3000a5adad201bd24e50937 ""
   "Content/02_Chapters/Chapter 04/main.tex" 1618272166 461 f8d24f629b98845314e1d4320e3596dd ""
   "Content/02_Chapters/Chapter 05/main.tex" 1618461440 4100 8d707accfe7e2fba326fa9bd066920e9 ""
   "Content/02_Chapters/Chapter 06/main.tex" 1618461058 1411 9b351de1442f991c79262ae293521516 ""
@@ -245,18 +245,18 @@
   "Content/Images/nhtsa_tf_idf.png" 1618262439 319336 b3335b968232935ccd08f2d89a465062 ""
   "Content/Images/reddit_wss.png" 1618322783 187598 f349974cf0aee28ac91d21c963c5c8f4 ""
   "Styles/thesis-v1.0.sty" 1608153612 1788 73a05f19ad11627372f888145b656a81 ""
-  "main.aux" 1618462174 13630 aa25f1f5a58690cc2626742346d462d7 "pdflatex"
-  "main.bbl" 1618462169 11377 25054051609e931c785e20a6036c1f32 "bibtex main"
-  "main.lof" 1618462174 1986 c49bab76043eac14dc11cf826cc34d7a "pdflatex"
-  "main.lot" 1618462174 426 fe003376c84ff16328110d6abcc00f73 "pdflatex"
-  "main.out" 1618462174 1952 8ee7369cfde95d6c03f63428f464d97f "pdflatex"
+  "main.aux" 1618462606 13630 354d7a87493949cdb30ef56de4413b68 "pdflatex"
+  "main.bbl" 1618462601 11377 25054051609e931c785e20a6036c1f32 "bibtex main"
+  "main.lof" 1618462606 1986 c49bab76043eac14dc11cf826cc34d7a "pdflatex"
+  "main.lot" 1618462606 426 fe003376c84ff16328110d6abcc00f73 "pdflatex"
+  "main.out" 1618462606 1952 8ee7369cfde95d6c03f63428f464d97f "pdflatex"
   "main.tex" 1618461072 1532 dbf107adc5ebb037562afe61bcd0094e ""
-  "main.toc" 1618462174 2377 21bfee51bda03491906acec37d7631aa "pdflatex"
+  "main.toc" 1618462606 2377 6bd2f202cb7c6dffb46b8db0767f7898 "pdflatex"
   (generated)
-  "main.lof"
-  "main.log"
-  "main.toc"
   "main.pdf"
   "main.lot"
-  "main.out"
   "main.aux"
+  "main.toc"
+  "main.out"
+  "main.lof"
+  "main.log"
