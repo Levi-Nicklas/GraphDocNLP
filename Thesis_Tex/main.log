@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  15 APR 2021 00:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  15 APR 2021 09:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1094,23 +1094,23 @@ Chapter 3.
 (./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [11])
 (./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex [12])
 (./Content/02_Chapters/Chapter 03/Sections/05_Development.tex [13]
-<Content/Images/ScriptMap.png, id=387, 774.895pt x 643.40375pt>
+<Content/Images/ScriptMap.png, id=391, 774.895pt x 643.40375pt>
 File: Content/Images/ScriptMap.png Graphic file (type png)
 <use Content/Images/ScriptMap.png>
 Package pdftex.def Info: Content/Images/ScriptMap.png  used on input line 7.
 (pdftex.def)             Requested size: 433.62pt x 360.03856pt.
-<Content/Images/edgeHistTimePlot.png, id=388, 2107.875pt x 2107.875pt>
+ [14 <./Content/Images/ScriptMap.png>]
+<Content/Images/edgeHistTimePlot.png, id=397, 2107.875pt x 2107.875pt>
 File: Content/Images/edgeHistTimePlot.png Graphic file (type png)
 <use Content/Images/edgeHistTimePlot.png>
 Package pdftex.def Info: Content/Images/edgeHistTimePlot.png  used on input lin
 e 14.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
- [14 <./Content/Images/ScriptMap.png>] [15 <./Content/Images/edgeHistTimePlot.p
-ng>]))
+ [15 <./Content/Images/edgeHistTimePlot.png>]))
 (./Content/02_Chapters/Chapter 04/main.tex [16]
 Chapter 4.
 (./Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex
-<Content/Images/hclust_variation.png, id=404, 2257.43375pt x 2174.1225pt>
+<Content/Images/hclust_variation.png, id=408, 2257.43375pt x 2174.1225pt>
 File: Content/Images/hclust_variation.png Graphic file (type png)
 <use Content/Images/hclust_variation.png>
 Package pdftex.def Info: Content/Images/hclust_variation.png  used on input lin
@@ -1119,37 +1119,37 @@ e 19.
  [17
 
 ] [18 <./Content/Images/hclust_variation.png>]
-<Content/Images/5cluster.png, id=414, 3914.625pt x 1806.75pt>
+<Content/Images/5cluster.png, id=418, 3914.625pt x 1806.75pt>
 File: Content/Images/5cluster.png Graphic file (type png)
 <use Content/Images/5cluster.png>
 Package pdftex.def Info: Content/Images/5cluster.png  used on input line 42.
 (pdftex.def)             Requested size: 433.62pt x 200.12155pt.
-<Content/Images/comembers5.png, id=415, 2409.0pt x 2409.0pt>
+<Content/Images/comembers5.png, id=419, 2409.0pt x 2409.0pt>
 File: Content/Images/comembers5.png Graphic file (type png)
 <use Content/Images/comembers5.png>
 Package pdftex.def Info: Content/Images/comembers5.png  used on input line 49.
 (pdftex.def)             Requested size: 433.62pt x 433.6013pt.
  [19 <./Content/Images/5cluster.png>]
 [20 <./Content/Images/comembers5.png>]
-<Content/Images/nhtsa_tf_idf.png, id=426, 2571.6075pt x 1956.30875pt>
+<Content/Images/nhtsa_tf_idf.png, id=430, 2571.6075pt x 1956.30875pt>
 File: Content/Images/nhtsa_tf_idf.png Graphic file (type png)
 <use Content/Images/nhtsa_tf_idf.png>
 Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 61
 .
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
  [21 <./Content/Images/nhtsa_tf_idf.png>]
-<Content/Images/graph_k5_2.png, id=433, 2571.6075pt x 1956.30875pt>
+<Content/Images/graph_k5_2.png, id=437, 2571.6075pt x 1956.30875pt>
 File: Content/Images/graph_k5_2.png Graphic file (type png)
 <use Content/Images/graph_k5_2.png>
 Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 68.
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
 [22 <./Content/Images/graph_k5_2.png>]
-<Content/Images/reddit_wss.png, id=448, 2107.875pt x 2107.875pt>
+<Content/Images/reddit_wss.png, id=452, 2107.875pt x 2107.875pt>
 File: Content/Images/reddit_wss.png Graphic file (type png)
 <use Content/Images/reddit_wss.png>
 Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 82.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-<Content/Images/k4_reddit_clusters.png, id=449, 2107.875pt x 2107.875pt>
+<Content/Images/k4_reddit_clusters.png, id=453, 2107.875pt x 2107.875pt>
 File: Content/Images/k4_reddit_clusters.png Graphic file (type png)
 <use Content/Images/k4_reddit_clusters.png>
 Package pdftex.def Info: Content/Images/k4_reddit_clusters.png  used on input l
@@ -1208,7 +1208,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
 Here is how much of TeX's memory you used:
  24056 strings out of 492162
  439937 string characters out of 6125292
- 724787 words of memory out of 5000000
+ 724788 words of memory out of 5000000
  27424 multiletter control sequences out of 15000+600000
  14502 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1231,10 +1231,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 9/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (56 pages, 1884692 bytes).
+Output written on main.pdf (56 pages, 1884637 bytes).
 PDF statistics:
- 1056 PDF objects out of 1200 (max. 8388607)
- 933 compressed objects within 10 object streams
+ 1059 PDF objects out of 1200 (max. 8388607)
+ 936 compressed objects within 10 object streams
  445 named destinations out of 1000 (max. 500000)
  316 words of extra memory for PDF output out of 10000 (max. 10000000)
 
