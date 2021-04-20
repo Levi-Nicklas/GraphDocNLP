@@ -93,6 +93,11 @@ strong amount of its posts coming from the "sad" query word. \\
 
 The prominence of some of these query words in the clusters indicates that the tone or language used by the thread authors was picked out by the clustering methods. This is of particular interest, as the goal of these methods was to perform unsupervised text clustering which utilized more of the rich intricacies of language.\\
 
+\begin{figure}
+\includegraphics[width=6in]{Content/Images/reddit_network.png}
+\caption{10 Reddit posts and their skip-grams which occurred 8 or more times.}
+\end{figure}
+
 \section{Comparative Analysis}
 
 Looking at the results from both hierarchical clusterings on the graph kernels it is apparent that these methods work much better on larger documents. The performance of the graph kernels being applied to the skip-gram graph and then clustering was much better in the NHTSA dataset than the reddit threads dataset. By measuring within sum of squares, the NHTSA data set performed much better, and the computation time was much smaller despite the documents being substantially longer than the reddit comments. However, the reddit dataset displayed more prominent clusters, which was also indicative of success.\\

@@ -12,6 +12,7 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Skip-grams which occurred more than 50 times in hierarchical clustering with hyper-parameter set A, in cluster 3.\relax }}{22}{figure.caption.13}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Within sum of squares as a function of number of clusters\relax }}{24}{figure.caption.14}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Left - Proportion of cluster's threads coming from each query word. Right - Dendrogram for reddit thread analysis, with 4 clusters.\relax }}{25}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces 10 Reddit posts and their skip-grams which occurred 8 or more times.\relax }}{26}{figure.caption.16}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

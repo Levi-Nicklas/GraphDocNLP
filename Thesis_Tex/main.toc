@@ -16,16 +16,16 @@
 \contentsline {section}{\numberline {4.1}NHTSA Special Crash Investigations}{17}{section.4.1}%
 \contentsline {section}{\numberline {4.2}reddit Threads}{22}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Comparative Analysis}{26}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{27}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Future Work}{29}{chapter.6}%
-\contentsline {chapter}{Appendices}{30}{section*.16}%
-\contentsline {chapter}{\numberline {A}Major Code Modules Used}{31}{Appendix.1.A}%
-\contentsline {section}{\numberline {A.1}data\_collect\_mentalhealth.R}{31}{section.1.A.1}%
-\contentsline {section}{\numberline {A.2}correcting\_vertex\_labels.R}{32}{section.1.A.2}%
-\contentsline {section}{\numberline {A.3}convert\_to\_graphs.R}{35}{section.1.A.3}%
-\contentsline {section}{\numberline {A.4}compute\_kernel.R}{36}{section.1.A.4}%
-\contentsline {section}{\numberline {A.5}df\_to\_graph\_list.R}{37}{section.1.A.5}%
-\contentsline {section}{\numberline {A.6}compute\_graph\_similarity.R}{40}{section.1.A.6}%
-\contentsline {chapter}{\numberline {B}NHTSA Metadata}{43}{Appendix.1.B}%
-\contentsline {chapter}{\numberline {C}KDE Clustering}{45}{Appendix.1.C}%
-\contentsline {chapter}{References}{46}{appendix*.18}%
+\contentsline {chapter}{\numberline {5}Conclusion}{28}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Future Work}{30}{chapter.6}%
+\contentsline {chapter}{Appendices}{31}{section*.17}%
+\contentsline {chapter}{\numberline {A}Major Code Modules Used}{32}{Appendix.1.A}%
+\contentsline {section}{\numberline {A.1}data\_collect\_mentalhealth.R}{32}{section.1.A.1}%
+\contentsline {section}{\numberline {A.2}correcting\_vertex\_labels.R}{33}{section.1.A.2}%
+\contentsline {section}{\numberline {A.3}convert\_to\_graphs.R}{36}{section.1.A.3}%
+\contentsline {section}{\numberline {A.4}compute\_kernel.R}{37}{section.1.A.4}%
+\contentsline {section}{\numberline {A.5}df\_to\_graph\_list.R}{38}{section.1.A.5}%
+\contentsline {section}{\numberline {A.6}compute\_graph\_similarity.R}{41}{section.1.A.6}%
+\contentsline {chapter}{\numberline {B}NHTSA Metadata}{44}{Appendix.1.B}%
+\contentsline {chapter}{\numberline {C}KDE Clustering}{46}{Appendix.1.C}%
+\contentsline {chapter}{References}{47}{appendix*.19}%

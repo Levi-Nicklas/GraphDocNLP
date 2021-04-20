@@ -98,6 +98,56 @@ for(i in 2:length(thread_text_list)){
 rm(threads, tmp_df)
 ```
 
+```{r}
+text_clean <- post_thread_text[1:10,] %>% 
+  tidytext::unnest_tokens( output = "words" ,
+                        input = text, 
+                        token = "skip_ngrams",
+                        n = 2,
+                        k = 3) %>%  
+      # split bigram
+      tidyr::separate(words, c("word1", "word2"), sep = " ") %>%
+      # remove stop words
+      anti_join(stop_words, by = c("word1" = "word")) %>% 
+      anti_join(stop_words, by = c("word2" = "word")) %>% 
+      # toss NA values.
+      tidyr::drop_na() %>% 
+      # clean out punctuation %>% 
+      mutate(word1_toss = stringr::str_detect(word1, "\\.")) %>% 
+      mutate(word2_toss = stringr::str_detect(word2, "\\.")) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      # clean out numebrs
+      select(post_thread_id,word1,word2) %>% 
+      mutate(word1_toss = stringr::str_detect(word1,"[:digit:]")) %>% 
+      mutate(word2_toss = stringr::str_detect(word2,"[:digit:]")) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      select(post_thread_id,word1,word2) %>% 
+      # only keep words of > len 3
+      mutate(word1_toss = (nchar(word1)<4)) %>% 
+      mutate(word2_toss = (nchar(word2)<4)) %>% 
+      mutate(toss_pair = word1_toss|word2_toss) %>% 
+      filter(toss_pair == F) %>% 
+      select(post_thread_id, word1, word2)
+
+library(ggraph)
+reddit_network <- text_clean %>% 
+  select(word1, word2) %>% 
+  group_by(word1,word2) %>% 
+  count() %>% 
+  arrange(desc(n)) %>% 
+  filter(`n` > 8) %>% 
+  igraph::graph_from_data_frame() %>% 
+  ggraph::ggraph(layout = "fr")+
+  geom_edge_link(alpha = 0.7) +
+  geom_node_point(color = my_palette[1]) +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1, alpha = 0.6)+
+  ggtitle("10 Reddit Posts Skip-Grams")
+reddit_network
+```
+
+
 
 ## DATA CLEANING WITH EXISTING FUNCTIONS ##
 
