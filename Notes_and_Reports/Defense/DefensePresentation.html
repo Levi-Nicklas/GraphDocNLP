@@ -28,6 +28,15 @@ class: center, middle, inverse, title-slide
 
 
 
+
+class: inverse, center, middle
+name: Intro
+
+# Introduction
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=796px&gt;&lt;/html&gt;
+
+---
 # Introduction to the Data
 
 Two data sets are use for all of the analyses, one coming from the National Highway Traffic Safety Administration (NHTSA) and one from the popular social media website [reddit.com](reddit.com/r/mentalhealth/). 
@@ -116,6 +125,62 @@ Notice we have some phrases/ideas represented in the graph:
 
 - "feel" "aura" "exude(s)" "coldness"
 ]
+---
+
+# Introduction to Methods (cont.)
+## Why Graph Kernels?
+
+_Graph kernels_ are a family of methods which are used to compute similarity between graphs, which then can be used as a kernel in other applications. The kernel  matrix is then able to be used in methods like support vector machines, or in this case hierarchical clustering.
+
+In this case a specific type of graph kernel is used: the edge histogram kernel. The edge histogram kernel has the advantage of a more efficient computation than other, more complicated, graph kernels. Since the reddit dataset has such a large corpus and the NHTSA dataset has such large documents, it was of particular concern that computation be efficient. 
+---
+
+# Introduction to Methods (cont.)
+## How is the Kernel Matrix Used?
+
+The graph kernel matrix is a _similarity matix_ and the _hierarchical clustering_ that is used requires a distance matrix. For this a simple function is applied to take the element-wise multiplicative inverse, and we use the resulting matrix as a distance matrix in hierarchical clustering. 
+
+Through the use of hierarchical clustering we obtain dendrograms that allow for clean, visual, interpretation of clustering results.
+
+---
+
+# Introduction to Methods (cont.)
+## Example of Resulting Dendrogram
+
+&lt;img src="https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/reddit_dendo.png" width="600px" /&gt;
+---
+class: inverse, center, middle
+name: Methods
+
+# Methods
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=796px&gt;&lt;/html&gt;
+---
+# Methods
+## Workflow for Analysis
+
+&lt;img src="https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/ScriptMap.png" width="600px" /&gt;
+
+---
+# Methods
+## Data Ingest &amp; Text Preprocessing
+
+Text is brought in to the environment through one of the collection scripts. For reddit this means using the `{redditExtractor}` package, and for NHTSA this means collecting the data from the XML files. The text is then cleaned of punctuation, numeric values, stop words, and other words shorter than length `\(4\)`. This cleaning also involves _tokenization_ of the documents into _skip-grams_ (window width varying). 
+
+This process uses popular packages from the R community such as `{dplyr}`, `{tidytext}`, and `{stringr}` (in addtion to custom functions) to do data reformatting/reshaping, tokenization, and parsing of strings to properly treat the data before it moves to the next step.
+
+The resulting data is then passed into data reformatting.
+
+---
+# Methods
+## Data Reformatting
+
+At this point, data needs to be transformed from a tabular, tidy format, to a graph representation. To do this each pair of words from the skip-gram tokenization forms an edge, and corresponding nodes, as a graph is constructed (`{igraph}` is used here). The graph object is then formatted in such a way that each word is a vertex, and each edge is a skip-gram that was present in the document. 
+
+However, the graph is not ready to be processed yet, as the graph kernel functions deal with integer labels for the nodes. The labels for each vertex is then reassigned an integer value such that the word set `\(W\)` is mapped to integer values. This is done as: `\(f: W \rightarrow X\)` such that `\(X = \{x \in X | 0 &lt; x &lt; |W|\}\)`. (EDIT THIS TO BE THE MAGNITUDE OF THE UNION OF TWO GRAPHS)
+
+Data from reddit is also split into smaller datasets to make use of GitHub's storage limits.
+
 ---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
