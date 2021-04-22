@@ -337,8 +337,7 @@ name: Analysis
 ---
 
 
-# Analysis
-## NHTSA SCI
+# Analysis: NHTSA SCI
 .pull-left[
 First, hierarchical clustering was performed for a number of hyperparameter sets to assess which set produced the best clustering, measuring by within sum of squares (WSS).
 
@@ -353,8 +352,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDoc
 
 ---
 
-# Analysis (cont.)
-## NHTSA SCI
+# Analysis: NHTSA SCI
 
 ```{r, out.width = "700px", fig.retina = 3, echo = FALSE, fig.align='center'}
 # OPEN IN CHROME ONLY
@@ -363,8 +361,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDoc
 
 ---
 
-# Analysis (cont.)
-## NHTSA SCI
+# Analysis: NHTSA SCI
 
 ```{r, out.width = "750px", fig.retina = 3, echo = FALSE, fig.align='center'}
 # OPEN IN CHROME ONLY
