@@ -417,15 +417,108 @@ After computing the kernel with the hyperparameter set, we see two very distinct
 
 We see that some query words are more strongly expressed in a cluster than other words. This may be indicative of a writing style, discussion topic, or tone that is more unique to those threads. 
 
-In the previous slide, we see that clusters 3 &amp; 4 collected posts from the "angry" query word, and cluster 1 displayed a strong portion of its posts being collected from the "sad" query word.
+In the previous slide, we see that clusters `\(3\)` &amp; `\(4\)` collected posts from the "angry" query word, and cluster `\(1\)` displayed a strong portion of its posts being collected from the "sad" query word.
+
+Again, we can view a skip-gram network to get an idea of what the text was discussing. Below we can visualize the skip-gram network for `\(10\)` threads that were clustered together.
 
 ---
 
 # Analysis: reddit Threads
 
-&lt;img src="https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/k4_reddit_clusters.png" width="700px" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/reddit_network.png" width="700px" style="display: block; margin: auto;" /&gt;
 
 ---
+
+# Analysis: Comparison of Results
+
+Upon examination of both results, it is clear that these methods perform better with larger documents, as opposed to a large corpus. By measure of WSS, the NHTSA dataset displayed better results than the reddit dataset. The reddit dataset did however display more prominent clusters, which could have been due to the large number of documents in that corpus. Additionally, the computation time for the large document size NHTSA dataset was much more reasonable than the large corpus reddit dataset.
+
+--
+
+It should also be noted that the optimal number of clusters, as well as hyperparameters, will need to be adjusted and changed depending on the dataset of concern. Applying results from the NHTSA study, which indicated that `\(k=3\)` was the best skip-gram window width, did seem to apply to the reddit dataset as well.
+
+---
+class: inverse, center, middle
+name: Conclusion
+
+# Conclusion
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+# Conclusion
+
+Through the application of several different methods in conjuction with one another (skip-grams, graph kernels, and hierarchical clustering), clustering can be performed on text while preserving as much of the rich information from the original text as possible.
+
+--
+
+The NHTSA results can be used to inform other research iniatives of similar scenarios to simulate or reproduce for autonomous vehicles to learn from. Identifying the clusters and providing summarized results, allows for similar crash reports to be compiled. This compiled information can aid in the generation of more "edge case" scenarios for Florida Polytechnic University's AMI. 
+
+--
+
+The reddit thread dataset, although too large for these methods to be applied initially, but through use of parallel processing it was able to be completed. The prominent clustering from this dataset was an encoruaging result, and with some additions to these methods the workflow outlined here could be a strong social media mining tool. 
+
+---
+
+# Conclusion
+
+In summary, the methods described here will continue to develop into more mature technologies that could be applied to a wide range of natural language processing tasks. Once these methods are rebuilt into a clean package for a high performance computing environment, they will see use in industries that process large amounts of text data. 
+
+--
+
+Additionally, these methods could be applied to previously published work on the intelligent navigation of comments and posts for social media. The clustering results here could prove to be another clever way to filter out harmful, or otherwise unwanted, content from a web user. 
+
+--
+
+All of the methods are publically available on a [public GitHub repository](https://github.com/Levi-Nicklas/GraphDocNLP. All code cna be updated, adapted, recreated, and scrutinized; transparancy and availability of these methods will benefit the software development and data science communities that use GitHub. The open sourcing of software leaves the work open, and leads to better open science for the community at large.
+
+---
+
+class: inverse, center, middle
+name: Future
+
+# Future Development
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=796px&gt;&lt;/html&gt;
+---
+
+The most important future work at this stage is adapting these mehtods to be able to be applied at scale on a high performance computing cluster (HPC). The methods currently do not handle a large corpus well, which will be problematic for any applicationin industry. 
+
+--
+
+Additionally, the methods need to be tested with additional modifications. Adding edge attributes which are weightings according to the number of times a skip-gram appears in the text, or a TF-IDF value, could be a modification which leads to better results. Other types of graph kernels, which are more computationally intensive, should be used on this same data and the results compared.
+
+--
+
+Lastly, since the NHTSA dataset is small, it could be labeled by hand and then supervised learning could be applied. Support vector machines could be a great first step in using the graph kernel matrix in a supervised learning context.
+
+---
+
+
+class: inverse, center, middle
+name: End
+
+# Any Questions?
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+class: inverse, center, middle
+name: Close
+
+# Thank you!!
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+# References
+
+--- 
+
+Available at GitHub [here](https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/main.pdf#appendix*.19)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
