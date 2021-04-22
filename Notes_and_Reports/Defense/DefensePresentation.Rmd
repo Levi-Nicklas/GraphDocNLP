@@ -29,13 +29,36 @@ name: Intro
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>
 
 ---
+
+# Introduction
+## The Big Idea
+
+One of the many methods in text mining and text visualization is to express the text as a bi-gram, **skip-gram**, or other n-gram graphs, but can these ideas be extended into any machine learning applications?
+
+--
+
+Through use of **graph kernels** two, or more, graphs can be compared to one another. This resulting mesaure of similairty then can be used in a variety of machine leanring applications.
+
+--
+
+The application of interest here is to use the similarity measures to perform unsupervised learning in the form of **hierarchical clustering**.
+
+
+
+
+---
+
 # Introduction to the Data
 
-Two data sets are use for all of the analyses, one coming from the National Highway Traffic Safety Administration (NHTSA) and one from the popular social media website [reddit.com](reddit.com/r/mentalhealth/). 
+Two data sets are use for all of the analyses, one coming from the National Highway Traffic Safety Administration ( [NHTSA](https://www.nhtsa.gov/research-data/special-crash-investigations-sci)) and one from the popular social media website [reddit.com](reddit.com/r/mentalhealth/). 
 
-The NHTSA data are a series of special crash investigations (SCI) which are publically available through a portal in PDF format. $(N=48)$
+--
 
-The reddit data are public online forum discussion on the `r\MentalHealth` subreddit which satisfied query criteria. $(N=1000)$
+The NHTSA data are a series of special crash investigations (SCI) which are publically available through a portal in PDF format. The SCI program provides the agency with detailed results from investigative specialists who detail and carefully document the incident of concern. $(N=48)$
+
+--
+
+The reddit data are public online forum discussion on the `r\MentalHealth` subreddit which satisfied query criteria. The use of reddit in this particular topic is critical, as reddit is well known for the platform, and its users' strong commitement to anonymous online interactions. This type of environment often leads to candid and honest discussion about personal problems. $(N=1000)$
 ---
 
 # Introduction to the Data (cont.)
@@ -45,7 +68,7 @@ The reddit data are public online forum discussion on the `r\MentalHealth` subre
 
 - **Format and Collection:** the reports are all stored as PDF files which are all converted to XML and from which the text of concern is then parsed out for further processing and analysis.
 
-```{r, out.width = "400px", fig.retina = 3, echo  = FALSE}
+```{r, out.width = "400px", fig.retina = 3, echo  = FALSE, fig.align='center'}
 # OPEN IN CHROME ONLY
 knitr::include_graphics("https://crashviewer.nhtsa.dot.gov/Images/NHTSA_Logo_w_tag.png")
 ```
@@ -58,7 +81,7 @@ knitr::include_graphics("https://crashviewer.nhtsa.dot.gov/Images/NHTSA_Logo_w_t
 
 - **Format and Collection:** the thread text is collected with `{redditExtractor}` and then must undergo a cleaning and reformating, as the tabular format is structured such that observational units are threads. 
 
-```{r, out.width = "300px", fig.retina = 3, echo  = FALSE}
+```{r, out.width = "300px", fig.retina = 3, echo  = FALSE, fig.align='center'}
 # OPEN IN CHROME ONLY
 knitr::include_graphics("https://logos-download.com/wp-content/uploads/2016/06/Reddit_logo_full_1.png")
 ```
@@ -95,11 +118,19 @@ The datasets were chosen for the analyses completed here, not only because of th
 
 Graphs are a great model for natural language processing!
 
+--
+
 - Graph representations of text can be composed using bigrams, n-grams, _skip-grams_, etc.
+
+--
 
 - Graph representations of text preserve more of the rich structures of language, e.g. phrases, idioms, and figures of speech.
 
+--
+
 - Avoid relying on assumptions about underlying distribution of words like some bag-of-words models do.
+
+--
 
 - Graph representations allow for a whole new set of methods to be applied to the data.
 
@@ -108,7 +139,7 @@ Graphs are a great model for natural language processing!
 # Introduction to Methods (cont.)
 ## Example of Skip-gram Graph
 .pull-up[
-```{r, out.width = "400px", fig.retina = 3, echo  = FALSE}
+```{r, out.width = "400px", fig.retina = 3, echo  = FALSE,fig.align='center'}
 # OPEN IN CHROME ONLY
 knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/reddit_network.png")
 ```
@@ -148,7 +179,7 @@ Through the use of hierarchical clustering we obtain dendrograms that allow for 
 # Introduction to Methods (cont.)
 ## Example of Resulting Dendrogram
 
-```{r, out.width = "600px", fig.retina = 3, echo  = FALSE}
+```{r, out.width = "600px", fig.retina = 3, echo  = FALSE,fig.align='center'}
 # OPEN IN CHROME ONLY
 knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/reddit_dendo.png")
 ```
@@ -163,7 +194,7 @@ name: Methods
 # Methods
 ## Workflow for Analysis
 
-```{r, out.width = "600px", fig.retina = 3, echo  = FALSE}
+```{r, out.width = "600px", fig.retina = 3, echo  = FALSE,fig.align='center'}
 # OPEN IN CHROME ONLY
 knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/ScriptMap.png")
 ```
@@ -184,10 +215,60 @@ The resulting data is then passed into data reformatting.
 
 At this point, data needs to be transformed from a tabular, tidy format, to a graph representation. To do this each pair of words from the skip-gram tokenization forms an edge, and corresponding nodes, as a graph is constructed (`{igraph}` is used here). The graph object is then formatted in such a way that each word is a vertex, and each edge is a skip-gram that was present in the document. 
 
-However, the graph is not ready to be processed yet, as the graph kernel functions deal with integer labels for the nodes. The labels for each vertex is then reassigned an integer value such that the word set $W$ is mapped to integer values. This is done as: $f: W \rightarrow X$ such that $X = \{x \in X | 0 < x < |W|\}$. (EDIT THIS TO BE THE MAGNITUDE OF THE UNION OF TWO GRAPHS)
+However, the graph is not ready to be processed yet, as the graph kernel functions deal with integer labels for the nodes. The labels for each vertex is then reassigned an integer value. Let $W$ be the word set of graph $G$, and $W'$ be the word set of graph $G'$. Then the mapping is: $f: (W \cup W') \rightarrow X$, where $X = \{x \in X| 0 < x < (W \cup W')\}$. 
 
 Data from reddit is also split into smaller datasets to make use of GitHub's storage limits.
 
 ---
 
+# Methods (cont.)
+## Data Reformatting 
+
+```{r, out.width = "600px", fig.retina = 3, echo  = FALSE,fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/Concept_map.png")
+```
+
+---
+
+# Methods (cont.)
+## Computation of the Kernel
+
+The edge label histogram kernel is a sum of the number of label appearances; in the case of this application however, a label appears once, regardless of the number of appearances.
+For this reason, later in analysis, manhattan distances are used instead of euclidean distances.
+
+--
+
+A edge label histogram is defined as: $\vec{g} = (g_1,g_2, ...,g_i)$
+--
+, such that $g_i = |\{(u,v) \in E|\phi(u,v) = i\}|$
+--
+, where $(u,v)$ is an edge, $E$ is the edge set in graph $G$, and $\phi$ is the function that maps edges to a scalar value in the range of unique values.
+
+---
+
+# Methods (cont.)
+## Computation of the Kernel
+
+Once there are two edge label histograms, $\vec{g}$ and $\vec{g}'$, they are compared with a kernel function $K$.
+
+--
+
+Either a linear kernel: 
+
+$K(\vec{g}, \vec{g}') = \vec{g}^T \vec{g}'$
+
+--
+
+or a Guassian Radial Basis Function (RBF) Kernel: 
+
+$K(\vec{g}, \vec{g}') = e^{-\left( \frac{||\vec{g} - \vec{g}'||^2}{2\sigma^2}\right) }$
+
+--
+
+The result of either kernel, when applied to the document graph list, is a kernel matrix with dimensions $n \times n$ for a list of $n$ graphs.
+---
+
+# Methods (cont.)
+## Hierarchical Clustering
 
