@@ -352,12 +352,24 @@ knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDoc
 ]
 
 ---
-# Analysis
+
+# Analysis (cont.)
 ## NHTSA SCI
 
-```{r, out.width = "600px", fig.retina = 3, echo  = FALSE,fig.align='center'}
+```{r, out.width = "700px", fig.retina = 3, echo = FALSE, fig.align='center'}
 # OPEN IN CHROME ONLY
 knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/table_pic.png")
 ```
+
+---
+
+# Analysis (cont.)
+## NHTSA SCI
+
+```{r, out.width = "750px", fig.retina = 3, echo = FALSE, fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/5cluster.png")
+```
+
 
 
