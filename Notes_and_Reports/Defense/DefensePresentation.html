@@ -45,7 +45,7 @@ One of the many methods in text mining and text visualization is to express the 
 
 --
 
-Through use of **graph kernels** two, or more, graphs can be compared to one another. This resulting mesaure of similairty then can be used in a variety of machine leanring applications.
+Through use of **graph kernels** two, or more, graphs can be compared to one another. This resulting measure of similarity then can be used in a variety of machine learning applications.
 
 --
 
@@ -62,17 +62,17 @@ Two data sets are use for all of the analyses, one coming from the National High
 
 --
 
-The NHTSA data are a series of special crash investigations (SCI) which are publically available through a portal in PDF format. The SCI program provides the agency with detailed results from investigative specialists who detail and carefully document the incident of concern. `\((N=48)\)`
+The NHTSA data are a series of special crash investigations (SCI) which are public ally available through a portal in PDF format. The SCI program provides the agency with detailed results from investigative specialists who detail and carefully document the incident of concern. `\((N=48)\)`
 
 --
 
-The reddit data are public online forum discussion on the `r\MentalHealth` subreddit which satisfied query criteria. The use of reddit in this particular topic is critical, as reddit is well known for the platform, and its users' strong commitement to anonymous online interactions. This type of environment often leads to candid and honest discussion about personal problems. `\((N=1000)\)`
+The reddit data are public online forum discussion on the `r\MentalHealth` subreddit which satisfied query criteria. The use of reddit in this particular topic is critical, as reddit is well known for the platform, and its users' strong commitment to anonymous online interactions. This type of environment often leads to candid and honest discussion about personal problems. `\((N=1000)\)`
 ---
 
 # Introduction to the Data (cont.)
 ## NHTSA SCI Reports
 
-- **Motivation:** These efforts and results support iniatives in Florida Polytechnic University's Advanced Mobility Institute (AMI) which focuses in the development of connected and fully autonomous vehicles. These reports are all on incidents which involved ambulances in the collision. The events all represent "edge cases" that are rare and need to be characterized properly for AMI's future success in developing robust autonomous vehicles.
+- **Motivation:** These efforts and results support initiatives in Florida Polytechnic University's Advanced Mobility Institute (AMI) which focuses in the development of connected and fully autonomous vehicles. These reports are all on incidents which involved ambulances in the collision. The events all represent "edge cases" that are rare and need to be characterized properly for AMI's future success in developing robust autonomous vehicles.
 
 - **Format and Collection:** the reports are all stored as PDF files which are all converted to XML and from which the text of concern is then parsed out for further processing and analysis.
 
@@ -84,7 +84,7 @@ The reddit data are public online forum discussion on the `r\MentalHealth` subre
 
 - **Motivation:** Previously published research work was focused on text mining within reddit subreddits focused on opiate addiction. The paper focused on clustering of posts/comments from the data collected from the subreddit. Using this type of data with new methods builds upon my existing work.
 
-- **Format and Collection:** the thread text is collected with `{redditExtractor}` and then must undergo a cleaning and reformating, as the tabular format is structured such that observational units are threads. 
+- **Format and Collection:** the thread text is collected with `{redditExtractor}` and then must undergo a cleaning and reformatting, as the tabular format is structured such that observational units are threads. 
 
 &lt;img src="https://logos-download.com/wp-content/uploads/2016/06/Reddit_logo_full_1.png" width="300px" style="display: block; margin: auto;" /&gt;
 
@@ -169,7 +169,7 @@ In this case a specific type of graph kernel is used: the edge histogram kernel.
 # Introduction to Methods (cont.)
 ## How is the Kernel Matrix Used?
 
-The graph kernel matrix is a _similarity matix_ and the _hierarchical clustering_ that is used requires a distance matrix. For this a simple function is applied to take the element-wise multiplicative inverse, and we use the resulting matrix as a distance matrix in hierarchical clustering. 
+The graph kernel matrix is a _similarity matrix_ and the _hierarchical clustering_ that is used requires a distance matrix. For this a simple function is applied to take the element-wise multiplicative inverse, and we use the resulting matrix as a distance matrix in hierarchical clustering. 
 
 Through the use of hierarchical clustering we obtain dendrograms that allow for clean, visual, interpretation of clustering results.
 
@@ -198,7 +198,7 @@ name: Methods
 
 Text is brought in to the environment through one of the collection scripts. For reddit this means using the `{redditExtractor}` package, and for NHTSA this means collecting the data from the XML files. The text is then cleaned of punctuation, numeric values, stop words, and other words shorter than length `\(4\)`. This cleaning also involves _tokenization_ of the documents into _skip-grams_ (window width varying). 
 
-This process uses popular packages from the R community such as `{dplyr}`, `{tidytext}`, and `{stringr}` (in addtion to custom functions) to do data reformatting/reshaping, tokenization, and parsing of strings to properly treat the data before it moves to the next step.
+This process uses popular packages from the R community such as `{dplyr}`, `{tidytext}`, and `{stringr}` (in addition to custom functions) to do data reformatting/reshaping, tokenization, and parsing of strings to properly treat the data before it moves to the next step.
 
 The resulting data is then passed into data reformatting.
 
@@ -208,7 +208,7 @@ The resulting data is then passed into data reformatting.
 
 At this point, data needs to be transformed from a tabular, tidy format, to a graph representation. To do this each pair of words from the skip-gram tokenization forms an edge, and corresponding nodes, as a graph is constructed (`{igraph}` is used here). The graph object is then formatted in such a way that each word is a vertex, and each edge is a skip-gram that was present in the document. 
 
-However, the graph is not ready to be processed yet, as the graph kernel functions deal with integer labels for the nodes. The labels for each vertex is then reassigned an integer value. Let `\(W\)` be the word set of graph `\(G\)`, and `\(W'\)` be the word set of graph `\(G'\)`. Then the mapping is: `\(f: (W \cup W') \rightarrow I\)`, where `\(I = \{i \in \mathbb{Z}| 0 &lt; i &lt; (W \cup W')\}\)`. 
+However, the graph is not ready to be processed yet, as the graph kernel functions deal with integer labels for the nodes. The labels for each vertex is then reassigned an integer value. Let `\(W\)` be the word set of graph `\(G\)`, and `\(W'\)` be the word set of graph `\(G'\)`. Then the mapping is: `\(f: (W \cup W') \rightarrow I\)`, where `\(I = \{i \in \mathbb{Z}| 0 &lt; i &lt; |(W \cup W')|\}\)`. 
 
 Data from reddit is also split into smaller datasets to make use of GitHub's storage limits.
 
@@ -250,7 +250,7 @@ Either a linear kernel:
 
 --
 
-or a Guassian Radial Basis Function (RBF) Kernel: 
+or a Gaussian Radial Basis Function (RBF) Kernel: 
 
 `\(K(\vec{g}, \vec{g}') = e^{-\left( \frac{||\vec{g} - \vec{g}'||^2}{2\sigma^2}\right) }\)`
 
@@ -277,7 +277,7 @@ Second, principal component analysis is performed to reduce the high dimensional
 # Methods (cont.)
 ## Hierarchical Clustering
 
-Hierarchical Clustering is performed on both data sets using the manhattan distance and Ward's method for linkage in clustering. 
+Hierarchical Clustering is performed on both data sets using the Manhattan distance and Ward's method for linkage in clustering. 
 
 Manhattan Distance: `\(d(\vec{p},\vec{q}) = \sum_{i=1}^n |p_i - q_i|\)`
 
@@ -285,7 +285,7 @@ Ward's method: `\(d(\vec{p},\vec{q}) = || \vec{p} - \vec{q} ||^2\)`
 
 --
 
-As mentioned earlier, the edge label histograms are all either values of `\(1\)` or `\(0\)`, since the skip-gram either appeared or did not. So the manhattan distance is used, as opposed to euclidean distance.
+As mentioned earlier, the edge label histograms are all either values of `\(1\)` or `\(0\)`, since the skip-gram either appeared or did not. So the Manhattan distance is used, as opposed to euclidean distance.
 
 ---
 
@@ -306,7 +306,7 @@ As mentioned earlier, the edge label histograms are all either values of `\(1\)`
 # Methods 
 ## Parallel Processing
 
-Since the data reformatting and computing the kernels takes so long, it was necessary to implement parallel processing. This was done through the use of the `{furrr}` package for R. This parallel processing was necessary for the reddit datset due to the large number of documents, but not for the NHTSA SCI reports despite the large document sizes.
+Since the data reformatting and computing the kernels takes so long, it was necessary to implement parallel processing. This was done through the use of the `{furrr}` package for R. This parallel processing was necessary for the reddit dataset due to the large number of documents, but not for the NHTSA SCI reports despite the large document sizes.
 
 Using parallel processing allowed for the reddit data to be computed in a reasonable time instead of unreasonable times like shown in the study previously.
 
@@ -368,7 +368,7 @@ We can track this co-membership across all 5 clusterings with a matrix where row
 
 Upon further inspection of some co-members text we can notices some similarities. For example, document #2 (Ambulance crash in Angola, DE) has only 3 other co-members; document #11, #30, and #38. Three featured ambulance roll over events, all had fatalities, and all of them were front end collisions where the ambulance struck another vehicle, structure, or object.
 
-While this is just one specific example of similarites across the co-members, we can use text mining concepts like term-frequency/invcerse document frequency (TF-IDF) plots to examine which words may represent a cluster.
+While this is just one specific example of similarities across the co-members, we can use text mining concepts like term-frequency/inverse document frequency (TF-IDF) plots to examine which words may represent a cluster.
 
 ---
 
@@ -449,15 +449,15 @@ name: Conclusion
 
 # Conclusion
 
-Through the application of several different methods in conjuction with one another (skip-grams, graph kernels, and hierarchical clustering), clustering can be performed on text while preserving as much of the rich information from the original text as possible.
+Through the application of several different methods in conjunction with one another (skip-grams, graph kernels, and hierarchical clustering), clustering can be performed on text while preserving as much of the rich information from the original text as possible.
 
 --
 
-The NHTSA results can be used to inform other research iniatives of similar scenarios to simulate or reproduce for autonomous vehicles to learn from. Identifying the clusters and providing summarized results, allows for similar crash reports to be compiled. This compiled information can aid in the generation of more "edge case" scenarios for Florida Polytechnic University's AMI. 
+The NHTSA results can be used to inform other research initiatives of similar scenarios to simulate or reproduce for autonomous vehicles to learn from. Identifying the clusters and providing summarized results, allows for similar crash reports to be compiled. This compiled information can aid in the generation of more "edge case" scenarios for Florida Polytechnic University's AMI. 
 
 --
 
-The reddit thread dataset, although too large for these methods to be applied initially, but through use of parallel processing it was able to be completed. The prominent clustering from this dataset was an encoruaging result, and with some additions to these methods the workflow outlined here could be a strong social media mining tool. 
+The reddit thread dataset, although too large for these methods to be applied initially, but through use of parallel processing it was able to be completed. The prominent clustering from this dataset was an encouraging result, and with some additions to these methods the workflow outlined here could be a strong social media mining tool. 
 
 ---
 
@@ -471,7 +471,7 @@ Additionally, these methods could be applied to previously published work on the
 
 --
 
-All of the methods are publically available on a [public GitHub repository](https://github.com/Levi-Nicklas/GraphDocNLP. All code cna be updated, adapted, recreated, and scrutinized; transparancy and availability of these methods will benefit the software development and data science communities that use GitHub. The open sourcing of software leaves the work open, and leads to better open science for the community at large.
+All of the methods are publically available on a [public GitHub repository](https://github.com/Levi-Nicklas/GraphDocNLP). All code can be updated, adapted, recreated, and scrutinized; transparency and availability of these methods will benefit the software development and data science communities that use GitHub. The open sourcing of software leaves the work open, and leads to better open science for the community at large.
 
 ---
 
@@ -483,7 +483,9 @@ name: Future
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=796px&gt;&lt;/html&gt;
 ---
 
-The most important future work at this stage is adapting these mehtods to be able to be applied at scale on a high performance computing cluster (HPC). The methods currently do not handle a large corpus well, which will be problematic for any applicationin industry. 
+# Future Development
+
+The most important future work at this stage is adapting these methods to be able to be applied at scale on a high performance computing cluster (HPC). The methods currently do not handle a large corpus well, which will be problematic for any application in industry. 
 
 --
 
@@ -494,7 +496,23 @@ Additionally, the methods need to be tested with additional modifications. Addin
 Lastly, since the NHTSA dataset is small, it could be labeled by hand and then supervised learning could be applied. Support vector machines could be a great first step in using the graph kernel matrix in a supervised learning context.
 
 ---
+# Acknowledgements
 
+I would like to thank Dr. Sanchez-Arias for his support and guidance throughout the entire program and especially in the last year, and for advising my time at Florida Polytechnic.
+
+Thanks to Dr. Centeno and Dr. Chintakunta for offering their time to review my work and serve on my thesis committee.
+
+Thank you to Florida Polytechnic University for the opportunity to study at our growing school, and for the financial support in the form of scholarships and assistantships.
+
+---
+
+# Dedication
+
+I would like to dedicate this work to my dear wife Julienne, and our soon to be baby girl, without whose support, love, and encouragement I would not have finished this work. I hope this work is something that you can always be proud of! 
+
+Thank you Jules.
+
+---
 
 class: inverse, center, middle
 name: End

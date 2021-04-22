@@ -481,7 +481,7 @@ pk2 <- post_thread_text_sample %>%
         axis.line = element_line(color = "black"),
         legend.position = "bottom",
         axis.ticks = element_line(color = "black"),
-        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        axis.text.x = element_text(angle = 90, vjust = 0.15),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
   labs(x = "", y = "Cluster",
        fill = "Proportion",
@@ -506,7 +506,7 @@ pk3 <- post_thread_text_sample %>%
         axis.line = element_line(color = "black"),
         legend.position = "bottom",
         axis.ticks = element_line(color = "black"),
-        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        axis.text.x = element_text(angle = 90, vjust = 0.15),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
   labs(x = "", y = "Cluster",
        fill = "Proportion",
@@ -531,7 +531,7 @@ pk4 <- post_thread_text_sample %>%
         axis.line = element_line(color = "black"),
         legend.position = "bottom",
         axis.ticks = element_line(color = "black"),
-        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        axis.text.x = element_text(angle = 90, vjust = 0.15),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
   labs(x = "", y = "Cluster",
        fill = "Proportion",
@@ -556,7 +556,7 @@ pk5 <- post_thread_text_sample %>%
         axis.line = element_line(color = "black"),
         legend.position = "bottom",
         axis.ticks = element_line(color = "black"),
-        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        axis.text.x = element_text(angle = 90, vjust = 0.15),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
   labs(x = "", y = "Cluster",
        fill = "Proportion",
@@ -581,7 +581,7 @@ pk6 <- post_thread_text_sample %>%
         axis.line = element_line(color = "black"),
         legend.position = "bottom",
         axis.ticks = element_line(color = "black"),
-        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        axis.text.x = element_text(angle = 90, vjust = 0.15),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
   labs(x = "", y = "Cluster",
        fill = "Proportion",
@@ -606,7 +606,7 @@ pk7 <- post_thread_text_sample %>%
         axis.line = element_line(color = "black"),
         legend.position = "bottom",
         axis.ticks = element_line(color = "black"),
-        axis.text.x = element_text(angle = 45, vjust = 0.15),
+        axis.text.x = element_text(angle = 90, vjust = 0.15),
         panel.grid = element_line(color = "grey", linetype = 1,size = 0.25)) +
   labs(x = "", y = "Cluster",
        fill = "Proportion",
