@@ -20,7 +20,7 @@ class: center, middle, inverse, title-slide
 <hr color='#522A87' size=1px width=796px>
 </html>
 ### Levi C. Nicklas (B.S. Applied Mathematics)
-### Masters of Science in Computer Science Candidate
+### Masters of Science in Computer Science (Data Science Track) Candidate
 
 ---
 
@@ -93,7 +93,7 @@ The reddit data are public online forum discussion on the `r\MentalHealth` subre
 # Introduction to the Data (cont.)
 ## Comparison of Text
 
-The datasets were chosen for the analyses completed here, not only because of their importance to university projects and past research, but also becuase the datasets' text content differs a great deal.
+The datasets were chosen for the analyses completed here, not only because of their importance to university projects and past research, but also because the datasets' text content differs a great deal.
 
 .pull-left[
 **NHTSA**:
@@ -208,7 +208,7 @@ The resulting data is then passed into data reformatting.
 
 At this point, data needs to be transformed from a tabular, tidy format, to a graph representation. To do this each pair of words from the skip-gram tokenization forms an edge, and corresponding nodes, as a graph is constructed (`{igraph}` is used here). The graph object is then formatted in such a way that each word is a vertex, and each edge is a skip-gram that was present in the document. 
 
-However, the graph is not ready to be processed yet, as the graph kernel functions deal with integer labels for the nodes. The labels for each vertex is then reassigned an integer value. Let `\(W\)` be the word set of graph `\(G\)`, and `\(W'\)` be the word set of graph `\(G'\)`. Then the mapping is: `\(f: (W \cup W') \rightarrow X\)`, where `\(X = \{x \in X| 0 &lt; x &lt; (W \cup W')\}\)`. 
+However, the graph is not ready to be processed yet, as the graph kernel functions deal with integer labels for the nodes. The labels for each vertex is then reassigned an integer value. Let `\(W\)` be the word set of graph `\(G\)`, and `\(W'\)` be the word set of graph `\(G'\)`. Then the mapping is: `\(f: (W \cup W') \rightarrow I\)`, where `\(I = \{i \in \mathbb{Z}| 0 &lt; i &lt; (W \cup W')\}\)`. 
 
 Data from reddit is also split into smaller datasets to make use of GitHub's storage limits.
 
@@ -279,7 +279,7 @@ Second, principal component analysis is performed to reduce the high dimensional
 
 Hierarchical Clustering is performed on both data sets using the manhattan distance and Ward's method for linkage in clustering. 
 
-Manhattan Distance: `\(d(\vec{p},\vec{q}) = \sum_{i=1}^n |p_i q_i|\)`
+Manhattan Distance: `\(d(\vec{p},\vec{q}) = \sum_{i=1}^n |p_i - q_i|\)`
 
 Ward's method: `\(d(\vec{p},\vec{q}) = || \vec{p} - \vec{q} ||^2\)`
 
@@ -345,6 +345,22 @@ The five best hyperparameters sets were collected and used in further analysis o
 ## NHTSA SCI
 
 &lt;img src="https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/5cluster.png" width="750px" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Analysis: NHTSA SCI
+
+In the 5 dendrograms produced, we see that prominent clusters form in the dendrograms. Furthermore, there are a number of documents that are co-members across all 5 clusterings; this is encouraging as it indicates that the those clusters are not so sensitive to chosen hyperparameters, but the documents are indeed similar.
+
+We can track this co-membership across all 5 clusterings with a matrix where rows and columns are documents, and the entry is either a `\(1\)` or `\(0\)` depending on if the document pair were consistently co-members.
+
+
+---
+
+# Analysis: NHTSA SCI
+
+&lt;img src="https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/comembers5.png" width="550px" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
