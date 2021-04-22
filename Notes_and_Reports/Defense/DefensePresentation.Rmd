@@ -396,8 +396,109 @@ knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDoc
 
 Upon further inspection of some co-members text we can notices some similarities. For example, document #2 (Ambulance crash in Angola, DE) has only 3 other co-members; document #11, #30, and #38. Three featured ambulance roll over events, all had fatalities, and all of them were front end collisions where the ambulance struck another vehicle, structure, or object.
 
-While this is just one specific example of similarites across the co-members, we can use text mining concepts like term-frequency/invcerse document frequency plots to examine which words may represent a cluster.
+While this is just one specific example of similarites across the co-members, we can use text mining concepts like term-frequency/invcerse document frequency (TF-IDF) plots to examine which words may represent a cluster.
 
 ---
 
 # Analysis: NHTSA SCI
+
+```{r, out.width = "700px", fig.retina = 3, echo = FALSE, fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/nhtsa_tf_idf.png")
+```
+
+---
+# Analysis: NHTSA SCI
+
+In the TF-IDF plot we see that clusters use words specifically related to a cluster's vehicle manufacturers, medical terms, and words that describe a crash situation (e.g. guardrail, tree, interstate).
+
+These TF-IDF plots stand as a summary for each cluster, and to gain more insight into a cluster's content we can examine the skip-gram graph.
+
+---
+
+# Analysis: NHTSA SCI
+
+```{r, out.width = "700px", fig.retina = 3, echo = FALSE, fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/graph_k5_2.png")
+```
+
+---
+
+# Analysis: reddit Threads
+
+Similar to the NHTSA SCI reports, optimal number of clusters was assessed with an "elbow plot" and the consistently best performing hyperparamter set from the NHTSA analysis was used here as well.
+
+Hyperparameters: Skip window $k=3$, kernel parameter $\sigma = 1200$
+
+After computing the kernel with the hyperparameter set, we see two very distinct larger groups which then break into smaller groups. The groups are clear and provide confidence in the clustering result. In addition to the dendrogram, analysis is done on the cluster to assess which posts were included in the cluster as it relates to their query word that lead to their collection.
+
+---
+
+# Analysis: reddit Threads
+
+```{r, out.width = "700px", fig.retina = 3, echo = FALSE, fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/reddit_wss.png")
+```
+
+---
+
+# Analysis: reddit Threads
+
+```{r, out.width = "700px", fig.retina = 3, echo = FALSE, fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/k4_reddit_clusters.png")
+```
+
+---
+
+# Analysis: reddit Threads
+
+We see that some query words are more strongly expressed in a cluster than other words. This may be indicative of a writing style, discussion topic, or tone that is more unique to those threads. 
+
+In the previous slide, we see that clusters $3$ & $4$ collected posts from the "angry" query word, and cluster $1$ displayed a strong portion of its posts being collected from the "sad" query word.
+
+Again, we can view a skip-gram network to get an idea of what the text was discussing. Below we can visualize the skip-gram network for $10$ threads that were clustered together.
+
+---
+
+# Analysis: reddit Threads
+
+```{r, out.width = "700px", fig.retina = 3, echo = FALSE, fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/reddit_network.png")
+```
+
+---
+
+# Analysis: Comparison of Results
+
+Upon examination of both results, it is clear that these methods perform better with larger documents, as opposed to a large corpus. By measure of WSS, the NHTSA dataset displayed better results than the reddit dataset. The reddit dataset did however display more prominent clusters, which could have been due to the large number of documents in that corpus. Additionally, the computation time for the large document size NHTSA dataset was much more reasonable than the large corpus reddit dataset.
+
+--
+
+It should also be noted that the optimal number of clusters, as well as hyperparameters, will need to be adjusted and changed depending on the dataset of concern. Applying results from the NHTSA study, which indicated that $k=3$ was the best skip-gram window width, did seem to apply to the reddit dataset as well.
+
+---
+class: inverse, center, middle
+name: Conclusion
+
+# Conclusion
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>
+
+---
+
+# Conclusion
+
+Through the application of several different methods in conjuction with one another (skip-grams, graph kernels, and hierarchical clustering), clustering can be performed on text while preserving as much of the rich information from the original text as possible.
+
+--
+
+The NHTSA results can be used to inform other research iniatives of similar scenarios to simulate or reproduce for autonomous vehicles to learn from. Identifying the clusters and providing summarized results, allows for similar crash reports to be compiled. This compiled information can aid in the generation of more "edge case" scenarios for Florida Polytechnic University's AMI. 
+
+--
+
+The reddit thread dataset, although too large for these methods to be applied initially, 
+
