@@ -224,7 +224,7 @@ Data from reddit is also split into smaller datasets to make use of GitHub's sto
 # Methods (cont.)
 ## Data Reformatting 
 
-```{r, out.width = "600px", fig.retina = 3, echo  = FALSE,fig.align='center'}
+```{r, out.width = "500px", fig.retina = 3, echo  = FALSE,fig.align='center'}
 # OPEN IN CHROME ONLY
 knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/Concept_map.png")
 ```
@@ -271,4 +271,93 @@ The result of either kernel, when applied to the document graph list, is a kerne
 
 # Methods (cont.)
 ## Hierarchical Clustering
+
+Before using the kernel matrix in hierarchical clustering, two transformations are performed. 
+
+--
+
+First the multiplicative inverse is computed for each entry in the matrix, by doing this, the similarity matrix is converted to a distance matrix. 
+
+--
+
+Second, principal component analysis is performed to reduce the high dimensionality of the kernel matrix, and allow for better visualizations.
+
+---
+
+# Methods (cont.)
+## Hierarchical Clustering
+
+Hierarchical Clustering is performed on both data sets using the manhattan distance and Ward's method for linkage in clustering. 
+
+Manhattan Distance: $d(\vec{p},\vec{q}) = \sum_{i=1}^n |p_i q_i|$
+
+Ward's method: $d(\vec{p},\vec{q}) = || \vec{p} - \vec{q} ||^2$
+
+--
+
+As mentioned earlier, the edge label histograms are all either values of $1$ or $0$, since the skip-gram either appeared or did not. So the manhattan distance is used, as opposed to euclidean distance.
+
+---
+
+# Methods (cont.)
+## Parallel Processing
+
+```{r, out.width = "450px", fig.retina = 3, echo  = FALSE,fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/edgeHistTimePlot.png")
+```
+
+---
+
+# Methods (cont.)
+## Parallel Processing
+
+```{r, out.width = "600px", fig.retina = 3, echo  = FALSE,fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/ScriptMap.png")
+```
+
+---
+
+# Methods 
+## Parallel Processing
+
+Since the data reformatting and computing the kernels takes so long, it was necessary to implement parallel processing. This was done through the use of the `{furrr}` package for R. This parallel processing was necessary for the reddit datset due to the large number of documents, but not for the NHTSA SCI reports despite the large document sizes.
+
+Using parallel processing allowed for the reddit data to be computed in a reasonable time instead of unreasonable times like shown in the study previously.
+
+---
+
+class: inverse, center, middle
+name: Analysis
+
+# Analysis
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>
+---
+
+
+# Analysis
+## NHTSA SCI
+.pull-left[
+First, hierarchical clustering was performed for a number of hyperparameter sets to assess which set produced the best clustering, measuring by within sum of squares (WSS).
+
+The five best hyperparameters sets were collected and used in further analysis of NHTSA data.
+]
+.pull-right[
+```{r, out.width = "475px", fig.retina = 3, echo  = FALSE,fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/hclust_variation.png")
+```
+]
+
+---
+# Analysis
+## NHTSA SCI
+
+```{r, out.width = "600px", fig.retina = 3, echo  = FALSE,fig.align='center'}
+# OPEN IN CHROME ONLY
+knitr::include_graphics("https://raw.githubusercontent.com/Levi-Nicklas/GraphDocNLP/main/Thesis_Tex/Content/Images/table_pic.png")
+```
+
 
