@@ -10,7 +10,7 @@
 
 
 \section{NHTSA Special Crash Investigations}
- For the NHTSA's Special Crash Investigation dataset, a hierarchical clustering was performed on the resulting graph kernel computed from the skip-gram graphs. Since this dataset was pretty small at $N=48$, it served as a good subject to study the interactions between modifying the skip window width, kernel hyper parameters, and number of clusters. This study on these interactions informs decisions made on which hyper parameters to use in final analysis of the NHTSA data as well as the reddit thread data. \\
+\hspace*{0.3cm} For the NHTSA's Special Crash Investigation dataset, a hierarchical clustering was performed on the resulting graph kernel computed from the skip-gram graphs. Since this dataset was pretty small at $N=48$, it served as a good subject to study the interactions between modifying the skip window width, kernel hyper parameters, and number of clusters. This study on these interactions informs decisions made on which hyper parameters to use in final analysis of the NHTSA data as well as the reddit thread data. \\
  
 For the study on these interactions, hyper-parameters were varied and the value of cluster within sum of squares was tracked. Specifically, the values in Figure 4.1 were tested. \\
  
@@ -51,6 +51,7 @@ To compare how often this co-membership in groups was appearing, a matrix of co-
 \end{figure}
 
 We can inspect the results by checking some of the co-members' text. For example, document two (which was an ambulance crash in Angola, Delaware), has only 3 other co-members. Document two's co-members are: document 11, document 30, and document 38. Document 11 was an ambulance crash in Sheridan, Indiana. Document 30 was an ambulance crash in Pasadena, California. Document 38 was an ambulance crash in Ocilla, Georgia.\\
+
 Now, we can examine some information about these four incidents that may explain their clustering. For example, all of these incidents had fatalities, three of them had roll over events, and these four were all front end collisions to the ambulance where they struck another vehicle, or object, head on. While this is just one example of the clustering methods identifying similarities in the text, we can examine similarities across the dataset through use of term-frequency/inverse document frequency.\\
 
 \begin{equation}
@@ -74,8 +75,10 @@ We can put together some of the ideas and topics discussed in the cluster. For e
 
 \section{reddit Threads}
 
-For the reddit threads dataset, analysis was focused on the ability of the clusterings to organize threads based on their query words. The words used to query the \texttt{r/MentalHealth} subreddit (\texttt{https://www.reddit.com/r/mentalhealth}) all returned threads which were then clustered into new groups. Some of these clusters expressed strong preference for posts that corresponded with specific key words. \\
-This data was collected with the \texttt{\{redditExtractoR\}} package \cite{rivera2015package}, and then we augmented and cleaned \texttt{\{tidytext\}} \cite{silge2016tidytext}, and other \texttt{\{tidyverse\}} tools \cite{wickham2019welcome}. These tools made it easy to extract the data from reddit, tidy the data, and perform text processing tasks such as tokenization and parsing for punctuation or numbers. Once the data was in a clean format, it followed the script map to get to a format where it could be analyzed in the same fashion as the NHTSA data was. Since this data was a large set, it utilized the scripts set up with \texttt{\{furrr\}} \cite{bengtsson2020unifying}.
+\hspace*{0.3cm} For the reddit threads dataset, analysis was focused on the ability of the clusterings to organize threads based on their query words. The words used to query the \texttt{r/MentalHealth} subreddit (\texttt{https://www.reddit.com/r/mentalhealth}) all returned threads which were then clustered into new groups. Some of these clusters expressed strong preference for posts that corresponded with specific key words. \\
+
+This data was collected with the \texttt{\{redditExtractoR\}} package \cite{rivera2015package}, and then we augmented and cleaned \texttt{\{tidytext\}} \cite{silge2016tidytext}, and other \texttt{\{tidyverse\}} tools \cite{wickham2019welcome}. These tools made it easy to extract the data from reddit, tidy the data, and perform text processing tasks such as tokenization and parsing for punctuation or numbers. Once the data was in a clean format, it followed the script map to get to a format where it could be analyzed in the same fashion as the NHTSA data was. Since this data was a large set, it utilized the scripts set up with \texttt{\{furrr\}} \cite{bengtsson2020unifying}.\\
+
 To assess how many clusters to use, an ``elbow blot" was formed similar to those in Figure 4.1. For the reddit threads, the hyper parameters from the NHTSA analysis were used, and the consistently lowest metric parameter set was chosen; skip-grams of $k=3$ and kernel parameter $\sigma = 1200$ were used in the reddit clustering analysis. In Figure 4.6, we see that 4 clusters is the optimal value, where additional clusters provides diminishing results. \\
 
 \begin{figure}
@@ -83,8 +86,7 @@ To assess how many clusters to use, an ``elbow blot" was formed similar to those
 \caption{Within sum of squares as a function of number of clusters}
 \end{figure}
 
-After computing the kernel and using these parameters, four cluster are produced. Examining the dendrogram, in Figure 4.7, we see that we have 2 very distinct groups, which then break into two smaller groups. These groups are very clear and provide confidence in the clustering results. Along side the dendrogram, there is a heat map of what proportion of documents (or threads) in the cluster came from a query word. In Figure 4.7, we see that clusters 3 and 4 collected posts from the "angry" query word. Additionally cluster 1 displays a 
-strong amount of its posts coming from the "sad" query word. \\
+After computing the kernel and using these parameters, four cluster are produced. Examining the dendrogram, in Figure 4.7, we see that we have 2 very distinct groups, which then break into two smaller groups. These groups are very clear and provide confidence in the clustering results. Along side the dendrogram, there is a heat map of what proportion of documents (or threads) in the cluster came from a query word. In Figure 4.7, we see that clusters 3 and 4 collected posts from the "angry" query word. Additionally cluster 1 displays a strong amount of its posts coming from the "sad" query word. \\
 
 \begin{figure}
 \includegraphics[width=6in]{Content/Images/k4_reddit_clusters.png}
@@ -100,15 +102,19 @@ The prominence of some of these query words in the clusters indicates that the t
 
 \section{Comparative Analysis}
 
-Looking at the results from both hierarchical clusterings on the graph kernels it is apparent that these methods work much better on larger documents. The performance of the graph kernels being applied to the skip-gram graph and then clustering was much better in the NHTSA dataset than the reddit threads dataset. By measuring within sum of squares, the NHTSA data set performed much better, as its WSS to number of observations ratio was 2.08 at its lowest, whereas the reddit dataset had a WSS to number of observation ratio of 9. 
+\hspace*{0.5cm} Looking at the results from both hierarchical clusterings on the graph kernels it is apparent that these methods work much better on larger documents. The performance of the graph kernels being applied to the skip-gram graph and then clustering was much better in the NHTSA dataset than the reddit threads dataset. By measuring within sum of squares, the NHTSA data set performed much better, as its WSS to number of observations ratio was 2.08 at its lowest, whereas the reddit dataset had a WSS to number of observation ratio of 9.\\
+ 
 As for computational time, the NHTSA dataset took less than 2 minutes to compute, whereas the reddit dataset. However, the reddit dataset displayed more prominent clusters, which was also indicative of success.\\
+
 Comparing the elbow plots for both the NHTSA and the reddit threads datasets, it is clear that the optimal number of clusters for these methods will be dependent upon the dataset being analyzed. The results from the NHTSA study that indicated that skip-grams with $k=3$ did seem to apply to the reddit dataset as well. These hyper parameters will need tuning for any new application.\\
+
 Overall, the largest difference between the two analyses was that although the reddit threads displayed strong, prominent clusters, the NHTSA dataset was being computed in reasonable amount of time. Since the application of these methods are scaling better for increasing document size instead of increasing document lists, there is a case to be made that aggregating reddit threads into larger documents may be more effective, but to keep the observational unit tied to a reddit thread, this was not completed.\\ 
+
 These methods could be applied in any smaller text mining application. Since the methods were able to be parallelized during their most computationally expensive portions of code, the methods could scale with sufficient hardware. In a high performance computing environment, with a much larger dataset, it may become clear that these methods are either more effective or less effective than they were found to be here.
 
 \section{Contributions to the Field}
 
-Through this work, several new contributions have been made to the field. First, a specific study on the use of graph kernels as preprocessing for hierarchical clustering; the combination of these ideas has not been well documented within the literature reviewed here. Second, the analysis of such differing datasets will bring new perspective to the topic as it relates to the performance of such methods on different types of text data. Thirdly, the workflow developed here was made open for others to use, edit, and analyze for future applications. All of the scripts, notebooks, supplementary materials, and data being made open encourages further development by the community. Lastly, the results of the analysis will go on to inform their respective subfields about the exciting applications of these methods. In the case of NHTSA, edge cases that can be summarized through these methods can lead to more representative simulations being made,  
+\hspace*{0.5cm} Through this work, several new contributions have been made to the field. First, a specific study on the use of graph kernels as preprocessing for hierarchical clustering; the combination of these ideas has not been well documented within the literature reviewed here. Second, the analysis of such differing datasets will bring new perspective to the topic as it relates to the performance of such methods on different types of text data. Thirdly, the workflow developed here was made open for others to use, edit, and analyze for future applications. All of the scripts, notebooks, supplementary materials, and data being made open encourages further development by the community. Lastly, the results of the analysis will go on to inform their respective subfields about the exciting applications of these methods. In the case of NHTSA, edge cases that can be summarized through these methods can lead to more representative simulations being made that can lead to better trained autonomous vehicles. For the reddit mental health data, the work completed here can be used for semi-supervised applications to classify discussion in these type of subreddits. The classification can inform mental health practitioners about the state of mental health within such communities at scale. They can then use those results to drive mental health awareness campaigns, better target what the community is feeling about treatment, or perhaps identify new language or a new subgroup of people dealing with a specific mental health issue.These contributions will support furthering research in this field, as well as the fields from which the data is of interest to. 
 
  
 

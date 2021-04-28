@@ -55,12 +55,9 @@ compute_time <- data.frame(n = c(10, 25, 50, 75, 100,
                                  922.383, 1344.21, 1673.508,2244.22))
 
 edge_hist_time_plot <- compute_time %>% 
-  mutate(polynomial = n) %>% 
-  pivot_longer(cols = c("t","polynomial")) %>% 
-  group_by(name) %>% 
   ggplot()+
-  geom_smooth(aes(log(n),log(value), group = name), color = "gray50", se = F, size = 0.5, lty = 2)+
-  geom_point(aes(log(n),log(value), group = name), shape = 21, size = 2.25) +
+  geom_smooth(aes(log(n),log(t)), color = "gray50", se = F, size = 0.5, lty = 2)+
+  geom_point(aes(log(n),log(t)), shape = 21, size = 2.25, color = "black", fill = "#0b21e8") +
   #geom_abline(slope = 1, intercept = 0, lty = 2, color = "red") +
   labs(x = "Log Number of Graphs",
        y = "Log Time (Seconds)",
