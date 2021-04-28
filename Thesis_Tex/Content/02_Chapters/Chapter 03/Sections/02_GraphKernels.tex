@@ -8,7 +8,7 @@
 
 \section{Graph Kernels for Similarity}
 
-\hspace*{0.3cm} Graph kernels can be used to compare the similarity of two graphs. The development of these methods arose out of the need to determine if graphs were isometric in a faster way. The solution was a graph kernel which produces a scalar value for how similar two, or more, graphs are. The result of a graph kernel is a matrix where the similarity of graphs $i$ and $j$ is in the kernel's $i$-th row and $j$-th column entry. This resulting matrix can be used in a variety of ways, but it will be used as a distance matrix in applications here. \\
+\hspace*{0.3cm} Graph kernels can be used to compare the similarity of two graphs. The development of these methods arose out of the need to determine if graphs were isomorphic in a faster way. The solution was a graph kernel which produces a scalar value for how similar two, or more, graphs are. The result of a graph kernel is a matrix where the similarity of graphs $i$ and $j$ is in the kernel's $i$-th row and $j$-th column entry. This resulting matrix can be used in a variety of ways, but it will be used as a distance matrix in applications here. \\
 
 Amongst graph kernels which consider edge or vertex labels in their computation, various surveys and studies have found edge label histogram kernels or vertex label histograms to be the most efficient. They may not out perform the other methods, like a Weisfeiler-Lehman or other subgraph methods, but they are computationally cheap. The datasets being studied here are both large: one contains many smaller graphs, and one contains 48 very large graphs. So for this study, computation efficiency was prioritized. \\
 

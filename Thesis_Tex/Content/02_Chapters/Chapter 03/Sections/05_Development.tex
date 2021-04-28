@@ -9,14 +9,14 @@ The resulting and final scripts are kept in the code repository as well. The fin
 \caption{Development script map that describes how all modules work together from data ingest to final analysis.}
 \end{figure} 
 
- The Script Map shows how these R scripts can be used for either standard computation, in the case of the NHTSA dataset, or parallel computation, as was used in the reddit dataset. Parallel computation was completed through use of the \texttt{\{furrr\}}, an R package that makes parallization of functions similar to mapping functions from the popular \texttt{\{purrr\}} package. The \texttt{\{furrr\}} package works by splitting the computation among ``workers", or cores, in the CPU. This takes full advantage of the processing capabilities of the machine; instead of letting 1 core do all of the work, we can use many more. Implementation of a parallel option was necessary because computational time for a list of graph objects grows rapidly as the number of graphs in the list increases. A small study was conducted on the reddit dataset to plot this relationship.\\
+ The Script Map shows how these R scripts can be used for either standard computation, in the case of the NHTSA dataset, or parallel computation, as was used in the reddit dataset. Parallel computation was completed through use of the \texttt{\{furrr\}}, an R package that makes parallization of functions similar to mapping functions from the popular \texttt{\{purrr\}} package. The \texttt{\{furrr\}} package works by splitting the computation among ``workers", or cores, in the CPU. This takes full advantage of the processing capabilities of the machine; instead of letting 1 core do all of the work, we can use many more cores to complete the computation faster. Implementation of a parallel option was necessary because computational time for a list of graph objects grows rapidly as the number of graphs in the list increases. A small study was conducted on the reddit dataset to plot this relationship.\\
+ 
+In Figure 3.2, there is strong evidence that the computation time follows $O(e^n)$, or worse. For this reason, the parallel workflow was developed\textemdash to handle datasets with a large number of documents to compare. Even though the amount of text per document in the NHTSA dataset is much larger than the amount of text per document in the reddit dataset, the reddit dataset takes longer to compute than the NHTSA dataset. \\
  
 \begin{figure}
 \includegraphics[width=6in]{Content/Images/edgeHistTimePlot.png}\\
 \caption{Small study on computation time as a function of the number of graphs in list to be processed. Data from reddit used.}
 \end{figure}
- 
-Above, in Figure 3.2, there is strong evidence that the computation time follows $O(e^n)$, or worse. For this reason, the parallel workflow was developed\textemdash to handle datasets with a large number of documents to compare. Even though the amount of text per document in the NHTSA dataset is much larger than the amount of text per document in the reddit dataset, the reddit dataset takes longer to compute than the NHTSA dataset. \\
 
 Referring back to the Script Map, either workflow is decomposed into four steps: Data Ingest, Data Reform, Graph Kernel Similarity, and Clustering. This is the basic work flow developed here. There are some things to note in the Script Map.\\ 
 
@@ -26,6 +26,6 @@ Second, the scripts routed through \texttt{\{furrr\}} are functions which are pa
 
 Third, the \texttt{splitdata.R} function is there to simply split up the dataset from reddit, which would be too large to store in the repository on GitHub. This segmentation of the data still allows for workflow and reproducibility, since the datasets can all be read in to the environment all the same. \\
 
-Lastly, a KDE clustering analysis was not performed on the NHTSA dataset, as that dataset has few observations ($N=48$) and will not perform well with the density estimation methods developed here; there would be too few observations to generate a number of local maxima/minima needed to apply the clustering methods developed. \\
+Lastly, a KDE clustering analysis was not performed on the NHTSA dataset, as that dataset has few observations ($N=48$) and will not perform well with the density estimation methods developed here; there would be too few observations to generate a number of local maxima/minima needed to apply the clustering methods developed. Results here were not included, but the scripts and methods are available in the Appendix and code repository.\\
 
  
