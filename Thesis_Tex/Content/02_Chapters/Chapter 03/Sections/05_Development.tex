@@ -1,6 +1,7 @@
 \section{Development of Methods}
 
 \hspace*{0.3cm} All of the methods outlined in preceding chapters were developed in \textit{RStudio} and are stored in a public code repository on \textit{GitHub}. Initial development and testing of all the packages and libraries was completed using \textit{R Markdown} notebooks, which allow for coding in chunks with explanation in markdown text. These netbooks are kept in the code repo to serve as more explanatory documents demonstrating how all the scripts and datasets work in conjunction with one another. \\
+
 The resulting and final scripts are kept in the code repository as well. The final scripts were developed to use the output from one another and to produce intermediate outputs so that small studies could be conducted. How the scripts work with one another is mapped out in the "Script Map" in Figure 3.1.\\
 
 \begin{figure}
@@ -15,7 +16,7 @@ The resulting and final scripts are kept in the code repository as well. The fin
 \caption{Small study on computation time as a function of the number of graphs in list to be processed. Data from reddit used.}
 \end{figure}
  
-Above, in Figure 3.2, there is strong evidence that the computation time follows $O(n^2)$. For this reason, the parallel workflow was developed\textemdash to handle datasets with a large number of documents to compare. Even though the amount of text per document in the NHTSA dataset is much larger than the amount of text per document in the reddit dataset, the reddit dataset takes much longer to compute. \\
+Above, in Figure 3.2, there is strong evidence that the computation time follows $O(e^n)$, or worse. For this reason, the parallel workflow was developed\textemdash to handle datasets with a large number of documents to compare. Even though the amount of text per document in the NHTSA dataset is much larger than the amount of text per document in the reddit dataset, the reddit dataset takes longer to compute than the NHTSA dataset. \\
 
 Referring back to the Script Map, either workflow is decomposed into four steps: Data Ingest, Data Reform, Graph Kernel Similarity, and Clustering. This is the basic work flow developed here. There are some things to note in the Script Map.\\ 
 
