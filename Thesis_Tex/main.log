@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  15 APR 2021 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  27 APR 2021 19:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -991,7 +991,7 @@ LaTeX Info: Redefining \BHBI on input line 130.
 
 (./Content/01_Front_Matter/main.tex
 (./Content/01_Front_Matter/00_cover_page.tex
-<Content/Images/FLPoly_logo.pdf, id=130, 412.54124pt x 112.92188pt>
+<Content/Images/FLPoly_logo.pdf, id=134, 412.54124pt x 112.92188pt>
 File: Content/Images/FLPoly_logo.pdf Graphic file (type pdf)
 <use Content/Images/FLPoly_logo.pdf>
 Package pdftex.def Info: Content/Images/FLPoly_logo.pdf  used on input line 10.
@@ -1043,7 +1043,7 @@ l.14 \end{abstract}
                     [1])) (./Content/02_Chapters/main.tex
 (./Content/02_Chapters/Chapter 01/main.tex
 Chapter 1.
-<Content/Images/Concept_map.png, id=283, 834.11626pt x 812.03375pt>
+<Content/Images/Concept_map.png, id=288, 834.11626pt x 812.03375pt>
 File: Content/Images/Concept_map.png Graphic file (type png)
 <use Content/Images/Concept_map.png>
 Package pdftex.def Info: Content/Images/Concept_map.png  used on input line 18.
@@ -1094,13 +1094,13 @@ Chapter 3.
 (./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [11])
 (./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex [12])
 (./Content/02_Chapters/Chapter 03/Sections/05_Development.tex [13]
-<Content/Images/ScriptMap.png, id=393, 774.895pt x 643.40375pt>
+<Content/Images/ScriptMap.png, id=398, 774.895pt x 643.40375pt>
 File: Content/Images/ScriptMap.png Graphic file (type png)
 <use Content/Images/ScriptMap.png>
 Package pdftex.def Info: Content/Images/ScriptMap.png  used on input line 7.
 (pdftex.def)             Requested size: 433.62pt x 360.03856pt.
  [14 <./Content/Images/ScriptMap.png>]
-<Content/Images/edgeHistTimePlot.png, id=399, 2107.875pt x 2107.875pt>
+<Content/Images/edgeHistTimePlot.png, id=404, 2107.875pt x 2107.875pt>
 File: Content/Images/edgeHistTimePlot.png Graphic file (type png)
 <use Content/Images/edgeHistTimePlot.png>
 Package pdftex.def Info: Content/Images/edgeHistTimePlot.png  used on input lin
@@ -1110,7 +1110,7 @@ e 14.
 (./Content/02_Chapters/Chapter 04/main.tex [16]
 Chapter 4.
 (./Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex
-<Content/Images/hclust_variation.png, id=410, 2257.43375pt x 2174.1225pt>
+<Content/Images/hclust_variation.png, id=415, 2257.43375pt x 2174.1225pt>
 File: Content/Images/hclust_variation.png Graphic file (type png)
 <use Content/Images/hclust_variation.png>
 Package pdftex.def Info: Content/Images/hclust_variation.png  used on input lin
@@ -1119,43 +1119,43 @@ e 19.
  [17
 
 ] [18 <./Content/Images/hclust_variation.png>]
-<Content/Images/5cluster.png, id=420, 3914.625pt x 1806.75pt>
+<Content/Images/5cluster.png, id=425, 3914.625pt x 1806.75pt>
 File: Content/Images/5cluster.png Graphic file (type png)
 <use Content/Images/5cluster.png>
 Package pdftex.def Info: Content/Images/5cluster.png  used on input line 42.
 (pdftex.def)             Requested size: 433.62pt x 200.12155pt.
-<Content/Images/comembers5.png, id=421, 2409.0pt x 2409.0pt>
+<Content/Images/comembers5.png, id=426, 2409.0pt x 2409.0pt>
 File: Content/Images/comembers5.png Graphic file (type png)
 <use Content/Images/comembers5.png>
 Package pdftex.def Info: Content/Images/comembers5.png  used on input line 49.
 (pdftex.def)             Requested size: 433.62pt x 433.6013pt.
  [19 <./Content/Images/5cluster.png>]
 [20 <./Content/Images/comembers5.png>]
-<Content/Images/nhtsa_tf_idf.png, id=432, 2571.6075pt x 1956.30875pt>
+<Content/Images/nhtsa_tf_idf.png, id=437, 2571.6075pt x 1956.30875pt>
 File: Content/Images/nhtsa_tf_idf.png Graphic file (type png)
 <use Content/Images/nhtsa_tf_idf.png>
 Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 61
 .
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
  [21 <./Content/Images/nhtsa_tf_idf.png>]
-<Content/Images/graph_k5_2.png, id=439, 2571.6075pt x 1956.30875pt>
+<Content/Images/graph_k5_2.png, id=444, 2571.6075pt x 1956.30875pt>
 File: Content/Images/graph_k5_2.png Graphic file (type png)
 <use Content/Images/graph_k5_2.png>
 Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 68.
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
 [22 <./Content/Images/graph_k5_2.png>]
-<Content/Images/reddit_wss.png, id=454, 2107.875pt x 2107.875pt>
+<Content/Images/reddit_wss.png, id=459, 2107.875pt x 2107.875pt>
 File: Content/Images/reddit_wss.png Graphic file (type png)
 <use Content/Images/reddit_wss.png>
 Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 82.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-<Content/Images/k4_reddit_clusters.png, id=455, 2107.875pt x 2107.875pt>
+<Content/Images/k4_reddit_clusters.png, id=460, 2107.875pt x 2107.875pt>
 File: Content/Images/k4_reddit_clusters.png Graphic file (type png)
 <use Content/Images/k4_reddit_clusters.png>
 Package pdftex.def Info: Content/Images/k4_reddit_clusters.png  used on input l
 ine 90.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-<Content/Images/reddit_network.png, id=456, 772.8875pt x 476.78125pt>
+<Content/Images/reddit_network.png, id=461, 772.8875pt x 476.78125pt>
 File: Content/Images/reddit_network.png Graphic file (type png)
 <use Content/Images/reddit_network.png>
 Package pdftex.def Info: Content/Images/reddit_network.png  used on input line 
@@ -1176,35 +1176,45 @@ Chapter 6.
 
 ]
 Appendix A.
+
+Overfull \hbox (205.13644pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][]  
+ []
+
 [32
 
-] [33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43]
+] [33]
 Appendix B.
+[34
+
+] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
+Appendix C.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 370.
+               Default added (so using `tbp') on input line 409.
 
 
-Overfull \hbox (45.80733pt too wide) in paragraph at lines 372--423
+Overfull \hbox (45.80733pt too wide) in paragraph at lines 411--462
 [][] 
  []
 
-[44
+[46
 
-] [45]
-Appendix C.
-)) (./main.bbl [46
+] [47]
+Appendix D.
+)) (./main.bbl [48
 
-] [47
+] [49
 
-]) [48]
+]) [50]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 51845B336F16C03E281064AAA1905F4D;1952.
+(rerunfilecheck)             Checksum: B3641C32F72FCA3FFAD53B0BB653B626;2007.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1212,13 +1222,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
- 24064 strings out of 492162
- 440163 string characters out of 6125292
+ 24199 strings out of 492162
+ 441784 string characters out of 6125292
  724788 words of memory out of 5000000
- 27429 multiletter control sequences out of 15000+600000
+ 27526 multiletter control sequences out of 15000+600000
  14502 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,11n,69p,1937b,2583s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,11n,69p,1937b,2571s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></
@@ -1237,10 +1247,10 @@ e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 9/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (57 pages, 1937260 bytes).
+Output written on main.pdf (59 pages, 1940525 bytes).
 PDF statistics:
- 1067 PDF objects out of 1200 (max. 8388607)
- 941 compressed objects within 10 object streams
- 447 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1122 PDF objects out of 1200 (max. 8388607)
+ 994 compressed objects within 10 object streams
+ 485 named destinations out of 1000 (max. 500000)
+ 329 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -55,16 +55,19 @@ compute_time <- data.frame(n = c(10, 25, 50, 75, 100,
                                  922.383, 1344.21, 1673.508,2244.22))
 
 edge_hist_time_plot <- compute_time %>% 
+  mutate(polynomial = n) %>% 
+  pivot_longer(cols = c("t","polynomial")) %>% 
+  group_by(name) %>% 
   ggplot()+
-  geom_smooth(aes(n,t), color = "gray50", se = F, size = 0.5, lty = 2)+
-  geom_point(aes(n,t), shape = 21, size = 2.25, color = "black", fill = "#0b21e8") +
+  geom_smooth(aes(log(n),log(value), group = name), color = "gray50", se = F, size = 0.5, lty = 2)+
+  geom_point(aes(log(n),log(value), group = name), shape = 21, size = 2.25) +
   #geom_abline(slope = 1, intercept = 0, lty = 2, color = "red") +
-  labs(x = "Number of Graphs",
-       y = "Time (Seconds)",
+  labs(x = "Log Number of Graphs",
+       y = "Log Time (Seconds)",
        title = "Computation Time by Graphs Processed",
        subtitle = "Graph Kernel: Edge Histogram Kernel") +
-  scale_y_continuous(limits = c(0,2500))+
-  scale_x_continuous(limits = c(0,350))+
+  #scale_y_continuous(limits = c(0,8))+
+  #scale_x_continuous(limits = c(0,5))+
   theme(plot.background = element_rect(fill = "white", colour = NA),
         panel.background = element_rect(fill = "white", colour = NA),
         axis.line = element_line(colour = "black"),
