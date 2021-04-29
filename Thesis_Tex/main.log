@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  28 APR 2021 15:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.16)  28 APR 2021 20:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1077,104 +1077,109 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.30 
-      [3]) (./Content/02_Chapters/Chapter 02/main.texpdfTeX warning (ext4): des
-tination with the same identifier (name{page.4}) has been already used, duplica
-te ignored
+      [3])pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.9 \chapter
-            {Literature Review} [4]
+l.11 
+      [4] (./Content/02_Chapters/Chapter 02/main.tex [5]
 Chapter 2.
-[5
+[6
 
-]) (./Content/02_Chapters/Chapter 03/main.tex [6]
+]) (./Content/02_Chapters/Chapter 03/main.tex [7]
 Chapter 3.
-(./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [7
+(./Content/02_Chapters/Chapter 03/Sections/00_Introduction.tex [8
 
-] [8])
-(./Content/02_Chapters/Chapter 03/Sections/01_TextProcessing.tex [9] [10])
-(./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [11])
-(./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex [12])
-(./Content/02_Chapters/Chapter 03/Sections/05_Development.tex [13]
-<Content/Images/ScriptMap.png, id=402, 774.895pt x 643.40375pt>
+]
+
+LaTeX Warning: Citation `guthrie2006closer' undefined on input line 23.
+
+[9]) (./Content/02_Chapters/Chapter 03/Sections/01_TextProcessing.tex [10]
+
+LaTeX Warning: Citation `silge2016tidytex' undefined on input line 13.
+
+[11]) (./Content/02_Chapters/Chapter 03/Sections/02_GraphKernels.tex [12]
+[13]) (./Content/02_Chapters/Chapter 03/Sections/03_HClust.tex [14])
+(./Content/02_Chapters/Chapter 03/Sections/05_Development.tex
+<Content/Images/ScriptMap.png, id=411, 774.895pt x 643.40375pt>
 File: Content/Images/ScriptMap.png Graphic file (type png)
 <use Content/Images/ScriptMap.png>
 Package pdftex.def Info: Content/Images/ScriptMap.png  used on input line 8.
 (pdftex.def)             Requested size: 433.62pt x 360.03856pt.
-<Content/Images/edgeHistTimePlot.png, id=403, 2107.875pt x 2107.875pt>
+ [15] [16 <./Content/Images/ScriptMap.png>]
+<Content/Images/edgeHistTimePlot.png, id=423, 2107.875pt x 2107.875pt>
 File: Content/Images/edgeHistTimePlot.png Graphic file (type png)
 <use Content/Images/edgeHistTimePlot.png>
 Package pdftex.def Info: Content/Images/edgeHistTimePlot.png  used on input lin
-e 15.
+e 17.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
- [14]
-[15 <./Content/Images/ScriptMap.png>] [16 <./Content/Images/edgeHistTimePlot.pn
-g>] [17])) (./Content/02_Chapters/Chapter 04/main.tex [18]
+ [17] [18 <./Content/Images/edgeHistTimePlot.png>]))
+(./Content/02_Chapters/Chapter 04/main.tex [19]
 Chapter 4.
 (./Content/02_Chapters/Chapter 04/Sections/01_HClustResults.tex
-<Content/Images/hclust_variation.png, id=427, 2257.43375pt x 2174.1225pt>
+<Content/Images/hclust_variation.png, id=437, 2257.43375pt x 2174.1225pt>
 File: Content/Images/hclust_variation.png Graphic file (type png)
 <use Content/Images/hclust_variation.png>
 Package pdftex.def Info: Content/Images/hclust_variation.png  used on input lin
-e 19.
+e 33.
 (pdftex.def)             Requested size: 433.62pt x 417.59929pt.
- [19
+ [20
 
-] [20 <./Content/Images/hclust_variation.png>]
-<Content/Images/5cluster.png, id=437, 3914.625pt x 1806.75pt>
+] [21 <./Content/Images/hclust_variation.png>]
+<Content/Images/5cluster.png, id=449, 3914.625pt x 1806.75pt>
 File: Content/Images/5cluster.png Graphic file (type png)
 <use Content/Images/5cluster.png>
-Package pdftex.def Info: Content/Images/5cluster.png  used on input line 42.
+Package pdftex.def Info: Content/Images/5cluster.png  used on input line 40.
 (pdftex.def)             Requested size: 433.62pt x 200.12155pt.
-<Content/Images/comembers5.png, id=438, 2409.0pt x 2409.0pt>
+<Content/Images/comembers5.png, id=450, 2409.0pt x 2409.0pt>
 File: Content/Images/comembers5.png Graphic file (type png)
 <use Content/Images/comembers5.png>
-Package pdftex.def Info: Content/Images/comembers5.png  used on input line 49.
+Package pdftex.def Info: Content/Images/comembers5.png  used on input line 47.
 (pdftex.def)             Requested size: 433.62pt x 433.6013pt.
- [21 <./Content/Images/5cluster.png>]
-[22 <./Content/Images/comembers5.png>]
-<Content/Images/nhtsa_tf_idf.png, id=450, 2571.6075pt x 1956.30875pt>
+ [22 <./Content/Images/5cluster.png>]
+[23 <./Content/Images/comembers5.png>] [24]
+<Content/Images/nhtsa_tf_idf.png, id=468, 2571.6075pt x 1956.30875pt>
 File: Content/Images/nhtsa_tf_idf.png Graphic file (type png)
 <use Content/Images/nhtsa_tf_idf.png>
 Package pdftex.def Info: Content/Images/nhtsa_tf_idf.png  used on input line 62
 .
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
- [23 <./Content/Images/nhtsa_tf_idf.png>]
-<Content/Images/graph_k5_2.png, id=458, 2571.6075pt x 1956.30875pt>
+<Content/Images/graph_k5_2.png, id=469, 2571.6075pt x 1956.30875pt>
 File: Content/Images/graph_k5_2.png Graphic file (type png)
 <use Content/Images/graph_k5_2.png>
-Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 69.
+Package pdftex.def Info: Content/Images/graph_k5_2.png  used on input line 71.
 (pdftex.def)             Requested size: 433.62pt x 329.85167pt.
-[24 <./Content/Images/graph_k5_2.png>]
-<Content/Images/reddit_wss.png, id=472, 2107.875pt x 2107.875pt>
+ [25 <./Content/Images/nhtsa_tf_idf.png>] [26 <./Content/Images/graph_k5_2.png>
+] [27]
+<Content/Images/reddit_wss.png, id=494, 2107.875pt x 2107.875pt>
 File: Content/Images/reddit_wss.png Graphic file (type png)
 <use Content/Images/reddit_wss.png>
-Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 85.
+Package pdftex.def Info: Content/Images/reddit_wss.png  used on input line 87.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
-<Content/Images/k4_reddit_clusters.png, id=473, 2107.875pt x 2107.875pt>
+<Content/Images/k4_reddit_clusters.png, id=495, 2107.875pt x 2107.875pt>
 File: Content/Images/k4_reddit_clusters.png Graphic file (type png)
 <use Content/Images/k4_reddit_clusters.png>
 Package pdftex.def Info: Content/Images/k4_reddit_clusters.png  used on input l
-ine 92.
+ine 94.
 (pdftex.def)             Requested size: 433.62pt x 433.5967pt.
- [25] [26 <./Content/Images/reddit_wss.png>] [27 <./Content/Images/k4_reddit_cl
-usters.png>]
-<Content/Images/reddit_network.png, id=490, 772.8875pt x 476.78125pt>
+ [28 <./Content/Images/reddit_wss.png>] [29 <./Content/Images/k4_reddit_cluster
+s.png>]
+<Content/Images/reddit_network.png, id=507, 772.8875pt x 476.78125pt>
 File: Content/Images/reddit_network.png Graphic file (type png)
 <use Content/Images/reddit_network.png>
 Package pdftex.def Info: Content/Images/reddit_network.png  used on input line 
-99.
+101.
 (pdftex.def)             Requested size: 433.62pt x 267.49037pt.
- [28 <./Content/Images/reddit_network.png>] [29])) (./Content/02_Chapters/Chapt
-er 05/main.tex [30]
+ [30 <./Content/Images/reddit_network.png>] [31])) (./Content/02_Chapters/Chapt
+er 05/main.tex [32]
 Chapter 5.
-[31
+[33
 
-]) (./Content/02_Chapters/Chapter 06/main.tex [32]
+]) (./Content/02_Chapters/Chapter 06/main.tex [34]
 Chapter 6.
-) (./Content/02_Chapters/appendix.tex [33
+) (./Content/02_Chapters/appendix.tex [35
 
-] [34
+] [36
 
 
 ]
@@ -1185,13 +1190,13 @@ Overfull \hbox (205.13644pt too wide) in paragraph at lines 25--26
 ][][][][][][][][][][][]  
  []
 
-[35
-
-] [36]
-Appendix B.
 [37
 
-] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48]
+] [38]
+Appendix B.
+[39
+
+] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50]
 Appendix C.
 
 LaTeX Warning: No positions in optional float specifier.
@@ -1202,58 +1207,82 @@ Overfull \hbox (45.80733pt too wide) in paragraph at lines 411--462
 [][] 
  []
 
-[49
+[51
 
-] [50]
+] [52]
 Appendix D.
-)) (./main.bbl [51
+)) (./main.bbl [53
 
-] [52
+] [54
 
-]) [53]
+]) [55]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 94880D7417F87FC2DDA86D2B06598424;2080.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 94880D7417F87FC2DDA86D2B06598424;2080
+(rerunfilecheck)             After:  1C80471CA239FD0E042BA8B39E73FF6C;2081.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
- 24204 strings out of 492162
- 441829 string characters out of 6125292
+ 24214 strings out of 492162
+ 441991 string characters out of 6125292
  724788 words of memory out of 5000000
- 27527 multiletter control sequences out of 15000+600000
+ 27531 multiletter control sequences out of 15000+600000
  14502 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,11n,69p,1937b,2571s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
-usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
-019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-9/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (62 pages, 1940077 bytes).
+ 76i,11n,69p,1984b,2573s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{cite.silge2016tidytex} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{cite.guthrie2006closer} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{table.caption.9} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.8} has been referenced but does not 
+exist, replaced by a fixed one
+
+</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></us
+r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
+/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
+local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
+l/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
+ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
+2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/201
+9/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (64 pages, 1943275 bytes).
 PDF statistics:
- 1141 PDF objects out of 1200 (max. 8388607)
- 1009 compressed objects within 11 object streams
- 489 named destinations out of 1000 (max. 500000)
+ 1158 PDF objects out of 1200 (max. 8388607)
+ 1024 compressed objects within 11 object streams
+ 495 named destinations out of 1000 (max. 500000)
  337 words of extra memory for PDF output out of 10000 (max. 10000000)
 
