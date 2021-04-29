@@ -131,6 +131,37 @@ Csardi, M\BPBI G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Guthrie%
+, Allison%
+, Liu%
+, Guthrie%
+\BCBL {}\ \BBA {} Wilks%
+}{%
+Guthrie%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+guthrie2006closer}
+\APACinsertmetastar {%
+guthrie2006closer}%
+\begin{APACrefauthors}%
+Guthrie, D.%
+, Allison, B.%
+, Liu, W.%
+, Guthrie, L.%
+\BCBL {}\ \BBA {} Wilks, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A closer look at skip-gram modelling.} {A closer look at
+  skip-gram modelling.}{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {LREC} {Lrec}\ (\BVOL~6, \BPGS\ 1222--1225).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Kondor%
 \ \BBA {} Lafferty%
 }{%
